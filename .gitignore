@@ -1,3 +1,4 @@
-Pods/
+Podfile.lock
 *.xcworkspacedata
-*.xcuserstate
+Pods
+DigiPass.xcworkspace/xcuserdata/sravankumar.xcuserdatad
