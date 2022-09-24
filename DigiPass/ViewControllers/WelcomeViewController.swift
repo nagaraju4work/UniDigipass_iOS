@@ -44,7 +44,6 @@ class WelcomeViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        Analytics.setScreenName("WelecomeViewController", screenClass: String(describing: WelcomeViewController.self))
     }
     
     override func didReceiveMemoryWarning() {
