@@ -1,0 +1,6 @@
+framework module fipsOpenSSL {
+  umbrella header "fipsOpenSSL.h"
+
+  export *
+  module * { export * }
+}

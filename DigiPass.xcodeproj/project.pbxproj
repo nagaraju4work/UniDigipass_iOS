@@ -1,0 +1,1031 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		935CF001000C1E520F0FF180 /* Pods_DigiPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13420F2972FEEE2C350BE308 /* Pods_DigiPass.framework */; };
+		CA0AFE3323521D42005582D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA0AFE3223521D42005582D2 /* GoogleService-Info.plist */; };
+		CA6EAD3128DE15E2002DCF49 /* MSSBiometricSensor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6EAD3028DE15E2002DCF49 /* MSSBiometricSensor.xcframework */; };
+		CA791EE0234DCD9B00E542F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791EDF234DCD9B00E542F4 /* AppDelegate.swift */; };
+		CA791EE5234DCD9B00E542F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA791EE3234DCD9B00E542F4 /* Main.storyboard */; };
+		CA791EEA234DCD9D00E542F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA791EE8234DCD9D00E542F4 /* LaunchScreen.storyboard */; };
+		CA791EFB234DCDFD00E542F4 /* GeolocationSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF1234DCDFB00E542F4 /* GeolocationSDK.framework */; };
+		CA791EFC234DCDFD00E542F4 /* DSAPP_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF2234DCDFC00E542F4 /* DSAPP_Client.framework */; };
+		CA791EFD234DCDFD00E542F4 /* QRCodeScannerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF3234DCDFC00E542F4 /* QRCodeScannerSDK.framework */; };
+		CA791EFE234DCDFD00E542F4 /* NotificationSDKClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF4234DCDFC00E542F4 /* NotificationSDKClient.framework */; };
+		CA791EFF234DCDFD00E542F4 /* WBCSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF5234DCDFC00E542F4 /* WBCSDK.framework */; };
+		CA791F01234DCDFD00E542F4 /* SecureStorageSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF7234DCDFC00E542F4 /* SecureStorageSDK.framework */; };
+		CA791F03234DCDFD00E542F4 /* DigipassSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF9234DCDFD00E542F4 /* DigipassSDK.framework */; };
+		CA791F04234DCDFD00E542F4 /* DeviceBindingSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EFA234DCDFD00E542F4 /* DeviceBindingSDK.framework */; };
+		CA791F06234DCE0C00E542F4 /* fipsOpenSSL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF8234DCDFD00E542F4 /* fipsOpenSSL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA791F0A234DCE3100E542F4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F09234DCE3100E542F4 /* CoreLocation.framework */; };
+		CA791F0C234DCE3800E542F4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F0B234DCE3800E542F4 /* SystemConfiguration.framework */; };
+		CA791F0E234DCE5200E542F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F0D234DCE5200E542F4 /* libc++.tbd */; };
+		CA791F10234DCE5900E542F4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F0F234DCE5900E542F4 /* QuartzCore.framework */; };
+		CA791F12234DCE6C00E542F4 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F11234DCE6C00E542F4 /* libiconv.tbd */; };
+		CA791F14234DCE7700E542F4 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F13234DCE7700E542F4 /* CoreVideo.framework */; };
+		CA791F16234DD04700E542F4 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F15234DD04700E542F4 /* CoreMedia.framework */; };
+		CA791F18234DD04D00E542F4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F17234DD04D00E542F4 /* CoreGraphics.framework */; };
+		CA791F1A234DD05F00E542F4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F19234DD05F00E542F4 /* AudioToolbox.framework */; };
+		CA791F1C234DD06E00E542F4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F1B234DD06E00E542F4 /* AVFoundation.framework */; };
+		CA791F1E234DD07400E542F4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F1D234DD07400E542F4 /* Security.framework */; };
+		CA791F20234DD0B000E542F4 /* libUtilitiesSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F1F234DD0B000E542F4 /* libUtilitiesSDK.a */; };
+		CA791F4B234DD1A400E542F4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F23234DD1A400E542F4 /* Reachability.m */; };
+		CA791F4C234DD1A400E542F4 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F24234DD1A400E542F4 /* Constants.m */; };
+		CA791F4D234DD1A400E542F4 /* DigiPassSharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F25234DD1A400E542F4 /* DigiPassSharedData.m */; };
+		CA791F4E234DD1A400E542F4 /* SRPClientEphemeralKeyResponseWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA791F29234DD1A400E542F4 /* SRPClientEphemeralKeyResponseWrapper.mm */; };
+		CA791F4F234DD1A400E542F4 /* SRPSessionKeyResponseWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA791F2B234DD1A400E542F4 /* SRPSessionKeyResponseWrapper.mm */; };
+		CA791F50234DD1A400E542F4 /* DSAPPClientWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA791F2C234DD1A400E542F4 /* DSAPPClientWrapper.mm */; };
+		CA791F51234DD1A400E542F4 /* LocationAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F2E234DD1A400E542F4 /* LocationAuthentication.m */; };
+		CA791F52234DD1A400E542F4 /* WBCSDKConstantsWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA791F30234DD1A400E542F4 /* WBCSDKConstantsWrapper.mm */; };
+		CA791F53234DD1A400E542F4 /* WBCSDKWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA791F31234DD1A400E542F4 /* WBCSDKWrapper.mm */; };
+		CA791F54234DD1A400E542F4 /* WBCSDKErrorCodesWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA791F32234DD1A400E542F4 /* WBCSDKErrorCodesWrapper.mm */; };
+		CA791F55234DD1A400E542F4 /* WBCSDKTablesImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA791F37234DD1A400E542F4 /* WBCSDKTablesImpl.cpp */; };
+		CA791F56234DD1A400E542F4 /* MDActivateModelWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F3C234DD1A400E542F4 /* MDActivateModelWrapper.m */; };
+		CA791F57234DD1A400E542F4 /* DIGIPassClientSDKWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F3D234DD1A400E542F4 /* DIGIPassClientSDKWrapper.m */; };
+		CA791F58234DD1A400E542F4 /* SecureChannelMessageWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F3E234DD1A400E542F4 /* SecureChannelMessageWrapper.m */; };
+		CA791F59234DD1A400E542F4 /* NSError+DSAPPWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F42234DD1A400E542F4 /* NSError+DSAPPWrapper.m */; };
+		CA791F5A234DD1A400E542F4 /* SecureStorageSDKWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F45234DD1A400E542F4 /* SecureStorageSDKWrapper.m */; };
+		CA791F5B234DD1A400E542F4 /* NotificationSDKClientWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F48234DD1A400E542F4 /* NotificationSDKClientWrapper.m */; };
+		CA791F8D234DD1BF00E542F4 /* LocationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F5D234DD1BE00E542F4 /* LocationServices.swift */; };
+		CA791F8E234DD1BF00E542F4 /* DigiPassUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F5E234DD1BE00E542F4 /* DigiPassUtilities.swift */; };
+		CA791F8F234DD1BF00E542F4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F5F234DD1BE00E542F4 /* NetworkManager.swift */; };
+		CA791F90234DD1BF00E542F4 /* DigiPassActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F60234DD1BE00E542F4 /* DigiPassActivation.swift */; };
+		CA791F91234DD1BF00E542F4 /* MCKPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F63234DD1BE00E542F4 /* MCKPinViewController.swift */; };
+		CA791F92234DD1BF00E542F4 /* MCKCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F64234DD1BE00E542F4 /* MCKCoordinator.swift */; };
+		CA791F93234DD1BF00E542F4 /* MCKConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F65234DD1BE00E542F4 /* MCKConfiguration.swift */; };
+		CA791F94234DD1BF00E542F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F66234DD1BE00E542F4 /* Extensions.swift */; };
+		CA791F95234DD1BF00E542F4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA791F67234DD1BE00E542F4 /* Storyboard.storyboard */; };
+		CA791F96234DD1BF00E542F4 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F68234DD1BE00E542F4 /* Appearance.swift */; };
+		CA791F97234DD1BF00E542F4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F69234DD1BE00E542F4 /* BaseViewController.swift */; };
+		CA791F98234DD1BF00E542F4 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA791F6B234DD1BE00E542F4 /* MenuTableViewCell.xib */; };
+		CA791F99234DD1BF00E542F4 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F6C234DD1BE00E542F4 /* MenuTableViewCell.swift */; };
+		CA791F9A234DD1BF00E542F4 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F6D234DD1BE00E542F4 /* MainMenuViewController.swift */; };
+		CA791F9B234DD1BF00E542F4 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F6E234DD1BE00E542F4 /* UsersListViewController.swift */; };
+		CA791F9C234DD1BF00E542F4 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F6F234DD1BE00E542F4 /* SideMenuNavigationController.swift */; };
+		CA791F9D234DD1BF00E542F4 /* LeftMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F70234DD1BE00E542F4 /* LeftMenuController.swift */; };
+		CA791F9E234DD1BF00E542F4 /* PresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F71234DD1BE00E542F4 /* PresentAnimator.swift */; };
+		CA791F9F234DD1BF00E542F4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F72234DD1BE00E542F4 /* WelcomeViewController.swift */; };
+		CA791FA0234DD1BF00E542F4 /* GetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F73234DD1BE00E542F4 /* GetInfoViewController.swift */; };
+		CA791FA1234DD1BF00E542F4 /* FSLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F75234DD1BE00E542F4 /* FSLoading.swift */; };
+		CA791FA2234DD1BF00E542F4 /* FSnapChatLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F76234DD1BE00E542F4 /* FSnapChatLoadingView.swift */; };
+		CA791FA3234DD1BF00E542F4 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F77234DD1BE00E542F4 /* LogoutViewController.swift */; };
+		CA791FA4234DD1BF00E542F4 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F7F234DD1BF00E542F4 /* UserInfo.swift */; };
+		CA791FA5234DD1BF00E542F4 /* DSAPPSRPNotificationUpdateResModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F80234DD1BF00E542F4 /* DSAPPSRPNotificationUpdateResModel.swift */; };
+		CA791FA6234DD1BF00E542F4 /* DSAPPSRPMDIAddDeviceResModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F81234DD1BF00E542F4 /* DSAPPSRPMDIAddDeviceResModel.swift */; };
+		CA791FA7234DD1BF00E542F4 /* DSAPPEphemeralResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F82234DD1BF00E542F4 /* DSAPPEphemeralResponseModel.swift */; };
+		CA791FA8234DD1BF00E542F4 /* DSAPPSRPActivationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F83234DD1BF00E542F4 /* DSAPPSRPActivationModel.swift */; };
+		CA791FA9234DD1BF00E542F4 /* DSAPPSRPMDIActivateResModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F84234DD1BF00E542F4 /* DSAPPSRPMDIActivateResModel.swift */; };
+		CA791FAA234DD1BF00E542F4 /* DSAPPSRPServerTimeResModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F85234DD1BF00E542F4 /* DSAPPSRPServerTimeResModel.swift */; };
+		CA791FAB234DD1BF00E542F4 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F87234DD1BF00E542F4 /* CircularProgressBar.swift */; };
+		CA791FAC234DD1BF00E542F4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F88234DD1BF00E542F4 /* UIColor+Extension.swift */; };
+		CA791FAD234DD1BF00E542F4 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F89234DD1BF00E542F4 /* ProfileTableViewCell.swift */; };
+		CA791FAE234DD1BF00E542F4 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F8A234DD1BF00E542F4 /* ProfileHeaderView.swift */; };
+		CA791FAF234DD1BF00E542F4 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA791F8B234DD1BF00E542F4 /* ProfileHeaderView.xib */; };
+		CA791FB0234DD1BF00E542F4 /* NavBarCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791F8C234DD1BF00E542F4 /* NavBarCustomView.swift */; };
+		CA791FB3234DD20E00E542F4 /* DigiPass.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA791FB2234DD20E00E542F4 /* DigiPass.storyboard */; };
+		CA791FB5234DD22100E542F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA791FB4234DD22100E542F4 /* Assets.xcassets */; };
+		CA791FB8234DD2DA00E542F4 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791FB6234DD2DA00E542F4 /* AppRouter.swift */; };
+		CA791FB9234DD2DA00E542F4 /* DigiPassSingleTon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791FB7234DD2DA00E542F4 /* DigiPassSingleTon.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CA791F07234DCE0C00E542F4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CA791F06234DCE0C00E542F4 /* fipsOpenSSL.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		13420F2972FEEE2C350BE308 /* Pods_DigiPass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiPass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A74E28B86F2579A1F53A54 /* Pods-DigiPass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiPass.release.xcconfig"; path = "Target Support Files/Pods-DigiPass/Pods-DigiPass.release.xcconfig"; sourceTree = "<group>"; };
+		B4E5E72527D0F2B4E8C1D62D /* Pods-DigiPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiPass.debug.xcconfig"; path = "Target Support Files/Pods-DigiPass/Pods-DigiPass.debug.xcconfig"; sourceTree = "<group>"; };
+		CA0AFE3223521D42005582D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CA6EAD3028DE15E2002DCF49 /* MSSBiometricSensor.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSBiometricSensor.xcframework; sourceTree = "<group>"; };
+		CA791EDC234DCD9B00E542F4 /* DigiPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigiPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA791EDF234DCD9B00E542F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA791EE4234DCD9B00E542F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CA791EE9234DCD9D00E542F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CA791EEB234DCD9D00E542F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA791EF1234DCDFB00E542F4 /* GeolocationSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GeolocationSDK.framework; sourceTree = "<group>"; };
+		CA791EF2234DCDFC00E542F4 /* DSAPP_Client.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DSAPP_Client.framework; sourceTree = "<group>"; };
+		CA791EF3234DCDFC00E542F4 /* QRCodeScannerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QRCodeScannerSDK.framework; sourceTree = "<group>"; };
+		CA791EF4234DCDFC00E542F4 /* NotificationSDKClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NotificationSDKClient.framework; sourceTree = "<group>"; };
+		CA791EF5234DCDFC00E542F4 /* WBCSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WBCSDK.framework; sourceTree = "<group>"; };
+		CA791EF7234DCDFC00E542F4 /* SecureStorageSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SecureStorageSDK.framework; sourceTree = "<group>"; };
+		CA791EF8234DCDFD00E542F4 /* fipsOpenSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = fipsOpenSSL.framework; sourceTree = "<group>"; };
+		CA791EF9234DCDFD00E542F4 /* DigipassSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigipassSDK.framework; sourceTree = "<group>"; };
+		CA791EFA234DCDFD00E542F4 /* DeviceBindingSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DeviceBindingSDK.framework; sourceTree = "<group>"; };
+		CA791F09234DCE3100E542F4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CA791F0B234DCE3800E542F4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CA791F0D234DCE5200E542F4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		CA791F0F234DCE5900E542F4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CA791F11234DCE6C00E542F4 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		CA791F13234DCE7700E542F4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		CA791F15234DD04700E542F4 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		CA791F17234DD04D00E542F4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CA791F19234DD05F00E542F4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CA791F1B234DD06E00E542F4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CA791F1D234DD07400E542F4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CA791F1F234DD0B000E542F4 /* libUtilitiesSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUtilitiesSDK.a; sourceTree = "<group>"; };
+		CA791F21234DD17D00E542F4 /* DigiPass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DigiPass.entitlements; sourceTree = "<group>"; };
+		CA791F23234DD1A400E542F4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		CA791F24234DD1A400E542F4 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		CA791F25234DD1A400E542F4 /* DigiPassSharedData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigiPassSharedData.m; sourceTree = "<group>"; };
+		CA791F27234DD1A400E542F4 /* DSAPPClientWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSAPPClientWrapper.h; sourceTree = "<group>"; };
+		CA791F28234DD1A400E542F4 /* SRPSessionKeyResponseWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRPSessionKeyResponseWrapper.h; sourceTree = "<group>"; };
+		CA791F29234DD1A400E542F4 /* SRPClientEphemeralKeyResponseWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SRPClientEphemeralKeyResponseWrapper.mm; sourceTree = "<group>"; };
+		CA791F2A234DD1A400E542F4 /* SRPClientEphemeralKeyResponseWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRPClientEphemeralKeyResponseWrapper.h; sourceTree = "<group>"; };
+		CA791F2B234DD1A400E542F4 /* SRPSessionKeyResponseWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SRPSessionKeyResponseWrapper.mm; sourceTree = "<group>"; };
+		CA791F2C234DD1A400E542F4 /* DSAPPClientWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DSAPPClientWrapper.mm; sourceTree = "<group>"; };
+		CA791F2D234DD1A400E542F4 /* NSError+DSAPPWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+DSAPPWrapper.h"; sourceTree = "<group>"; };
+		CA791F2E234DD1A400E542F4 /* LocationAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAuthentication.m; sourceTree = "<group>"; };
+		CA791F30234DD1A400E542F4 /* WBCSDKConstantsWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WBCSDKConstantsWrapper.mm; sourceTree = "<group>"; };
+		CA791F31234DD1A400E542F4 /* WBCSDKWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WBCSDKWrapper.mm; sourceTree = "<group>"; };
+		CA791F32234DD1A400E542F4 /* WBCSDKErrorCodesWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WBCSDKErrorCodesWrapper.mm; sourceTree = "<group>"; };
+		CA791F33234DD1A400E542F4 /* WBCSDKErrorCodesWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCSDKErrorCodesWrapper.h; sourceTree = "<group>"; };
+		CA791F34234DD1A400E542F4 /* WBCSDKWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCSDKWrapper.h; sourceTree = "<group>"; };
+		CA791F35234DD1A400E542F4 /* WBCSDKTablesImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCSDKTablesImpl.h; sourceTree = "<group>"; };
+		CA791F36234DD1A400E542F4 /* WBCSDKConstantsWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCSDKConstantsWrapper.h; sourceTree = "<group>"; };
+		CA791F37234DD1A400E542F4 /* WBCSDKTablesImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WBCSDKTablesImpl.cpp; sourceTree = "<group>"; };
+		CA791F38234DD1A400E542F4 /* DigiPassSharedData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigiPassSharedData.h; sourceTree = "<group>"; };
+		CA791F39234DD1A400E542F4 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		CA791F3A234DD1A400E542F4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		CA791F3C234DD1A400E542F4 /* MDActivateModelWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDActivateModelWrapper.m; sourceTree = "<group>"; };
+		CA791F3D234DD1A400E542F4 /* DIGIPassClientSDKWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIGIPassClientSDKWrapper.m; sourceTree = "<group>"; };
+		CA791F3E234DD1A400E542F4 /* SecureChannelMessageWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecureChannelMessageWrapper.m; sourceTree = "<group>"; };
+		CA791F3F234DD1A400E542F4 /* MDActivateModelWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDActivateModelWrapper.h; sourceTree = "<group>"; };
+		CA791F40234DD1A400E542F4 /* DIGIPassClientSDKWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIGIPassClientSDKWrapper.h; sourceTree = "<group>"; };
+		CA791F41234DD1A400E542F4 /* SecureChannelMessageWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecureChannelMessageWrapper.h; sourceTree = "<group>"; };
+		CA791F42234DD1A400E542F4 /* NSError+DSAPPWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+DSAPPWrapper.m"; sourceTree = "<group>"; };
+		CA791F44234DD1A400E542F4 /* SecureStorageSDKWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecureStorageSDKWrapper.h; sourceTree = "<group>"; };
+		CA791F45234DD1A400E542F4 /* SecureStorageSDKWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecureStorageSDKWrapper.m; sourceTree = "<group>"; };
+		CA791F46234DD1A400E542F4 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
+		CA791F48234DD1A400E542F4 /* NotificationSDKClientWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationSDKClientWrapper.m; sourceTree = "<group>"; };
+		CA791F49234DD1A400E542F4 /* NotificationSDKClientWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationSDKClientWrapper.h; sourceTree = "<group>"; };
+		CA791F4A234DD1A400E542F4 /* LocationAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAuthentication.h; sourceTree = "<group>"; };
+		CA791F5D234DD1BE00E542F4 /* LocationServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServices.swift; sourceTree = "<group>"; };
+		CA791F5E234DD1BE00E542F4 /* DigiPassUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigiPassUtilities.swift; sourceTree = "<group>"; };
+		CA791F5F234DD1BE00E542F4 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CA791F60234DD1BE00E542F4 /* DigiPassActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigiPassActivation.swift; sourceTree = "<group>"; };
+		CA791F63234DD1BE00E542F4 /* MCKPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCKPinViewController.swift; sourceTree = "<group>"; };
+		CA791F64234DD1BE00E542F4 /* MCKCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCKCoordinator.swift; sourceTree = "<group>"; };
+		CA791F65234DD1BE00E542F4 /* MCKConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCKConfiguration.swift; sourceTree = "<group>"; };
+		CA791F66234DD1BE00E542F4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CA791F67234DD1BE00E542F4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		CA791F68234DD1BE00E542F4 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		CA791F69234DD1BE00E542F4 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CA791F6B234DD1BE00E542F4 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		CA791F6C234DD1BE00E542F4 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		CA791F6D234DD1BE00E542F4 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		CA791F6E234DD1BE00E542F4 /* UsersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
+		CA791F6F234DD1BE00E542F4 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
+		CA791F70234DD1BE00E542F4 /* LeftMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuController.swift; sourceTree = "<group>"; };
+		CA791F71234DD1BE00E542F4 /* PresentAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimator.swift; sourceTree = "<group>"; };
+		CA791F72234DD1BE00E542F4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		CA791F73234DD1BE00E542F4 /* GetInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetInfoViewController.swift; sourceTree = "<group>"; };
+		CA791F75234DD1BE00E542F4 /* FSLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSLoading.swift; sourceTree = "<group>"; };
+		CA791F76234DD1BE00E542F4 /* FSnapChatLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSnapChatLoadingView.swift; sourceTree = "<group>"; };
+		CA791F77234DD1BE00E542F4 /* LogoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		CA791F7F234DD1BF00E542F4 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		CA791F80234DD1BF00E542F4 /* DSAPPSRPNotificationUpdateResModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAPPSRPNotificationUpdateResModel.swift; sourceTree = "<group>"; };
+		CA791F81234DD1BF00E542F4 /* DSAPPSRPMDIAddDeviceResModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAPPSRPMDIAddDeviceResModel.swift; sourceTree = "<group>"; };
+		CA791F82234DD1BF00E542F4 /* DSAPPEphemeralResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAPPEphemeralResponseModel.swift; sourceTree = "<group>"; };
+		CA791F83234DD1BF00E542F4 /* DSAPPSRPActivationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAPPSRPActivationModel.swift; sourceTree = "<group>"; };
+		CA791F84234DD1BF00E542F4 /* DSAPPSRPMDIActivateResModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAPPSRPMDIActivateResModel.swift; sourceTree = "<group>"; };
+		CA791F85234DD1BF00E542F4 /* DSAPPSRPServerTimeResModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSAPPSRPServerTimeResModel.swift; sourceTree = "<group>"; };
+		CA791F87234DD1BF00E542F4 /* CircularProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
+		CA791F88234DD1BF00E542F4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		CA791F89234DD1BF00E542F4 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		CA791F8A234DD1BF00E542F4 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		CA791F8B234DD1BF00E542F4 /* ProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderView.xib; sourceTree = "<group>"; };
+		CA791F8C234DD1BF00E542F4 /* NavBarCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarCustomView.swift; sourceTree = "<group>"; };
+		CA791FB1234DD20E00E542F4 /* DigiPass-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DigiPass-Bridging-Header.h"; sourceTree = "<group>"; };
+		CA791FB2234DD20E00E542F4 /* DigiPass.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DigiPass.storyboard; sourceTree = "<group>"; };
+		CA791FB4234DD22100E542F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA791FB6234DD2DA00E542F4 /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		CA791FB7234DD2DA00E542F4 /* DigiPassSingleTon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigiPassSingleTon.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA791ED9234DCD9B00E542F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA791F1E234DD07400E542F4 /* Security.framework in Frameworks */,
+				CA791F1C234DD06E00E542F4 /* AVFoundation.framework in Frameworks */,
+				CA791F1A234DD05F00E542F4 /* AudioToolbox.framework in Frameworks */,
+				CA791F18234DD04D00E542F4 /* CoreGraphics.framework in Frameworks */,
+				CA791F16234DD04700E542F4 /* CoreMedia.framework in Frameworks */,
+				CA791F14234DCE7700E542F4 /* CoreVideo.framework in Frameworks */,
+				CA791F12234DCE6C00E542F4 /* libiconv.tbd in Frameworks */,
+				CA791F10234DCE5900E542F4 /* QuartzCore.framework in Frameworks */,
+				CA791F0E234DCE5200E542F4 /* libc++.tbd in Frameworks */,
+				CA791F0C234DCE3800E542F4 /* SystemConfiguration.framework in Frameworks */,
+				CA791F0A234DCE3100E542F4 /* CoreLocation.framework in Frameworks */,
+				CA791EFC234DCDFD00E542F4 /* DSAPP_Client.framework in Frameworks */,
+				CA6EAD3128DE15E2002DCF49 /* MSSBiometricSensor.xcframework in Frameworks */,
+				CA791EFD234DCDFD00E542F4 /* QRCodeScannerSDK.framework in Frameworks */,
+				CA791F01234DCDFD00E542F4 /* SecureStorageSDK.framework in Frameworks */,
+				CA791EFB234DCDFD00E542F4 /* GeolocationSDK.framework in Frameworks */,
+				CA791F03234DCDFD00E542F4 /* DigipassSDK.framework in Frameworks */,
+				CA791EFF234DCDFD00E542F4 /* WBCSDK.framework in Frameworks */,
+				CA791F04234DCDFD00E542F4 /* DeviceBindingSDK.framework in Frameworks */,
+				CA791F20234DD0B000E542F4 /* libUtilitiesSDK.a in Frameworks */,
+				CA791EFE234DCDFD00E542F4 /* NotificationSDKClient.framework in Frameworks */,
+				935CF001000C1E520F0FF180 /* Pods_DigiPass.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		525A5C78308BC32FD7AD55E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4E5E72527D0F2B4E8C1D62D /* Pods-DigiPass.debug.xcconfig */,
+				56A74E28B86F2579A1F53A54 /* Pods-DigiPass.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CA791ED3234DCD9B00E542F4 = {
+			isa = PBXGroup;
+			children = (
+				CA791EDE234DCD9B00E542F4 /* DigiPass */,
+				CA791EDD234DCD9B00E542F4 /* Products */,
+				CA791F08234DCE3000E542F4 /* Frameworks */,
+				525A5C78308BC32FD7AD55E1 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		CA791EDD234DCD9B00E542F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA791EDC234DCD9B00E542F4 /* DigiPass.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA791EDE234DCD9B00E542F4 /* DigiPass */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F5C234DD1BE00E542F4 /* BussinesClasses */,
+				CA791F7E234DD1BF00E542F4 /* ResponseModels */,
+				CA791F61234DD1BE00E542F4 /* ViewControllers */,
+				CA791F86234DD1BF00E542F4 /* Views */,
+				CA791F22234DD1A400E542F4 /* Wrapper */,
+				CA791F21234DD17D00E542F4 /* DigiPass.entitlements */,
+				CA791F1F234DD0B000E542F4 /* libUtilitiesSDK.a */,
+				CA6EAD3028DE15E2002DCF49 /* MSSBiometricSensor.xcframework */,
+				CA791EFA234DCDFD00E542F4 /* DeviceBindingSDK.framework */,
+				CA791EF9234DCDFD00E542F4 /* DigipassSDK.framework */,
+				CA791EF2234DCDFC00E542F4 /* DSAPP_Client.framework */,
+				CA791EF8234DCDFD00E542F4 /* fipsOpenSSL.framework */,
+				CA791EF1234DCDFB00E542F4 /* GeolocationSDK.framework */,
+				CA791EF4234DCDFC00E542F4 /* NotificationSDKClient.framework */,
+				CA791EF3234DCDFC00E542F4 /* QRCodeScannerSDK.framework */,
+				CA791EF7234DCDFC00E542F4 /* SecureStorageSDK.framework */,
+				CA791EF5234DCDFC00E542F4 /* WBCSDK.framework */,
+				CA791EDF234DCD9B00E542F4 /* AppDelegate.swift */,
+				CA791FB6234DD2DA00E542F4 /* AppRouter.swift */,
+				CA791FB7234DD2DA00E542F4 /* DigiPassSingleTon.swift */,
+				CA791FB1234DD20E00E542F4 /* DigiPass-Bridging-Header.h */,
+				CA0AFE3223521D42005582D2 /* GoogleService-Info.plist */,
+				CA791EEB234DCD9D00E542F4 /* Info.plist */,
+				CA791FB4234DD22100E542F4 /* Assets.xcassets */,
+			);
+			path = DigiPass;
+			sourceTree = "<group>";
+		};
+		CA791F08234DCE3000E542F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F1D234DD07400E542F4 /* Security.framework */,
+				CA791F1B234DD06E00E542F4 /* AVFoundation.framework */,
+				CA791F19234DD05F00E542F4 /* AudioToolbox.framework */,
+				CA791F17234DD04D00E542F4 /* CoreGraphics.framework */,
+				CA791F15234DD04700E542F4 /* CoreMedia.framework */,
+				CA791F13234DCE7700E542F4 /* CoreVideo.framework */,
+				CA791F11234DCE6C00E542F4 /* libiconv.tbd */,
+				CA791F0F234DCE5900E542F4 /* QuartzCore.framework */,
+				CA791F0D234DCE5200E542F4 /* libc++.tbd */,
+				CA791F0B234DCE3800E542F4 /* SystemConfiguration.framework */,
+				CA791F09234DCE3100E542F4 /* CoreLocation.framework */,
+				13420F2972FEEE2C350BE308 /* Pods_DigiPass.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA791F22234DD1A400E542F4 /* Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F26234DD1A400E542F4 /* DSAPPClientWrapper */,
+				CA791F2F234DD1A400E542F4 /* WBCWrapper */,
+				CA791F3B234DD1A400E542F4 /* DIGIPassClientWrapper */,
+				CA791F43234DD1A400E542F4 /* SecureStorageWrapper */,
+				CA791F47234DD1A400E542F4 /* NotificationWrapper */,
+				CA791F23234DD1A400E542F4 /* Reachability.m */,
+				CA791F24234DD1A400E542F4 /* Constants.m */,
+				CA791F25234DD1A400E542F4 /* DigiPassSharedData.m */,
+				CA791F2D234DD1A400E542F4 /* NSError+DSAPPWrapper.h */,
+				CA791F2E234DD1A400E542F4 /* LocationAuthentication.m */,
+				CA791F38234DD1A400E542F4 /* DigiPassSharedData.h */,
+				CA791F39234DD1A400E542F4 /* Constants.h */,
+				CA791F3A234DD1A400E542F4 /* Reachability.h */,
+				CA791F42234DD1A400E542F4 /* NSError+DSAPPWrapper.m */,
+				CA791F46234DD1A400E542F4 /* AppConstants.h */,
+				CA791F4A234DD1A400E542F4 /* LocationAuthentication.h */,
+			);
+			path = Wrapper;
+			sourceTree = "<group>";
+		};
+		CA791F26234DD1A400E542F4 /* DSAPPClientWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F27234DD1A400E542F4 /* DSAPPClientWrapper.h */,
+				CA791F28234DD1A400E542F4 /* SRPSessionKeyResponseWrapper.h */,
+				CA791F29234DD1A400E542F4 /* SRPClientEphemeralKeyResponseWrapper.mm */,
+				CA791F2A234DD1A400E542F4 /* SRPClientEphemeralKeyResponseWrapper.h */,
+				CA791F2B234DD1A400E542F4 /* SRPSessionKeyResponseWrapper.mm */,
+				CA791F2C234DD1A400E542F4 /* DSAPPClientWrapper.mm */,
+			);
+			path = DSAPPClientWrapper;
+			sourceTree = "<group>";
+		};
+		CA791F2F234DD1A400E542F4 /* WBCWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F30234DD1A400E542F4 /* WBCSDKConstantsWrapper.mm */,
+				CA791F31234DD1A400E542F4 /* WBCSDKWrapper.mm */,
+				CA791F32234DD1A400E542F4 /* WBCSDKErrorCodesWrapper.mm */,
+				CA791F33234DD1A400E542F4 /* WBCSDKErrorCodesWrapper.h */,
+				CA791F34234DD1A400E542F4 /* WBCSDKWrapper.h */,
+				CA791F35234DD1A400E542F4 /* WBCSDKTablesImpl.h */,
+				CA791F36234DD1A400E542F4 /* WBCSDKConstantsWrapper.h */,
+				CA791F37234DD1A400E542F4 /* WBCSDKTablesImpl.cpp */,
+			);
+			path = WBCWrapper;
+			sourceTree = "<group>";
+		};
+		CA791F3B234DD1A400E542F4 /* DIGIPassClientWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F3C234DD1A400E542F4 /* MDActivateModelWrapper.m */,
+				CA791F3D234DD1A400E542F4 /* DIGIPassClientSDKWrapper.m */,
+				CA791F3E234DD1A400E542F4 /* SecureChannelMessageWrapper.m */,
+				CA791F3F234DD1A400E542F4 /* MDActivateModelWrapper.h */,
+				CA791F40234DD1A400E542F4 /* DIGIPassClientSDKWrapper.h */,
+				CA791F41234DD1A400E542F4 /* SecureChannelMessageWrapper.h */,
+			);
+			path = DIGIPassClientWrapper;
+			sourceTree = "<group>";
+		};
+		CA791F43234DD1A400E542F4 /* SecureStorageWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F44234DD1A400E542F4 /* SecureStorageSDKWrapper.h */,
+				CA791F45234DD1A400E542F4 /* SecureStorageSDKWrapper.m */,
+			);
+			path = SecureStorageWrapper;
+			sourceTree = "<group>";
+		};
+		CA791F47234DD1A400E542F4 /* NotificationWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F48234DD1A400E542F4 /* NotificationSDKClientWrapper.m */,
+				CA791F49234DD1A400E542F4 /* NotificationSDKClientWrapper.h */,
+			);
+			path = NotificationWrapper;
+			sourceTree = "<group>";
+		};
+		CA791F5C234DD1BE00E542F4 /* BussinesClasses */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F5D234DD1BE00E542F4 /* LocationServices.swift */,
+				CA791F5E234DD1BE00E542F4 /* DigiPassUtilities.swift */,
+				CA791F5F234DD1BE00E542F4 /* NetworkManager.swift */,
+				CA791F60234DD1BE00E542F4 /* DigiPassActivation.swift */,
+			);
+			path = BussinesClasses;
+			sourceTree = "<group>";
+		};
+		CA791F61234DD1BE00E542F4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F62234DD1BE00E542F4 /* MCKPinController */,
+				CA791F69234DD1BE00E542F4 /* BaseViewController.swift */,
+				CA791F6A234DD1BE00E542F4 /* SideMenuViewController */,
+				CA791F72234DD1BE00E542F4 /* WelcomeViewController.swift */,
+				CA791F73234DD1BE00E542F4 /* GetInfoViewController.swift */,
+				CA791F74234DD1BE00E542F4 /* SFSnapshotViewController */,
+				CA791F77234DD1BE00E542F4 /* LogoutViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CA791F62234DD1BE00E542F4 /* MCKPinController */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F63234DD1BE00E542F4 /* MCKPinViewController.swift */,
+				CA791F64234DD1BE00E542F4 /* MCKCoordinator.swift */,
+				CA791F65234DD1BE00E542F4 /* MCKConfiguration.swift */,
+				CA791F66234DD1BE00E542F4 /* Extensions.swift */,
+				CA791F67234DD1BE00E542F4 /* Storyboard.storyboard */,
+				CA791F68234DD1BE00E542F4 /* Appearance.swift */,
+			);
+			path = MCKPinController;
+			sourceTree = "<group>";
+		};
+		CA791F6A234DD1BE00E542F4 /* SideMenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F6B234DD1BE00E542F4 /* MenuTableViewCell.xib */,
+				CA791F6C234DD1BE00E542F4 /* MenuTableViewCell.swift */,
+				CA791F6D234DD1BE00E542F4 /* MainMenuViewController.swift */,
+				CA791F6E234DD1BE00E542F4 /* UsersListViewController.swift */,
+				CA791F6F234DD1BE00E542F4 /* SideMenuNavigationController.swift */,
+				CA791F70234DD1BE00E542F4 /* LeftMenuController.swift */,
+				CA791F71234DD1BE00E542F4 /* PresentAnimator.swift */,
+			);
+			path = SideMenuViewController;
+			sourceTree = "<group>";
+		};
+		CA791F74234DD1BE00E542F4 /* SFSnapshotViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F75234DD1BE00E542F4 /* FSLoading.swift */,
+				CA791F76234DD1BE00E542F4 /* FSnapChatLoadingView.swift */,
+			);
+			path = SFSnapshotViewController;
+			sourceTree = "<group>";
+		};
+		CA791F7E234DD1BF00E542F4 /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				CA791F7F234DD1BF00E542F4 /* UserInfo.swift */,
+				CA791F80234DD1BF00E542F4 /* DSAPPSRPNotificationUpdateResModel.swift */,
+				CA791F81234DD1BF00E542F4 /* DSAPPSRPMDIAddDeviceResModel.swift */,
+				CA791F82234DD1BF00E542F4 /* DSAPPEphemeralResponseModel.swift */,
+				CA791F83234DD1BF00E542F4 /* DSAPPSRPActivationModel.swift */,
+				CA791F84234DD1BF00E542F4 /* DSAPPSRPMDIActivateResModel.swift */,
+				CA791F85234DD1BF00E542F4 /* DSAPPSRPServerTimeResModel.swift */,
+			);
+			path = ResponseModels;
+			sourceTree = "<group>";
+		};
+		CA791F86234DD1BF00E542F4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA791FBA234DD44E00E542F4 /* Storyboard */,
+				CA791F87234DD1BF00E542F4 /* CircularProgressBar.swift */,
+				CA791F88234DD1BF00E542F4 /* UIColor+Extension.swift */,
+				CA791F89234DD1BF00E542F4 /* ProfileTableViewCell.swift */,
+				CA791F8A234DD1BF00E542F4 /* ProfileHeaderView.swift */,
+				CA791F8B234DD1BF00E542F4 /* ProfileHeaderView.xib */,
+				CA791F8C234DD1BF00E542F4 /* NavBarCustomView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CA791FBA234DD44E00E542F4 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CA791EE3234DCD9B00E542F4 /* Main.storyboard */,
+				CA791FB2234DD20E00E542F4 /* DigiPass.storyboard */,
+				CA791EE8234DCD9D00E542F4 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA791EDB234DCD9B00E542F4 /* DigiPass */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA791EEE234DCD9D00E542F4 /* Build configuration list for PBXNativeTarget "DigiPass" */;
+			buildPhases = (
+				8C53843508B6A0E5AF4629DD /* [CP] Check Pods Manifest.lock */,
+				CA791ED8234DCD9B00E542F4 /* Sources */,
+				CA791ED9234DCD9B00E542F4 /* Frameworks */,
+				CA791EDA234DCD9B00E542F4 /* Resources */,
+				CA791F07234DCE0C00E542F4 /* Embed Frameworks */,
+				CA0AFE3423524BEA005582D2 /* ShellScript */,
+				C10FCEC22EDE51A4629FF9F4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DigiPass;
+			productName = DigiPass;
+			productReference = CA791EDC234DCD9B00E542F4 /* DigiPass.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA791ED4234DCD9B00E542F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1320;
+				ORGANIZATIONNAME = ecknologic;
+				TargetAttributes = {
+					CA791EDB234DCD9B00E542F4 = {
+						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = CA791ED7234DCD9B00E542F4 /* Build configuration list for PBXProject "DigiPass" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA791ED3234DCD9B00E542F4;
+			productRefGroup = CA791EDD234DCD9B00E542F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA791EDB234DCD9B00E542F4 /* DigiPass */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA791EDA234DCD9B00E542F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA791EEA234DCD9D00E542F4 /* LaunchScreen.storyboard in Resources */,
+				CA0AFE3323521D42005582D2 /* GoogleService-Info.plist in Resources */,
+				CA791FAF234DD1BF00E542F4 /* ProfileHeaderView.xib in Resources */,
+				CA791F95234DD1BF00E542F4 /* Storyboard.storyboard in Resources */,
+				CA791FB3234DD20E00E542F4 /* DigiPass.storyboard in Resources */,
+				CA791FB5234DD22100E542F4 /* Assets.xcassets in Resources */,
+				CA791F98234DD1BF00E542F4 /* MenuTableViewCell.xib in Resources */,
+				CA791EE5234DCD9B00E542F4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8C53843508B6A0E5AF4629DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DigiPass-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C10FCEC22EDE51A4629FF9F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigiPass/Pods-DigiPass-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigiPass/Pods-DigiPass-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigiPass/Pods-DigiPass-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA0AFE3423524BEA005582D2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA791ED8234DCD9B00E542F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA791FAC234DD1BF00E542F4 /* UIColor+Extension.swift in Sources */,
+				CA791F90234DD1BF00E542F4 /* DigiPassActivation.swift in Sources */,
+				CA791F94234DD1BF00E542F4 /* Extensions.swift in Sources */,
+				CA791FAE234DD1BF00E542F4 /* ProfileHeaderView.swift in Sources */,
+				CA791F5A234DD1A400E542F4 /* SecureStorageSDKWrapper.m in Sources */,
+				CA791F9C234DD1BF00E542F4 /* SideMenuNavigationController.swift in Sources */,
+				CA791F4E234DD1A400E542F4 /* SRPClientEphemeralKeyResponseWrapper.mm in Sources */,
+				CA791FA8234DD1BF00E542F4 /* DSAPPSRPActivationModel.swift in Sources */,
+				CA791FA9234DD1BF00E542F4 /* DSAPPSRPMDIActivateResModel.swift in Sources */,
+				CA791F9B234DD1BF00E542F4 /* UsersListViewController.swift in Sources */,
+				CA791F9D234DD1BF00E542F4 /* LeftMenuController.swift in Sources */,
+				CA791F4D234DD1A400E542F4 /* DigiPassSharedData.m in Sources */,
+				CA791F9F234DD1BF00E542F4 /* WelcomeViewController.swift in Sources */,
+				CA791F8F234DD1BF00E542F4 /* NetworkManager.swift in Sources */,
+				CA791F59234DD1A400E542F4 /* NSError+DSAPPWrapper.m in Sources */,
+				CA791F4F234DD1A400E542F4 /* SRPSessionKeyResponseWrapper.mm in Sources */,
+				CA791F55234DD1A400E542F4 /* WBCSDKTablesImpl.cpp in Sources */,
+				CA791F4B234DD1A400E542F4 /* Reachability.m in Sources */,
+				CA791FA5234DD1BF00E542F4 /* DSAPPSRPNotificationUpdateResModel.swift in Sources */,
+				CA791F96234DD1BF00E542F4 /* Appearance.swift in Sources */,
+				CA791FA7234DD1BF00E542F4 /* DSAPPEphemeralResponseModel.swift in Sources */,
+				CA791F54234DD1A400E542F4 /* WBCSDKErrorCodesWrapper.mm in Sources */,
+				CA791F52234DD1A400E542F4 /* WBCSDKConstantsWrapper.mm in Sources */,
+				CA791FAD234DD1BF00E542F4 /* ProfileTableViewCell.swift in Sources */,
+				CA791FA2234DD1BF00E542F4 /* FSnapChatLoadingView.swift in Sources */,
+				CA791F99234DD1BF00E542F4 /* MenuTableViewCell.swift in Sources */,
+				CA791FAA234DD1BF00E542F4 /* DSAPPSRPServerTimeResModel.swift in Sources */,
+				CA791F57234DD1A400E542F4 /* DIGIPassClientSDKWrapper.m in Sources */,
+				CA791FB9234DD2DA00E542F4 /* DigiPassSingleTon.swift in Sources */,
+				CA791F53234DD1A400E542F4 /* WBCSDKWrapper.mm in Sources */,
+				CA791F56234DD1A400E542F4 /* MDActivateModelWrapper.m in Sources */,
+				CA791F8E234DD1BF00E542F4 /* DigiPassUtilities.swift in Sources */,
+				CA791F92234DD1BF00E542F4 /* MCKCoordinator.swift in Sources */,
+				CA791F51234DD1A400E542F4 /* LocationAuthentication.m in Sources */,
+				CA791FA1234DD1BF00E542F4 /* FSLoading.swift in Sources */,
+				CA791FA0234DD1BF00E542F4 /* GetInfoViewController.swift in Sources */,
+				CA791F50234DD1A400E542F4 /* DSAPPClientWrapper.mm in Sources */,
+				CA791F9A234DD1BF00E542F4 /* MainMenuViewController.swift in Sources */,
+				CA791FAB234DD1BF00E542F4 /* CircularProgressBar.swift in Sources */,
+				CA791F9E234DD1BF00E542F4 /* PresentAnimator.swift in Sources */,
+				CA791FA6234DD1BF00E542F4 /* DSAPPSRPMDIAddDeviceResModel.swift in Sources */,
+				CA791F5B234DD1A400E542F4 /* NotificationSDKClientWrapper.m in Sources */,
+				CA791EE0234DCD9B00E542F4 /* AppDelegate.swift in Sources */,
+				CA791F58234DD1A400E542F4 /* SecureChannelMessageWrapper.m in Sources */,
+				CA791F8D234DD1BF00E542F4 /* LocationServices.swift in Sources */,
+				CA791FB8234DD2DA00E542F4 /* AppRouter.swift in Sources */,
+				CA791FA4234DD1BF00E542F4 /* UserInfo.swift in Sources */,
+				CA791F91234DD1BF00E542F4 /* MCKPinViewController.swift in Sources */,
+				CA791F93234DD1BF00E542F4 /* MCKConfiguration.swift in Sources */,
+				CA791F4C234DD1A400E542F4 /* Constants.m in Sources */,
+				CA791FB0234DD1BF00E542F4 /* NavBarCustomView.swift in Sources */,
+				CA791FA3234DD1BF00E542F4 /* LogoutViewController.swift in Sources */,
+				CA791F97234DD1BF00E542F4 /* BaseViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CA791EE3234DCD9B00E542F4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA791EE4234DCD9B00E542F4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CA791EE8234DCD9D00E542F4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA791EE9234DCD9D00E542F4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA791EEC234DCD9D00E542F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
+			};
+			name = Debug;
+		};
+		CA791EED234DCD9D00E542F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
+			};
+			name = Release;
+		};
+		CA791EEF234DCD9D00E542F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4E5E72527D0F2B4E8C1D62D /* Pods-DigiPass.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DigiPass/DigiPass.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = V4YMXB7NF8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DigiPass",
+				);
+				INFOPLIST_FILE = DigiPass/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DigiPass",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Crashlytics\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleDataTransportCCTSupport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					LocalAuthentication,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.unicorp.adpolice.gov;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "DigiPass/DigiPass-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e";
+			};
+			name = Debug;
+		};
+		CA791EF0234DCD9D00E542F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56A74E28B86F2579A1F53A54 /* Pods-DigiPass.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DigiPass/DigiPass.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V4YMXB7NF8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DigiPass",
+				);
+				INFOPLIST_FILE = DigiPass/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DigiPass",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Crashlytics\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleDataTransportCCTSupport\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					LocalAuthentication,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.unicorp.adpolice.gov;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "DigiPass/DigiPass-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA791ED7234DCD9B00E542F4 /* Build configuration list for PBXProject "DigiPass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA791EEC234DCD9D00E542F4 /* Debug */,
+				CA791EED234DCD9D00E542F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA791EEE234DCD9D00E542F4 /* Build configuration list for PBXNativeTarget "DigiPass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA791EEF234DCD9D00E542F4 /* Debug */,
+				CA791EF0234DCD9D00E542F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA791ED4234DCD9B00E542F4 /* Project object */;
+}

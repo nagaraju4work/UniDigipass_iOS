@@ -1,0 +1,58 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MSSBiometricSensor
+import Foundation
+@_exported import MSSBiometricSensor
+import Swift
+public protocol AuthenticationDelegate : AnyObject {
+  func biometricAuthenticationDidSucceed(parameters: MSSBiometricSensor.SuccessParameters)
+  func biometricAuthenticationDidFail(for method: MSSBiometricSensor.BiometricAuthenticationMethod)
+  func biometricAuthenticationDidCallFallbackMethod()
+  func biometricAuthenticationDidCancel()
+  func biometricAuthenticationDidReceive(error: MSSBiometricSensor.BiometricError)
+}
+public struct AuthenticationParameters {
+  public var methods: MSSBiometricSensor.BiometricAuthenticationMethod
+  public var fallbackMechanismText: Swift.String?
+  public var reason: Swift.String
+  public init(reason: Swift.String, methods: MSSBiometricSensor.BiometricAuthenticationMethod = .all, fallbackMechanismText: Swift.String? = nil)
+}
+public struct BiometricAuthenticationMethod : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public static let touchId: MSSBiometricSensor.BiometricAuthenticationMethod
+  public static let faceId: MSSBiometricSensor.BiometricAuthenticationMethod
+  public static let all: MSSBiometricSensor.BiometricAuthenticationMethod
+  public init(rawValue: Swift.Int)
+  public typealias ArrayLiteralElement = MSSBiometricSensor.BiometricAuthenticationMethod
+  public typealias Element = MSSBiometricSensor.BiometricAuthenticationMethod
+  public typealias RawValue = Swift.Int
+}
+public enum BiometricError : Foundation.LocalizedError {
+  case biometricAuthenticationMethodNotUsable
+  case biometricAuthenticationMethodUndetermined
+  case biometricAuthenticationNotEnrolled
+  case unsupported(errorCode: Swift.Int)
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public var failureReason: Swift.String? {
+    get
+  }
+  public var recoverySuggestion: Swift.String? {
+    get
+  }
+}
+public struct SuccessParameters {
+  public let usedMethod: MSSBiometricSensor.BiometricAuthenticationMethod?
+  public let evaluatedPolicyDomainState: Foundation.Data?
+}
+@_hasMissingDesignatedInitializers public class BiometricSensorSDK {
+  public class func isBiometricAuthenticationSupported(for methods: MSSBiometricSensor.BiometricAuthenticationMethod) throws -> Swift.Bool
+  public class func isBiometricAuthenticationEnrolled(for methods: MSSBiometricSensor.BiometricAuthenticationMethod) throws -> Swift.Bool
+  public class func startBiometricAuthentication(parameters: MSSBiometricSensor.AuthenticationParameters, delegate: MSSBiometricSensor.AuthenticationDelegate) throws
+  public class func stopBiometricAuthentication()
+  @objc deinit
+}

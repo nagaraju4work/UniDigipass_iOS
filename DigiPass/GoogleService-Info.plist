@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>991786748293-15s4ok4p5lp1kb118gciqu6i1henubgq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.991786748293-15s4ok4p5lp1kb118gciqu6i1henubgq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB4ChnQBvNPhx8Ygh-ghG_56yFrjT95zBE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>991786748293</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.unicorp.adpolice.gov</string>
+	<key>PROJECT_ID</key>
+	<string>digipass-f89ea</string>
+	<key>STORAGE_BUCKET</key>
+	<string>digipass-f89ea.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<true/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:991786748293:ios:5aa245dde23dbd29825cec</string>
+	<key>DATABASE_URL</key>
+	<string>https://digipass-f89ea.firebaseio.com</string>
+</dict>
+</plist>

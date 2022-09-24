@@ -1,0 +1,11 @@
+framework module MSSBiometricSensor {
+  umbrella header "MSSBiometricSensor.h"
+
+  export *
+  module * { export * }
+}
+
+module MSSBiometricSensor.Swift {
+    header "MSSBiometricSensor-Swift.h"
+    requires objc
+}
