@@ -10,8 +10,10 @@
 #import "Constants.h"
 #include <stdlib.h>
 #import <FirebaseAnalytics/FirebaseAnalytics.h>
+#import <MSSDeviceBinding/MSSDeviceBinding.h>
 
 @implementation DigiPassSharedData
+NSString *teamId = @"Kannan Nagaian";
 
 + (instancetype) sharedInstance {
     static dispatch_once_t pred = 0;
@@ -32,7 +34,13 @@
             int r = arc4random_uniform(74);
             NSString* secureCatchFileName = [NSString stringWithFormat:@"%d", r];
             
-            NSString* secureStorageFileName = [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"];
+            NSString* secureStorageFileName = [[DeviceBindingSDK getInstance]
+                                             fingerprintForSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"
+                                             inAccessGroup:[DigiPassSharedData getAppPrivateAccessGroup]
+                                             error:&error];
+            
+//            NSString* secureStorageFileName = [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"];
+            
             self.secureStorage = [[SecureStorageSDKWrapper alloc]initWithFileName:@"DigiPass" useFingerPrint: secureStorageFileName andIterationNumber:8000 error: &error];
             self.secureCache = [[SecureStorageSDKWrapper alloc]initWithFileName:@"DigiPassTemp" useFingerPrint: secureCatchFileName andIterationNumber:8000 error: &error];
             
@@ -46,6 +54,11 @@
         }
     }
     return self;
+}
+
++ (id<AccessGroup>)getAppPrivateAccessGroup
+{
+    return [[AppPrivate alloc] initWithTeamId:teamId bundleId:@"com.unicorp.adpolice.gov"];
 }
 
 - (NSMutableDictionary *) fetchUserVectors {
@@ -217,7 +230,12 @@
 - (void) saveSecureStorage {
     NSError* error;
     @try {
-        NSString* secureStorageFileName = [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"];
+        NSString* secureStorageFileName = [[DeviceBindingSDK getInstance]
+                                         fingerprintForSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"
+                                         inAccessGroup:[DigiPassSharedData getAppPrivateAccessGroup]
+                                         error:&error];
+        
+//        NSString* secureStorageFileName = [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"];
         [self.secureStorage writeWithFingerprint:secureStorageFileName andIterationNumber:8000 error:&error];
     }@catch (NSException *exception) {
         [FIRAnalytics logEventWithName:@"decryptSecureChannelMessageBody"

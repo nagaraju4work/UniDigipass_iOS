@@ -7,8 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import <DSAPP_Client/DSAPPConstants.h>
-#import <DSAPP_Client/DSAPPErrorCodes.h>
+#import <MSSDSAPPClient/DSAPPConstants.h>
+#import <MSSDSAPPClient/DSAPPErrorCodes.h>
 #import "NSError+DSAPPWrapper.h"
 #import "SRPSessionKeyResponseWrapper.h"
 #import "SRPClientEphemeralKeyResponseWrapper.h"

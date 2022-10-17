@@ -6,7 +6,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #import "SRPSessionKeyResponseWrapper.h"
-#import <DSAPP_Client/SRPSessionKeyResponse.h>
+#import <MSSDSAPPClient/SRPSessionKeyResponse.h>
 
 @interface SRPSessionKeyResponseWrapper (){
     NSString *_sessionKey;

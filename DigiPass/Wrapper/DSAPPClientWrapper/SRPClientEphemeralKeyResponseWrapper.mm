@@ -6,7 +6,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #import "SRPClientEphemeralKeyResponseWrapper.h"
-#import <DSAPP_Client/SRPClientEphemeralKeyResponse.h>
+#import <MSSDSAPPClient/SRPClientEphemeralKeyResponse.h>
 
 @interface SRPClientEphemeralKeyResponseWrapper (){
     NSString *_clientEphemeralPublicKey;

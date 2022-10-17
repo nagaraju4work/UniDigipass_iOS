@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SecureChannelMessageWrapper.h"
-#import <DigipassSDK/DP4Capi.h>
+//#import <MSSDigipass/DP4Capi.h>
 #import "MDActivateModelWrapper.h"
 
 NS_ASSUME_NONNULL_BEGIN

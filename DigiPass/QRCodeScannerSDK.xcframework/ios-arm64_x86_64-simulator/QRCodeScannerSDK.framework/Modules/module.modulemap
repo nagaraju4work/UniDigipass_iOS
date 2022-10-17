@@ -1,0 +1,11 @@
+framework module QRCodeScannerSDK {
+  umbrella header "QRCodeScannerSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module QRCodeScannerSDK.Swift {
+    header "QRCodeScannerSDK-Swift.h"
+    requires objc
+}

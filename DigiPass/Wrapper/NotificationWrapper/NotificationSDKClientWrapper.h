@@ -6,7 +6,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
-#import <NotificationSDKClient/NotificationSDKClient.h>
+#import <MSSNotificationClient/MSSNotificationClient.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

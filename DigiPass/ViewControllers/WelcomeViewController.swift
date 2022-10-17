@@ -9,6 +9,7 @@
 import UIKit
 import LocalAuthentication
 import FirebaseAnalytics
+import AVFoundation
 
 class WelcomeViewController: BaseViewController {
 
@@ -131,8 +132,18 @@ class WelcomeViewController: BaseViewController {
     
     func presentQRCodeReader() {
         DispatchQueue.main.async {
-            let qrVC = QRCodeScannerSDKViewController(delegate: self, vibrate: true, codeType:  1 +  2, use: UIImage(named: "QRScan_close.png"), scannerOverlay: true, scannerOverlayColor: .clear)
-            self.present(qrVC!, animated: true, completion: nil)
+            do {
+                let qrVC = try QRCodeScannerSDK.getQRCodeScannerSDKViewController(delegate: self,
+                                                                                  vibrate: true,
+                                                                                  codeType: .all,
+                                                                                  image: UIImage(named: "QRScan_close"),
+                                                                                  scannerOverlay: true,
+                                                                                  scannerOverlayColor: .clear)
+                //            let qrVC = QRCodeScannerSDKViewController(delegate: self, vibrate: true, codeType:  1 +  2, use: UIImage(named: "QRScan_close.png"), scannerOverlay: true, scannerOverlayColor: .clear)
+                self.present(qrVC, animated: true, completion: nil)
+            } catch let e {
+                print(e)
+            }
         }
     }
     func showScanCamers() {
@@ -428,8 +439,8 @@ extension WelcomeViewController: DigiPassActivationDelegate {
     }
 }
 
-extension WelcomeViewController: QRCodeScannerSDKDelegate {
-    func qrCodeScannerSDKController(_ controller: QRCodeScannerSDKViewController!, didScanResult result: String!, withCodeType codeType: Int32) {
+extension WelcomeViewController: ScannerDelegate {
+    func qrCodeScannerSDKController(_ controller: UIViewController, didScan result: String, codeType: CodeType) {
         
         controller.dismiss(animated: true) {
             
@@ -465,11 +476,11 @@ extension WelcomeViewController: QRCodeScannerSDKDelegate {
         }
     }
     
-    func qrCodeScannerSDKControllerDidCancel(_ controller: QRCodeScannerSDKViewController!) {
+    func qrCodeScannerSDKControllerDidCancel(_ controller: UIViewController) {
         controller.dismiss(animated: true, completion: nil)
     }
     
-    func qrCodeScannerSDKController(_ controller: QRCodeScannerSDKViewController!, threwException exception: QRCodeScannerSDKException!) {
+    func qrCodeScannerSDKController(_ controller: UIViewController, didReceive error: ScannerError) {
         
     }
 }

@@ -1,0 +1,50 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name WBCSDK
+import Foundation
+import Swift
+@_exported import WBCSDK
+@_hasMissingDesignatedInitializers public class WBCSDK {
+  public class func encrypt(_ data: Foundation.Data, initialVector: [Swift.UInt8], mechanism: CryptoMechanism = .aes, container: WBCTableContainer, mode: CryptoMode = .ctr) throws -> Foundation.Data
+  public class func decrypt(_ data: Foundation.Data, initialVector: [Swift.UInt8], mechanism: CryptoMechanism = .aes, container: WBCTableContainer, mode: CryptoMode = .ctr) throws -> Foundation.Data
+  @objc deinit
+}
+public enum CryptoMode {
+  case ctr
+  public static func == (a: CryptoMode, b: CryptoMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum CryptoMechanism {
+  case aes
+  public static func == (a: CryptoMechanism, b: CryptoMechanism) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum WBCError : Foundation.LocalizedError {
+  case internalError
+  case invalidWBCTable
+  case initialVectorIncorrectLength
+  case inputDataIncorrectLength
+  case unsupported(errorCode: Swift.Int)
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public var failureReason: Swift.String? {
+    get
+  }
+  public var recoverySuggestion: Swift.String? {
+    get
+  }
+}
+extension CryptoMode : Swift.Equatable {}
+extension CryptoMode : Swift.Hashable {}
+extension CryptoMechanism : Swift.Equatable {}
+extension CryptoMechanism : Swift.Hashable {}

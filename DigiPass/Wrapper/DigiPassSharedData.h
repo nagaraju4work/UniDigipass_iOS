@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "SecureStorageWrapper/SecureStorageSDKWrapper.h"
 #import "DIGIPassClientWrapper/MDActivateModelWrapper.h"
-#import <DeviceBindingSDK/DeviceBindingSDK.h>
+//#import <MSSDeviceBinding/MSSDeviceBinding.h>
+//#import <MSSDigipass/DP4Capi.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

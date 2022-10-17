@@ -267,8 +267,6 @@ extension AppDelegate {
             notificationSubjectText = try NotificationSDKClientWrapper.getSubject(userInfo)
             
             // Parse the provided NSDictionary and retrieve the badge value of the notification
-            let badgeValue = try NotificationSDKClientWrapper.getBadgeValue(userInfo)
-            
             // Set the badge value to 0 in order to remove all notifications.
             // It is required since, in iOS 7, the remote notifications are not automatically removed when opened.
             UIApplication.shared.applicationIconBadgeNumber = 0

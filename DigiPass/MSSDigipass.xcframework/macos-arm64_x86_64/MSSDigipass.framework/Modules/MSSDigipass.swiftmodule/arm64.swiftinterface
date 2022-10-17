@@ -1,0 +1,615 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target arm64-apple-macos11.3 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MSSDigipass
+import AVFoundation
+import Foundation
+@_exported import MSSDigipass
+import Swift
+extension DigipassSDK {
+  public static func activateOffline(platformFingerprint: Swift.String?, staticVector: Swift.String, serialNumber: Swift.String, activationCode: Swift.String, erc: Swift.String?, activationPassword: Swift.String?, password: inout [Swift.CChar]?, dynamicVector: Foundation.Data?) throws -> MSSDigipass.ActivationResponse
+  public static func activateOnline(platformFingerprint: Swift.String?, xfad: Swift.String, xerc: Swift.String?, activationPassword: Swift.String?, nonce: Swift.String?, password: inout [Swift.CChar]?, dynamicVector: Foundation.Data?) throws -> MSSDigipass.ActivationResponse
+  public static func generateResponseOnly(staticVector: Foundation.Data, dynamicVector: Foundation.Data, password: inout [Swift.CChar]?, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String?) throws -> MSSDigipass.GenerationResponse
+  public static func generateResponse(fromChallenge challenge: Swift.String, staticVector: Foundation.Data, dynamicVector: Foundation.Data, password: inout [Swift.CChar]?, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String?) throws -> MSSDigipass.GenerationResponse
+  public static func generateSignature(staticVector: Foundation.Data, dynamicVector: Foundation.Data, dataFields: [Swift.String], password: inout [Swift.CChar]?, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String?) throws -> MSSDigipass.SignatureResponse
+  public static func isPasswordWeak(_ password: inout [Swift.CChar]?) -> Swift.Bool
+  public static func validatePassword(_ password: inout [Swift.CChar]?, platformFingerprint: Swift.String?, staticVector: Foundation.Data, dynamicVector: Foundation.Data, encryptionKey: Foundation.Data) throws -> MSSDigipass.GenericResponse
+  public static func changePassword(_ oldPassword: inout [Swift.CChar]?, to newPassword: inout [Swift.CChar]?, platformFingerprint: Swift.String?, staticVector: Foundation.Data, dynamicVector: Foundation.Data) throws -> MSSDigipass.GenericResponse
+}
+@_hasMissingDesignatedInitializers public class GenerateDerivationCodeResponse : MSSDigipass.GenericResponse {
+  public var derivationCode: Swift.String {
+    get
+  }
+  public static func == (lhs: MSSDigipass.GenerateDerivationCodeResponse, rhs: MSSDigipass.GenerateDerivationCodeResponse) -> Swift.Bool
+  @objc deinit
+}
+extension DigipassSDK {
+  public static func enableApplication(withIndex cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, staticVector: Foundation.Data, dynamicVector: Foundation.Data) throws -> MSSDigipass.ManageApplicationResponse
+  public static func disableApplication(withIndex cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, staticVector: Foundation.Data, dynamicVector: Foundation.Data) throws -> MSSDigipass.ManageApplicationResponse
+  public static func generateDerivationCode(staticVector: Foundation.Data, dynamicVector: Foundation.Data, password: inout [Swift.CChar]?, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String, challenge: Swift.String?) throws -> MSSDigipass.GenerateDerivationCodeResponse
+  public static func generateDerivationCode(encryptionKey: Foundation.Data, staticVector: Foundation.Data, dynamicVector: Foundation.Data, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String, challenge: Swift.String?) throws -> MSSDigipass.GenerateDerivationCodeResponse
+  public static func digipassProperties(staticVector: Foundation.Data, dynamicVector: Foundation.Data?) throws -> MSSDigipass.DigipassPropertiesResponse
+  public static func digipassProperties(fromXFAD xfad: Swift.String) throws -> MSSDigipass.DigipassPropertiesResponse
+  public static func computeClientServerTimeShift(fromServerTime serverTimeInSeconds: Swift.Int) -> Swift.Int
+}
+@_hasMissingDesignatedInitializers public class GenericResponse : Swift.Equatable {
+  public var response: Swift.String? {
+    get
+  }
+  public var dynamicVector: Foundation.Data? {
+    get
+  }
+  public var attemptsLeft: Swift.UInt {
+    get
+  }
+  public static func == (lhs: MSSDigipass.GenericResponse, rhs: MSSDigipass.GenericResponse) -> Swift.Bool
+  @objc deinit
+}
+public struct ErrorDetails : Swift.Equatable {
+  public let dynamicVector: Foundation.Data?
+  public let attemptsLeft: Swift.UInt
+  public static func == (a: MSSDigipass.ErrorDetails, b: MSSDigipass.ErrorDetails) -> Swift.Bool
+}
+public enum DigipassSDKError : Foundation.LocalizedError, Swift.Equatable {
+  case unknown(details: MSSDigipass.ErrorDetails)
+  case staticVectorNull(details: MSSDigipass.ErrorDetails)
+  case staticVectorIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case staticVectorIncorrectFormat(details: MSSDigipass.ErrorDetails)
+  case dynamicVectorNull(details: MSSDigipass.ErrorDetails)
+  case dynamicVectorIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case dynamicVectorIncorrectFormat(details: MSSDigipass.ErrorDetails)
+  case encryptionKeyNull(details: MSSDigipass.ErrorDetails)
+  case encryptionKeyIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case serialNumberSuffixNull(details: MSSDigipass.ErrorDetails)
+  case serialNumberNull(details: MSSDigipass.ErrorDetails)
+  case serialNumberSuffixIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case serialNumberIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case activationCodeNull(details: MSSDigipass.ErrorDetails)
+  case activationCodeIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case activationCodeIncorrectFormat(details: MSSDigipass.ErrorDetails)
+  case ercIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case ercIncorrectFormat(details: MSSDigipass.ErrorDetails)
+  case ercInvalid(details: MSSDigipass.ErrorDetails)
+  case xfadNull(details: MSSDigipass.ErrorDetails)
+  case xfadIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case xfadIncorrectFormat(details: MSSDigipass.ErrorDetails)
+  case xercIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case xercIncorrectFormat(details: MSSDigipass.ErrorDetails)
+  case sharedSecretTooLong(details: MSSDigipass.ErrorDetails)
+  case activationCodeInvalid(details: MSSDigipass.ErrorDetails)
+  case reactivationLock(details: MSSDigipass.ErrorDetails)
+  case passwordNull(details: MSSDigipass.ErrorDetails)
+  case passwordLengthTooShort(details: MSSDigipass.ErrorDetails)
+  case passwordLengthTooLong(details: MSSDigipass.ErrorDetails)
+  case passwordWeak(details: MSSDigipass.ErrorDetails)
+  case passwordWrong(details: MSSDigipass.ErrorDetails)
+  case passwordLock(details: MSSDigipass.ErrorDetails)
+  case statusInvalid(details: MSSDigipass.ErrorDetails)
+  case cryptoApplicationIndexInvalid(details: MSSDigipass.ErrorDetails)
+  case applicationDisabled(details: MSSDigipass.ErrorDetails)
+  case challengeNull(details: MSSDigipass.ErrorDetails)
+  case challengeIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case dataFieldsArrayNull(details: MSSDigipass.ErrorDetails)
+  case dataFieldsNumberInvalid(details: MSSDigipass.ErrorDetails)
+  case dataFieldNull(details: MSSDigipass.ErrorDetails)
+  case dataFieldIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case responseNull(details: MSSDigipass.ErrorDetails)
+  case responseIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case hostCodeNull(details: MSSDigipass.ErrorDetails)
+  case hostCodeIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case challengeCharacterInvalid(details: MSSDigipass.ErrorDetails)
+  case serverPublicKeyIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case ebdSecretKeyNull(details: MSSDigipass.ErrorDetails)
+  case ebdSecretKeyIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case ebdSessionIdNull(details: MSSDigipass.ErrorDetails)
+  case ebdKeyHandleNull(details: MSSDigipass.ErrorDetails)
+  case ebdEncryptFunctionNull(details: MSSDigipass.ErrorDetails)
+  case cryptoMechanismInvalid(details: MSSDigipass.ErrorDetails)
+  case cryptoModeInvalid(details: MSSDigipass.ErrorDetails)
+  case keyNull(details: MSSDigipass.ErrorDetails)
+  case keyIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case inputDataNull(details: MSSDigipass.ErrorDetails)
+  case inputDataIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case initialVectorIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case unknownProperty(details: MSSDigipass.ErrorDetails)
+  case derivationCodeNull(details: MSSDigipass.ErrorDetails)
+  case derivationCodeIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case tokenDerivationNotSupported(details: MSSDigipass.ErrorDetails)
+  case platformFingerprintNotDefined(details: MSSDigipass.ErrorDetails)
+  case dataFieldsNotContiguous(details: MSSDigipass.ErrorDetails)
+  case notPasswordProtected(details: MSSDigipass.ErrorDetails)
+  case secureChannelMessageNull(details: MSSDigipass.ErrorDetails)
+  case secureChannelMessageIncorrectFormat(details: MSSDigipass.ErrorDetails)
+  case secureChannelMessageIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case secureChannelMessageIncorrectType(details: MSSDigipass.ErrorDetails)
+  case secureChannelMessageSignatureInvalid(details: MSSDigipass.ErrorDetails)
+  case jailbreakStatusInvalid(details: MSSDigipass.ErrorDetails)
+  case secureChannelMessageStaticVectorInconsistent(details: MSSDigipass.ErrorDetails)
+  case platformActivationKeyInvalid(details: MSSDigipass.ErrorDetails)
+  case multiDeviceActivationDisabled(details: MSSDigipass.ErrorDetails)
+  case licenseIncorrect(details: MSSDigipass.ErrorDetails)
+  case secureChannelMessageIncorrectTarget(details: MSSDigipass.ErrorDetails)
+  case multiDeviceActivationEnabled(details: MSSDigipass.ErrorDetails)
+  case secureChannelDisabled(details: MSSDigipass.ErrorDetails)
+  case clientScoreDisabled(details: MSSDigipass.ErrorDetails)
+  case scoreInvalid(details: MSSDigipass.ErrorDetails)
+  case secureChannelMessageBodyNullOrEmpty(details: MSSDigipass.ErrorDetails)
+  case secureChannelMessageBodyIncorrectLength(details: MSSDigipass.ErrorDetails)
+  case secureChannelMessageBodyIncorrectFormat(details: MSSDigipass.ErrorDetails)
+  case protectionTypeNotSupported(details: MSSDigipass.ErrorDetails)
+  case unsupported(details: MSSDigipass.ErrorDetails)
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var dynamicVector: Foundation.Data? {
+    get
+  }
+  public var attemptsLeft: Swift.UInt {
+    get
+  }
+  public var failureReason: Swift.String? {
+    get
+  }
+  public static func == (a: MSSDigipass.DigipassSDKError, b: MSSDigipass.DigipassSDKError) -> Swift.Bool
+}
+extension DigipassSDK {
+  public static func generateResponseOnlyES(encryptionKey: Foundation.Data, staticVector: Foundation.Data, dynamicVector: Foundation.Data, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, serverPublicKey: Swift.String?, platformFingerprint: Swift.String?) throws -> MSSDigipass.GenerationResponse
+  public static func generateResponseES(fromChallenge challenge: Swift.String, encryptionKey: Foundation.Data, staticVector: Foundation.Data, dynamicVector: Foundation.Data, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, serverPublicKey: Swift.String?, platformFingerprint: Swift.String?) throws -> MSSDigipass.GenerationResponse
+  public static func generateSignatureES(encryptionKey: Foundation.Data, staticVector: Foundation.Data, dynamicVector: Foundation.Data, dataFields: [Swift.String], clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, serverPublicKey: Swift.String?, platformFingerprint: Swift.String?) throws -> MSSDigipass.SignatureResponse
+}
+extension DigipassSDK {
+  public static func parseSecureChannelMessage(_ message: Swift.String) throws -> MSSDigipass.SecureChannelMessage
+  public static func multiDeviceActivateLicense(secureChannelMessage: MSSDigipass.SecureChannelMessage, staticVectorInput: Swift.String?, platformFingerprint: Swift.String, jailbreakStatus: MSSDigipass.JailbreakStatus, clientServerTimeShift: Swift.Int) throws -> MSSDigipass.MultiDeviceLicenseActivationResponse
+  public static func multiDeviceActivateInstance(staticVector: Foundation.Data, dynamicVector: Foundation.Data, secureChannelMessage: MSSDigipass.SecureChannelMessage, password: inout [Swift.CChar]?, platformFingerprint: Swift.String) throws -> MSSDigipass.ActivationResponse
+  public static func multiDeviceActivateInstance(encryptionKey: Foundation.Data?, staticVector: Foundation.Data, dynamicVector: Foundation.Data, secureChannelMessage: MSSDigipass.SecureChannelMessage, platformFingerprint: Swift.String) throws -> MSSDigipass.ActivationResponse
+  public static func decryptBody(ofSecureChannelMessage secureChannelMessage: MSSDigipass.SecureChannelMessage, staticVector: Foundation.Data, dynamicVector: Foundation.Data, platformFingerprint: Swift.String) throws -> MSSDigipass.GenericResponse
+  public static func generateSignature(fromSecureChannelMessage secureChannelMessage: MSSDigipass.SecureChannelMessage, staticVector: Foundation.Data, dynamicVector: Foundation.Data, password: inout [Swift.CChar]?, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String) throws -> MSSDigipass.SignatureResponse
+  public static func generateSignature(fromSecureChannelMessage secureChannelMessage: MSSDigipass.SecureChannelMessage, staticVector: Foundation.Data, dynamicVector: Foundation.Data, encryptionKey: Foundation.Data, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String) throws -> MSSDigipass.SignatureResponse
+  public static func generateSecureChannelInformationMessage(withBody secureChannelMessageBody: Swift.String, protectionType: MSSDigipass.SecureChannelMessageProtectionType, staticVector: Foundation.Data, dynamicVector: Foundation.Data, platformFingerprint: Swift.String) throws -> MSSDigipass.SecureChannelMessage
+}
+extension DigipassSDK {
+  public static func generateResponseOnlyES(staticVector: Foundation.Data, dynamicVector: Foundation.Data, password: inout [Swift.CChar]?, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, serverPublicKey: Swift.String?, platformFingerprint: Swift.String?) throws -> MSSDigipass.GenerationResponse
+  public static func generateResponseES(fromChallenge challenge: Swift.String, staticVector: Foundation.Data, dynamicVector: Foundation.Data, password: inout [Swift.CChar]?, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, serverPublicKey: Swift.String?, platformFingerprint: Swift.String?) throws -> MSSDigipass.GenerationResponse
+  public static func generateSignatureES(staticVector: Foundation.Data, dynamicVector: Foundation.Data, dataFields: [Swift.String], password: inout [Swift.CChar]?, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, serverPublicKey: Swift.String?, platformFingerprint: Swift.String?) throws -> MSSDigipass.SignatureResponse
+}
+public enum PasswordCheckLevel : Swift.Equatable {
+  case noCheck
+  case checksum
+  case hashcode
+  case unsupported(value: Swift.Int)
+  public static func == (a: MSSDigipass.PasswordCheckLevel, b: MSSDigipass.PasswordCheckLevel) -> Swift.Bool
+}
+public enum ApplicationPenaltyAction : Swift.Equatable {
+  case reset
+  case generateInvalidOTP
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: MSSDigipass.ApplicationPenaltyAction, b: MSSDigipass.ApplicationPenaltyAction) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum DigipassStatus : Swift.Equatable {
+  case notActivated
+  case activated
+  case locked
+  case generateInvalidOtp
+  case preActivated
+  case unsupported(value: Swift.Int)
+  public static func == (a: MSSDigipass.DigipassStatus, b: MSSDigipass.DigipassStatus) -> Swift.Bool
+}
+public enum CryptoApplicationIndex : Swift.Equatable {
+  case app1
+  case app2
+  case app3
+  case app4
+  case app5
+  case app6
+  case app7
+  case app8
+  case appActivation
+  case unsupported(value: Swift.Int)
+  public static func == (a: MSSDigipass.CryptoApplicationIndex, b: MSSDigipass.CryptoApplicationIndex) -> Swift.Bool
+}
+public enum CipherMechanism : Swift.Equatable {
+  case des
+  case des3
+  case aes
+  case unsupported(value: Swift.UInt8)
+  public static func == (a: MSSDigipass.CipherMechanism, b: MSSDigipass.CipherMechanism) -> Swift.Bool
+}
+public enum CipherMode : Swift.Equatable {
+  case ecb
+  case cbc
+  case cfb
+  case ctr
+  case unsupported(value: Swift.UInt8)
+  public static func == (a: MSSDigipass.CipherMode, b: MSSDigipass.CipherMode) -> Swift.Bool
+}
+public enum OutputType : Swift.Equatable {
+  case hexadecimal
+  case decimal
+  case unsupported(value: Swift.Int)
+  public static func == (a: MSSDigipass.OutputType, b: MSSDigipass.OutputType) -> Swift.Bool
+}
+public enum SecureChannelMessageType : Swift.Equatable {
+  case licenseActivation
+  case instanceActivation
+  case deactivation
+  case request
+  case response
+  case informationMessage
+  case unsupported(value: Swift.UInt8)
+  public static func == (a: MSSDigipass.SecureChannelMessageType, b: MSSDigipass.SecureChannelMessageType) -> Swift.Bool
+}
+public enum JailbreakStatus : Swift.Equatable {
+  case na
+  case safe
+  case unsafe
+  case unsupported(value: Swift.UInt8)
+  public static func == (a: MSSDigipass.JailbreakStatus, b: MSSDigipass.JailbreakStatus) -> Swift.Bool
+}
+public enum SecureChannelMessageProtectionType : Swift.Equatable {
+  case none
+  case hmacAesctr
+  case hmac
+  case unsupported(value: Swift.UInt8)
+  public static func == (a: MSSDigipass.SecureChannelMessageProtectionType, b: MSSDigipass.SecureChannelMessageProtectionType) -> Swift.Bool
+}
+public struct ParametersLengths {
+  public static var staticVectorV7: Swift.Int {
+    get
+  }
+  public static var staticVectorV8Max: Swift.Int {
+    get
+  }
+  public static var dynamicVectorV7: Swift.Int {
+    get
+  }
+  public static var dynamicVectorV8Max: Swift.Int {
+    get
+  }
+  public static var dataFieldMax: Swift.Int {
+    get
+  }
+  public static var dataFieldMaxEnhancedSecurity: Swift.Int {
+    get
+  }
+  public static var responseMax: Swift.Int {
+    get
+  }
+  public static var hostCodeMax: Swift.Int {
+    get
+  }
+  public static var encryptionKey: Swift.Int {
+    get
+  }
+  public static var serialNumber: Swift.Int {
+    get
+  }
+  public static var cryptoApplicationName: Swift.Int {
+    get
+  }
+  public static var derivationCodeMax: Swift.Int {
+    get
+  }
+  public static var sharedSecretMax: Swift.Int {
+    get
+  }
+  public static var serverPublicKeyMax: Swift.Int {
+    get
+  }
+  public static var masterKey: Swift.Int {
+    get
+  }
+  public static var codeword: Swift.Int {
+    get
+  }
+  public static var authenticationMode: Swift.Int {
+    get
+  }
+  public static var secureChannelMessageHeader: Swift.Int {
+    get
+  }
+  public static var secureChannelMessageFooter: Swift.Int {
+    get
+  }
+  public static var secureChannelMessageMax: Swift.Int {
+    get
+  }
+  public static var secureChannelMessageBodyMax: Swift.Int {
+    get
+  }
+  public static var secureChannelMessageNonce: Swift.Int {
+    get
+  }
+  public static var numberDataFieldMax: Swift.Int {
+    get
+  }
+}
+public struct ScoreRange {
+  public static var min: Swift.UInt8 {
+    get
+  }
+  public static var max: Swift.UInt8 {
+    get
+  }
+}
+extension DigipassSDK {
+  public static func generateResponseOnly(withScore score: Swift.UInt8, staticVector: Foundation.Data, dynamicVector: Foundation.Data, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String?, password: inout [Swift.CChar]?) throws -> MSSDigipass.GenerationResponse
+  public static func generateResponse(fromChallenge challenge: Swift.String, withScore score: Swift.UInt8, staticVector: Foundation.Data, dynamicVector: Foundation.Data, password: inout [Swift.CChar]?, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String?) throws -> MSSDigipass.GenerationResponse
+  public static func generateSignature(withScore score: Swift.UInt8, staticVector: Foundation.Data, dynamicVector: Foundation.Data, dataFields: [Swift.String], password: inout [Swift.CChar]?, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String?) throws -> MSSDigipass.SignatureResponse
+  public static func generateSignature(fromSecureChannelMessage secureChannelMessage: MSSDigipass.SecureChannelMessage, staticVector: Foundation.Data, dynamicVector: Foundation.Data, password: inout [Swift.CChar]?, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String, score: Swift.UInt8) throws -> MSSDigipass.SignatureResponse
+}
+@_hasMissingDesignatedInitializers public class SignatureResponse : MSSDigipass.GenericResponse {
+  public var hostCode: Swift.String {
+    get
+  }
+  public static func == (lhs: MSSDigipass.SignatureResponse, rhs: MSSDigipass.SignatureResponse) -> Swift.Bool
+  @objc deinit
+}
+extension DigipassSDK {
+  public static func activateOffline(encryptionKey: Foundation.Data, staticVector: Swift.String, serialNumber: Swift.String, activationCode: Swift.String, erc: Swift.String?, activationPassword: Swift.String?, dynamicVector: Foundation.Data?) throws -> MSSDigipass.ActivationResponse
+  public static func activateOnline(encryptionKey: Foundation.Data, xfad: Swift.String, xerc: Swift.String?, activationPassword: Swift.String?, nonce: Swift.String?, dynamicVector: Foundation.Data?) throws -> MSSDigipass.ActivationResponse
+  public static func generateResponseOnly(encryptionKey: Foundation.Data, staticVector: Foundation.Data, dynamicVector: Foundation.Data, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String?) throws -> MSSDigipass.GenerationResponse
+  public static func generateResponse(fromChallenge challenge: Swift.String, encryptionKey: Foundation.Data, staticVector: Foundation.Data, dynamicVector: Foundation.Data, clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String?) throws -> MSSDigipass.GenerationResponse
+  public static func generateSignature(encryptionKey: Foundation.Data, staticVector: Foundation.Data, dynamicVector: Foundation.Data, dataFields: [Swift.String], clientServerTimeShift: Swift.Int, cryptoApplicationIndex: MSSDigipass.CryptoApplicationIndex, platformFingerprint: Swift.String?) throws -> MSSDigipass.SignatureResponse
+  public static func changeEncryptionKey(_ encryptionKey: Foundation.Data, to newEncryptionKey: Foundation.Data, staticVector: Foundation.Data, dynamicVector: Foundation.Data) throws -> MSSDigipass.GenericResponse
+}
+@_hasMissingDesignatedInitializers public class GenerationResponse : MSSDigipass.GenericResponse {
+  public var hostCode: Swift.String {
+    get
+  }
+  public static func == (lhs: MSSDigipass.GenerationResponse, rhs: MSSDigipass.GenerationResponse) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class DigipassSDK {
+  public static var version: Swift.String {
+    get
+  }
+  @objc deinit
+}
+extension DigipassSDK {
+  public static func sha256Hash(data: Foundation.Data) throws -> Foundation.Data
+  public static func encrypt(data: Foundation.Data, mechanism: MSSDigipass.CipherMechanism, mode: MSSDigipass.CipherMode, key: Foundation.Data, initialVector: Foundation.Data?) throws -> Foundation.Data
+  public static func decrypt(data: Foundation.Data, mechanism: MSSDigipass.CipherMechanism, mode: MSSDigipass.CipherMode, key: Foundation.Data, initialVector: Foundation.Data?) throws -> Foundation.Data
+}
+@_hasMissingDesignatedInitializers public class ActivationResponse : Swift.Equatable {
+  public var staticVector: Foundation.Data? {
+    get
+  }
+  public var dynamicVector: Foundation.Data? {
+    get
+  }
+  public var attemptsLeft: Swift.UInt {
+    get
+  }
+  public static func == (lhs: MSSDigipass.ActivationResponse, rhs: MSSDigipass.ActivationResponse) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Application : Swift.Equatable {
+  public var index: MSSDigipass.CryptoApplicationIndex {
+    get
+  }
+  public var name: Swift.String {
+    get
+  }
+  public var isEnabled: Swift.Bool {
+    get
+  }
+  public var responseLength: Swift.Int {
+    get
+  }
+  public var hostCodeLength: Swift.Int {
+    get
+  }
+  public var checkDigit: Swift.Bool {
+    get
+  }
+  public var dataFieldNumber: Swift.Int {
+    get
+  }
+  public var dataFieldsMinLength: Foundation.Data {
+    get
+  }
+  public var dataFieldsMaxLength: Foundation.Data {
+    get
+  }
+  public var eventCounter: Swift.Int {
+    get
+  }
+  public var lastTimeUsed: Swift.Int {
+    get
+  }
+  public var timeBased: Swift.Bool {
+    get
+  }
+  public var eventBased: Swift.Bool {
+    get
+  }
+  public var outputType: MSSDigipass.OutputType {
+    get
+  }
+  public var codeword: Foundation.Data {
+    get
+  }
+  public var timeStep: Swift.Int {
+    get
+  }
+  public var authenticationMode: Swift.String {
+    get
+  }
+  public var scoreCapable: Swift.Bool {
+    get
+  }
+  public static func == (lhs: MSSDigipass.Application, rhs: MSSDigipass.Application) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class MultiDeviceLicenseActivationResponse : MSSDigipass.ActivationResponse {
+  public var deviceCode: Swift.String? {
+    get
+  }
+  public static func == (lhs: MSSDigipass.MultiDeviceLicenseActivationResponse, rhs: MSSDigipass.MultiDeviceLicenseActivationResponse) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class DigipassPropertiesResponse {
+  public var xfad: Swift.String? {
+    get
+  }
+  public var staticVector: Foundation.Data? {
+    get
+  }
+  public var dynamicVector: Foundation.Data? {
+    get
+  }
+  public var version: Swift.Int {
+    get
+  }
+  public var status: MSSDigipass.DigipassStatus {
+    get
+  }
+  public var eventCounter: Swift.Int {
+    get
+  }
+  public var passwordMandatory: Swift.Bool {
+    get
+  }
+  public var passwordMinLength: Swift.Int {
+    get
+  }
+  public var passwordMaxLength: Swift.Int {
+    get
+  }
+  public var passwordCheckLevel: MSSDigipass.PasswordCheckLevel {
+    get
+  }
+  public var passwordFatal: Swift.Int {
+    get
+  }
+  public var passwordFatalCounter: Swift.Int {
+    get
+  }
+  public var reactivationFatal: Swift.Int {
+    get
+  }
+  public var reactivationFatalCounter: Swift.Int {
+    get
+  }
+  public var iterationNumber: Swift.Int {
+    get
+  }
+  public var iterationPower: Swift.Int {
+    get
+  }
+  public var pinVersion: Swift.Int {
+    get
+  }
+  public var storageVersion: Swift.Int {
+    get
+  }
+  public var creationVersion: Swift.Int {
+    get
+  }
+  public var deviceIdBitsNumber: Swift.Int {
+    get
+  }
+  public var deviceType: Swift.Int {
+    get
+  }
+  public var sequenceNumber: Swift.Int {
+    get
+  }
+  public var payloadKeyType: Swift.Int {
+    get
+  }
+  public var serialNumber: Swift.String {
+    get
+  }
+  public var utcTime: Swift.Int {
+    get
+  }
+  public var masterKey: Foundation.Data {
+    get
+  }
+  public var weakPasswordControl: Swift.Bool {
+    get
+  }
+  public var penaltyResetAction: MSSDigipass.ApplicationPenaltyAction {
+    get
+  }
+  public var tokenDerivationSupported: Swift.Bool {
+    get
+  }
+  public var highSecurity: Swift.Bool {
+    get
+  }
+  public var activationCodeFormatHexa: Swift.Bool {
+    get
+  }
+  public var useChecksumForActivationCode: Swift.Bool {
+    get
+  }
+  public var passwordProtected: Swift.Bool {
+    get
+  }
+  public var useSecretDerivation: Swift.Bool {
+    get
+  }
+  public var tokenDerivationActivated: Swift.Bool {
+    get
+  }
+  public var passwordDerivationActivated: Swift.Bool {
+    get
+  }
+  public var multiDeviceActivationEnabled: Swift.Bool {
+    get
+  }
+  public var secureChannelEnabled: Swift.Bool {
+    get
+  }
+  public var applications: [MSSDigipass.Application] {
+    get
+  }
+  public static func == (lhs: MSSDigipass.DigipassPropertiesResponse, rhs: MSSDigipass.DigipassPropertiesResponse) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class ManageApplicationResponse {
+  public var dynamicVector: Foundation.Data? {
+    get
+  }
+  public static func == (lhs: MSSDigipass.ManageApplicationResponse, rhs: MSSDigipass.ManageApplicationResponse) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SecureChannelMessage {
+  public var protocolVersion: Swift.UInt8 {
+    get
+  }
+  public var messageType: MSSDigipass.SecureChannelMessageType {
+    get
+  }
+  public var protectionType: MSSDigipass.SecureChannelMessageProtectionType {
+    get
+  }
+  public var serialNumber: Swift.String {
+    get
+  }
+  public var nonce: Swift.String {
+    get
+  }
+  public var body: Swift.String {
+    get
+  }
+  public var authenticationTag: Swift.String {
+    get
+  }
+  public var rawData: Swift.String {
+    get
+  }
+  public var encrypted: Swift.Bool {
+    get
+  }
+  public var paddingFor8BytesMultiple: Foundation.Data {
+    get
+  }
+  public static func == (lhs: MSSDigipass.SecureChannelMessage, rhs: MSSDigipass.SecureChannelMessage) -> Swift.Bool
+  @objc deinit
+}
+extension MSSDigipass.ApplicationPenaltyAction : Swift.Hashable {}

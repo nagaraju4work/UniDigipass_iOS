@@ -7,8 +7,7 @@
 //
 
 #import "DIGIPassClientSDKWrapper.h"
-#import <DeviceBindingSDK/DeviceBindingSDK.h>
-#import <DeviceBindingSDK/DeviceBindingSDKException.h>
+#import <MSSDeviceBinding/MSSDeviceBinding.h>
 #import "DigiPass-Swift.h"
 #import "DigiPassSharedData.h"
 #import "Constants.h"
@@ -46,6 +45,8 @@
 
 
 @implementation DIGIPassClientSDKWrapper
+NSString *teamId = @"Kannan Nagaian";
+NSString *errorDomain = @"DigiPassSDKErrorDomain";
 
 + (void) zeroAndFreeWithByte:(vds_byte *) toClean length:(vds_int32) length {
     memset(toClean, 0, length);
@@ -69,6 +70,11 @@
     }
 }
 
++ (id<AccessGroup>)getAppPrivateAccessGroup
+{
+    return [[AppPrivate alloc] initWithTeamId:teamId bundleId:@"com.unicorp.adpolice.gov"];
+}
+
 + (void) multiDeviceLicenceActivation {
     
     @try {
@@ -77,7 +83,12 @@
         SecureChannelMessageWrapper* channelWrapper = [DIGIPassClientSDKWrapper parseSecureChannelMessage:decrpted];
         SecureChannelMessage message = channelWrapper.message;
         
-        NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
+        NSString* platformfingerPrint = [[DeviceBindingSDK getInstance]
+                                         fingerprintForSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]
+                                         inAccessGroup:[DIGIPassClientSDKWrapper getAppPrivateAccessGroup]
+                                         error:&error];
+        
+//        NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
         
         vds_ascii *fingerPrint = (vds_ascii*) [platformfingerPrint UTF8String];
         vds_byte jailBreakStatus = 0;
@@ -131,7 +142,12 @@
         SecureChannelMessageWrapper* channelWrapper = [DIGIPassClientSDKWrapper parseSecureChannelMessage:decrpted];
         SecureChannelMessage message = channelWrapper.message;
         
-        NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
+        NSString* platformfingerPrint = [[DeviceBindingSDK getInstance]
+                                         fingerprintForSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]
+                                         inAccessGroup:[DIGIPassClientSDKWrapper getAppPrivateAccessGroup]
+                                         error:&error];
+        
+//        NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
         
         NSDictionary* vectors = [[DigiPassSharedData sharedInstance] fetchVectorsFromVolatile];
         NSData* staticVectorData = [vectors objectForKey:kStaticVectorData];
@@ -149,7 +165,8 @@
         
         if(returnCode1 != RETURN_CODE_SUCCESS) {
             [DIGIPassClientSDKWrapper zeroAndFreeWithByte:svBytes length:svBytesLength];
-            error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
+            error = [[NSError alloc] initWithDomain:errorDomain code:(NSUInteger) returnCode1 userInfo:@{@"message": @"Dynamic Vector length failed"}];
+//            error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
             return nil;
         }
         
@@ -203,7 +220,12 @@
         SecureChannelMessageWrapper* channelWrapper = [DIGIPassClientSDKWrapper parseSecureChannelMessage:decrpted];
         SecureChannelMessage message = channelWrapper.message;
         
-        NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
+        NSString* platformfingerPrint = [[DeviceBindingSDK getInstance]
+                                         fingerprintForSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]
+                                         inAccessGroup:[DIGIPassClientSDKWrapper getAppPrivateAccessGroup]
+                                         error:&error];
+        
+//        NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
         
         NSDictionary* vectors = isActivate ? [[DigiPassSharedData sharedInstance] fetchVectorsFromVolatile] : [[DigiPassSharedData sharedInstance] fetchUserVectors];
         NSData* staticVectorData = [vectors objectForKey:kStaticVectorData];
@@ -221,7 +243,8 @@
         
         if(returnCode1 != RETURN_CODE_SUCCESS) {
             [DIGIPassClientSDKWrapper zeroAndFreeWithByte:staticVector length:staticVectorLength];
-            error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
+            error = [[NSError alloc] initWithDomain:errorDomain code:(NSUInteger) returnCode1 userInfo:@{@"message": @"Dynamic Vector length failed"}];
+//            error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
             [FIRAnalytics logEventWithName:@"generateSignatureFromPassword"
                                 parameters:@{
                                              @"error": [NSString stringWithUTF8String: DPSDK_GetMessageForReturnCode(returnCode1)]
@@ -298,8 +321,14 @@
 }
 
 + (NSMutableDictionary *) validatePassword: (NSString *) pin {
+    NSError* error;
+    NSString* platformfingerPrint = [[DeviceBindingSDK getInstance]
+                                     fingerprintForSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]
+                                     inAccessGroup:[DIGIPassClientSDKWrapper getAppPrivateAccessGroup]
+                                     error:&error];
     
-    NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
+//    NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
+    
     vds_ascii* fingerprint = (vds_ascii *) [platformfingerPrint UTF8String];
 
     NSDictionary* vectors = [[DigiPassSharedData sharedInstance] fetchUserVectors];
@@ -315,11 +344,11 @@
     
     vds_int32 dynamicVectorLength = 0;
     vds_int32 returnCode1 = DPSDK_GetDynamicVectorLength(staticVector, staticVectorLength, &dynamicVectorLength);
-    NSError *error;
     
     if(returnCode1 != RETURN_CODE_SUCCESS) {
         [DIGIPassClientSDKWrapper zeroAndFreeWithByte:staticVector length:staticVectorLength];
-        error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
+        error = [[NSError alloc] initWithDomain:errorDomain code:(NSUInteger) returnCode1 userInfo:@{@"message": @"Dynamic Vector length failed"}];
+//        error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
         [FIRAnalytics logEventWithName:@"validatePassword"
                             parameters:@{
                                          @"error": [NSString stringWithUTF8String: DPSDK_GetMessageForReturnCode(returnCode1)]
@@ -371,7 +400,12 @@
 
     NSError* error;
     @try {
-        NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
+        NSString* platformfingerPrint = [[DeviceBindingSDK getInstance]
+                                         fingerprintForSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]
+                                         inAccessGroup:[DIGIPassClientSDKWrapper getAppPrivateAccessGroup]
+                                         error:&error];
+        
+//        NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
         
         NSDictionary* vectors = [[DigiPassSharedData sharedInstance] fetchUserVectors];
         NSData* staticVectorData = [vectors objectForKey:kStaticVectorData];
@@ -389,7 +423,8 @@
         
         if(returnCode1 != RETURN_CODE_SUCCESS) {
             [DIGIPassClientSDKWrapper zeroAndFreeWithByte:staticVector length:staticVectorLength];
-            error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
+            error = [[NSError alloc] initWithDomain:errorDomain code:(NSUInteger) returnCode1 userInfo:@{@"message": @"Dynamic Vector length failed"}];
+//            error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
             [FIRAnalytics logEventWithName:@"generateOTPCodeForPin"
                                 parameters:@{
                                              @"error": [NSString stringWithUTF8String: DPSDK_GetMessageForReturnCode(returnCode1)]
@@ -482,8 +517,12 @@
 #pragma mark Notification methods
 
 + (SecureChannelMessageWrapper *) generateSecureChannelINotificationToken:(NSString *)notificationToken  {
-    
-    NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
+    NSError* error;
+    NSString* platformfingerPrint = [[DeviceBindingSDK getInstance]
+                                     fingerprintForSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]
+                                     inAccessGroup:[DIGIPassClientSDKWrapper getAppPrivateAccessGroup]
+                                     error:&error];
+//    NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
 
     NSDictionary* vectors = [[DigiPassSharedData sharedInstance] fetchUserVectors];
     NSData* staticVectorData = [vectors objectForKey:kStaticVectorData];
@@ -498,11 +537,11 @@
     
     vds_int32 dynamicVectorLength = 0;
     vds_int32 returnCode1 = DPSDK_GetDynamicVectorLength(staticVector, staticVectorLength, &dynamicVectorLength);
-    NSError *error;
     
     if(returnCode1 != RETURN_CODE_SUCCESS) {
         [DIGIPassClientSDKWrapper zeroAndFreeWithByte:staticVector length:staticVectorLength];
-        error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
+        error = [[NSError alloc] initWithDomain:errorDomain code:(NSUInteger) returnCode1 userInfo:@{@"message": @"Dynamic Vector length failed"}];
+//        error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
         [FIRAnalytics logEventWithName:@"generateSecureChannelINotificationToken"
                             parameters:@{
                                          @"error": [NSString stringWithUTF8String: DPSDK_GetMessageForReturnCode(returnCode1)]
@@ -565,7 +604,8 @@
     
     if(returnCode1 != RETURN_CODE_SUCCESS) {
         [DIGIPassClientSDKWrapper zeroAndFreeWithByte:staticVector length:staticVectorLength];
-        error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
+        error = [[NSError alloc] initWithDomain:errorDomain code:(NSUInteger) returnCode1 userInfo:@{@"message": @"Dynamic Vector length failed"}];
+//        error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
         [FIRAnalytics logEventWithName:@"getDigiPassProperty"
                             parameters:@{
                                          @"error": [NSString stringWithUTF8String: DPSDK_GetMessageForReturnCode(returnCode1)]
@@ -625,7 +665,9 @@
     
     if(returnCode1 != RETURN_CODE_SUCCESS) {
         [DIGIPassClientSDKWrapper zeroAndFreeWithByte:staticVector length:staticVectorLength];
-        error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
+        error = [[NSError alloc] initWithDomain:errorDomain code:(NSUInteger) returnCode1 userInfo:@{@"message": @"Dynamic Vector length failed"}];
+
+//        error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
         [FIRAnalytics logEventWithName:@"getDigiPassProperty"
                             parameters:@{
                                          @"error": [NSString stringWithUTF8String: DPSDK_GetMessageForReturnCode(returnCode1)]
@@ -669,13 +711,16 @@
 + (NSString *) decryptSecureChannelMessageBody {
     
     @try {
-        
         NSError* error;
         NSString* decrpted = [[[DigiPassSharedData sharedInstance] secureCache] getStringForKey:kActivatedMessage error:&error];
         SecureChannelMessageWrapper* channelWrapper = [DIGIPassClientSDKWrapper parseSecureChannelMessage:decrpted];
         SecureChannelMessage message = channelWrapper.message;
         
-        NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
+        NSString* platformfingerPrint = [[DeviceBindingSDK getInstance]
+                                         fingerprintForSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]
+                                         inAccessGroup:[DIGIPassClientSDKWrapper getAppPrivateAccessGroup]
+                                         error:&error];
+//        NSString* platformfingerPrint =  [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:[[[DigiPassSingleTon sharedInstance] userIno] SALT_DIGIPASS]];
         
         NSDictionary* vectors = [[DigiPassSharedData sharedInstance] fetchUserVectors];
         NSData* staticVectorData = [vectors objectForKey:kStaticVectorData];
@@ -693,7 +738,8 @@
         
         if(returnCode1 != RETURN_CODE_SUCCESS) {
             [DIGIPassClientSDKWrapper zeroAndFreeWithByte:staticVector length:staticVectorLength];
-            error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
+            error = [[NSError alloc] initWithDomain:errorDomain code:(NSUInteger) returnCode1 userInfo:@{@"message": @"Dynamic Vector length failed"}];
+//            error = [[NSError alloc] initWithCode:(NSUInteger) returnCode1 message:@"Dynamic Vector length failed"]; // log the error code!
             [FIRAnalytics logEventWithName:@"decryptSecureChannelMessageBody"
                                 parameters:@{
                                              @"error": [NSString stringWithUTF8String: DPSDK_GetMessageForReturnCode(returnCode1)]

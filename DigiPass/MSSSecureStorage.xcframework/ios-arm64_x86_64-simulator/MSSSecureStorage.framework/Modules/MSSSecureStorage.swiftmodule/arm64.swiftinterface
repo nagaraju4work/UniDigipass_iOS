@@ -1,0 +1,92 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MSSSecureStorage
+import CryptoKit
+import Foundation
+@_exported import MSSSecureStorage
+import Swift
+@objc @objcMembers public class SecureStorageSDK : ObjectiveC.NSObject {
+  @objc public static var frameworkVersion: Swift.String {
+    @objc get
+  }
+  @objc public static var isProtectedBySecureHardware: Swift.Bool {
+    @objc get
+  }
+  @objc @available(iOS, deprecated: 13.0, message: "iterationNumber is not needed anymore")
+  public init(fileName: Swift.String, fingerprint: Swift.String?, iterationNumber: Swift.Int32) throws
+  @objc convenience public init(fileName: Swift.String, fingerprint: Swift.String?) throws
+  @objc @available(iOS, deprecated: 13.0, message: "iterationNumber not necessary anymore")
+  public func write(fingerPrint: Swift.String?, iterationNumber: Swift.Int32) throws
+  @objc public func write(fingerPrint: Swift.String?) throws
+  @objc public func put(string: Swift.String, key: Swift.String) throws
+  @objc public func put(data: Foundation.Data, key: Swift.String) throws
+  @objc public func removeValue(key: Swift.String) throws
+  @objc public func getString(key: Swift.String) throws -> Swift.String
+  @objc public func getData(key: Swift.String) throws -> Foundation.Data
+  @objc public func getAll() throws -> [Swift.String : Any]
+  @objc public static func delete(fileName: Swift.String) throws
+  @objc public func contains(key: Swift.String) -> Swift.Bool
+  @objc public func clear() throws
+  @objc public func count() -> Swift.Int
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum SecureStorageError : Foundation.LocalizedError, Foundation.CustomNSError {
+  case internalError
+  case storageNameNull
+  case storageNameIncorrectLength
+  case storageNameIncorrectFormat
+  case unknownStorage
+  case unreadableStorage
+  case contextNull
+  case iterationCountIncorrect
+  case keyNull
+  case keyIncorrectLength
+  case keyIncorrectFormat
+  case unknownKey
+  case valueNull
+  case valueIncorrectLength
+  case valueIncorrectFormat
+  case stringValueNotUTF8Format
+  case incorrectGetter
+  case storageCorrupted
+  case dataLocked
+  case unsupported(code: Swift.Int)
+  case publicKeyUnavailable
+  case encryptionAlgorithmNotSupported
+  case decryptionAlgorithmNotSupported
+  case readFileError(error: Swift.Error)
+  case writeFileError(error: Swift.Error)
+  case removeFileError(error: Swift.Error)
+  case encryptionWithFPError(error: Swift.Error)
+  case encryptionWithFPDataError
+  case invalidFingerprintError
+  case decryptionWithFPError(error: Swift.Error)
+  case volatileEncryptionDataError
+  case volatileEncryptionError(error: Swift.Error)
+  case volatileDecryptionError(error: Swift.Error)
+  case volatileKeyCreationError(status: Darwin.OSStatus)
+  case volatileKeyCopyError(status: Darwin.OSStatus)
+  case volatileKeyDataError
+  case deserializationError
+  case serializationError
+  case secureEnclaveDecryptionError(error: Swift.Error)
+  case secureEnclaveEncryptionError(error: Swift.Error)
+  case secureEnclaveKeyAccessCreationError(error: Swift.Error)
+  case secureEnclaveKeyDeletionError(status: Darwin.OSStatus)
+  case secureEnclaveKeyCreationError(error: Swift.Error)
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public var failureReason: Swift.String? {
+    get
+  }
+  public var recoverySuggestion: Swift.String? {
+    get
+  }
+}
+@available(iOS 13.0, *)
+extension CryptoKit.SymmetricKey : Swift.CustomStringConvertible {}
