@@ -11,18 +11,17 @@
 
 
 #import "DSAPPClientWrapper.h"
-#import <DigipassSDK/DP4Capi.h>
+//#import <MSSDigipass/DP4Capi.h>
 #import "DIGIPassClientSDKWrapper.h"
 #import "Reachability.h"
 #import "LocationAuthentication.h"
 #import "SecureStorageSDKWrapper.h"
 
-#import <DeviceBindingSDK/DeviceBindingSDK.h>
-#import <DeviceBindingSDK/DeviceBindingSDKException.h>
+//#import <MSSDeviceBinding/MSSDeviceBinding.h>
 
-#import <QRCodeScannerSDK/QRCodeScannerSDKViewController.h>
-#import <QRCodeScannerSDK/QRCodeScannerSDKDelegate.h>
-#import <QRCodeScannerSDK/QRCodeScannerSDKException.h>
+#import <QRCodeScannerSDK/QRCodeScannerSDK.h>
+#import <QRCodeScannerSDK/QRCodeScannerSDKScannerDelegate.h>
+//#import <QRCodeScannerSDK/QRCodeScannerSDKException.h>
 #import <QRCodeScannerSDK/QRCodeScannerSDKConstants.h>
 
 #import <MSSBiometricSensor/MSSBiometricSensor.h>
@@ -41,7 +40,7 @@
 #import "DigiPassSharedData.h"
 
 #import "WBCSDKWrapper.h"
-#import "WBCSDKErrorCodesWrapper.h"
+//#import "WBCSDKErrorCodesWrapper.h"
 #import "WBCSDKConstantsWrapper.h"
 
 //#import "AppConstants.h"

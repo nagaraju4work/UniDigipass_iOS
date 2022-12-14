@@ -1,0 +1,11 @@
+framework module MSSSecureStorage {
+    umbrella header "MSSSecureStorage.h"
+    export *
+    module * { export * }
+    private header "LegacySecureStorageSDK.h"
+}
+
+module MSSSecureStorage.Swift {
+    header "MSSSecureStorage-Swift.h"
+    requires objc
+}

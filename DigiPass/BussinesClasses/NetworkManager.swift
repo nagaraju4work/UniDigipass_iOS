@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import FirebaseAnalytics
+//import FirebaseAnalytics
 
 class NetworkManager:NSObject, URLSessionDelegate {
     let scheme: String = "https://"
@@ -24,21 +24,32 @@ class NetworkManager:NSObject, URLSessionDelegate {
         let path = "/rest/v2/provisioning/DSAPPSRPGenerateEphemeralKey"
         let urlStr = "\(scheme)\(host):\(port)\(path)"
         let jsonDict = ["clientEphemeralPublicKey": clientPublicKey, "registrationIdentifier": registraion]
+        Logger.log("generateDSAPPSRPGenerateEphemeralKey json dict - reg: "+registraion+", clientPublicKey: "+clientPublicKey)
         let body = try? JSONSerialization.data(withJSONObject: jsonDict, options: .prettyPrinted)
         if let url = URL(string: urlStr) {
             execute(url: url, body: body) { (data, response, error) in
                 
                 if let d = data {
                     do {
+                        Logger.log("Response for \(#function): \(String(describing: String(data: d, encoding: .utf8)))")
+                        
                         let jsonDecoder = JSONDecoder()
                         let responseModel = try jsonDecoder.decode(DSAPPEphemeralResponseModel.self, from: d)
+                        Logger.log("got generateDSAPPSRPGenerateEphemeralKey response")
                         completionHandler(responseModel, error)
                     }catch let error {
-                        Analytics.logEvent("generateDSAPPSRPGenerateEphemeralKey", parameters: [
-                            "error": error.localizedDescription as NSObject,
-                            ])
+                        
+                        print("generateDSAPPSRPGenerateEphemeralKey")
+                        
+                        Logger.log("generateDSAPPSRPGenerateEphemeralKey: "+error.localizedDescription)
+//                        Analytics.logEvent("generateDSAPPSRPGenerateEphemeralKey", parameters: [
+//                            "error": error.localizedDescription as NSObject,
+//                            ])
                     }
                     
+                } else {
+                    Logger.log("generateDSAPPSRPGenerateEphemeralKey: "+(error?.localizedDescription ?? "no error message"))
+                    completionHandler(nil, error)
                 }
             }
         }
@@ -57,11 +68,15 @@ class NetworkManager:NSObject, URLSessionDelegate {
 //                        print("Response for \(#function): \(String(data: d, encoding: .utf8))")
                         let jsonDecoder = JSONDecoder()
                         let responseModel = try jsonDecoder.decode(DSAPPSRPActivationModel.self, from: d)
+                        Logger.log("got generateDSAPPSRPGenerateActivationData response")
                         completionHandler(responseModel, error)
                     }catch let error {
-                        Analytics.logEvent("generateDSAPPSRPGenerateActivationData", parameters: [
-                            "error": error.localizedDescription as NSObject,
-                            ])
+                        
+                        print("generateDSAPPSRPGenerateActivationData")
+                        Logger.log("generateDSAPPSRPGenerateActivationData: "+error.localizedDescription)
+//                        Analytics.logEvent("generateDSAPPSRPGenerateActivationData", parameters: [
+//                            "error": error.localizedDescription as NSObject,
+//                            ])
                     }
                     
                 }
@@ -81,11 +96,16 @@ class NetworkManager:NSObject, URLSessionDelegate {
                     do {
                         let jsonDecoder = JSONDecoder()
                         let responseModel = try jsonDecoder.decode(DSAPPSRPMDIAddDeviceResModel.self, from: d)
+                        Logger.log("got DSAPPSRPMDIAddDeviceRequest response")
                         completionHandler(responseModel, error)
                     }catch let error {
-                        Analytics.logEvent("DSAPPSRPMDIAddDeviceRequest", parameters: [
-                            "error": error.localizedDescription as NSObject,
-                            ])
+                        
+                        print("DSAPPSRPMDIAddDeviceRequest")
+                        Logger.log("DSAPPSRPMDIAddDeviceRequest: "+error.localizedDescription)
+                        
+//                        Analytics.logEvent("DSAPPSRPMDIAddDeviceRequest", parameters: [
+//                            "error": error.localizedDescription as NSObject,
+//                            ])
                     }
                 }
             }
@@ -104,11 +124,16 @@ class NetworkManager:NSObject, URLSessionDelegate {
                     do {
                         let jsonDecoder = JSONDecoder()
                         let responseModel = try jsonDecoder.decode(DSAPPSRPMDIActivateResModel.self, from: d)
+                        Logger.log("got DSAPPSRPMDIActivateRequest response")
                         completionHandler(responseModel, error)
                     }catch let error {
-                        Analytics.logEvent("DSAPPSRPMDIActivateRequest", parameters: [
-                            "error": error.localizedDescription as NSObject,
-                            ])
+                        
+                        print("DSAPPSRPMDIActivateRequest")
+                        Logger.log("DSAPPSRPMDIActivateRequest: "+error.localizedDescription)
+                        
+//                        Analytics.logEvent("DSAPPSRPMDIActivateRequest", parameters: [
+//                            "error": error.localizedDescription as NSObject,
+//                            ])
                     }
                 }
             }
@@ -124,11 +149,16 @@ class NetworkManager:NSObject, URLSessionDelegate {
                     do {
                         let jsonDecoder = JSONDecoder()
                         let responseModel = try jsonDecoder.decode(DSAPPSRPServerTimeResModel.self, from: d)
+                        Logger.log("got getServerTime response")
                         completionHandler(responseModel, error)
                     }catch let error {
-                        Analytics.logEvent("getServerTime", parameters: [
-                            "error": error.localizedDescription as NSObject,
-                            ])
+                        
+                        print("getServerTime")
+                        Logger.log("getServerTime: "+error.localizedDescription)
+                        
+//                        Analytics.logEvent("getServerTime", parameters: [
+//                            "error": error.localizedDescription as NSObject,
+//                            ])
                     }
                     
                 }
@@ -159,11 +189,16 @@ class NetworkManager:NSObject, URLSessionDelegate {
                 
                 do {
                     let body = try JSONSerialization.data(withJSONObject: requestBody, options: .prettyPrinted)
+                    Logger.log("got updateNotificationID response")
                     return body
                 }catch let error {
-                    Analytics.logEvent("updateNotificationID", parameters: [
-                        "error": error.localizedDescription as NSObject,
-                        ])
+                    
+                    print("updateNotificationID")
+                    Logger.log("updateNotificationID: "+error.localizedDescription)
+                    
+//                    Analytics.logEvent("updateNotificationID", parameters: [
+//                        "error": error.localizedDescription as NSObject,
+//                        ])
                 }
                 return nil
             }
@@ -177,11 +212,16 @@ class NetworkManager:NSObject, URLSessionDelegate {
                         do {
                             let jsonDecoder = JSONDecoder()
                             let responseModel = try jsonDecoder.decode(DSAPPSRPNotificationUpdateResModel.self, from: d)
+                            Logger.log("got updateNotificationID 2 response")
                             completionHandler(responseModel, error)
                         }catch let error {
-                            Analytics.logEvent("updateNotificationID", parameters: [
-                                "error": error.localizedDescription as NSObject,
-                                ])
+                            
+                            print("updateNotificationID")
+                            Logger.log("updateNotificationID 2: "+error.localizedDescription)
+                            
+//                            Analytics.logEvent("updateNotificationID", parameters: [
+//                                "error": error.localizedDescription as NSObject,
+//                                ])
                         }
                         
                     }
@@ -203,11 +243,15 @@ class NetworkManager:NSObject, URLSessionDelegate {
 //                        print("Response: \(String(data: d, encoding: .utf8) ?? "")")
                         do {
                             let json = try JSONSerialization.jsonObject(with: d, options: .mutableContainers) as? [String: Any]
+                            Logger.log("got authenticateUserLoginRequest response")
                             completionHandler(json, error)
                         }catch let error {
-                            Analytics.logEvent("authenticateUserLoginRequest", parameters: [
-                                "error": error.localizedDescription as NSObject,
-                                ])
+                            
+                            print("authenticateUserLoginRequest")
+                            Logger.log("authenticateUserLoginRequest: "+error.localizedDescription)
+//                            Analytics.logEvent("authenticateUserLoginRequest", parameters: [
+//                                "error": error.localizedDescription as NSObject,
+//                                ])
                         }
                     }
                 }
@@ -228,11 +272,16 @@ class NetworkManager:NSObject, URLSessionDelegate {
                         do {
 //                            print("Response: \(String(data: d, encoding: .utf8) ?? "")")
                             let json = try JSONSerialization.jsonObject(with: d, options: .mutableContainers) as? [String: Any]
+                            Logger.log("got cancelUserLoginRequest response")
                             completionHandler(json, error)
                         }catch let error {
-                            Analytics.logEvent("cancelUserLoginRequest", parameters: [
-                                "error": error.localizedDescription as NSObject,
-                                ])
+                            
+                            print("cancelUserLoginRequest")
+                            Logger.log("cancelUserLoginRequest: "+error.localizedDescription)
+                            
+//                            Analytics.logEvent("cancelUserLoginRequest", parameters: [
+//                                "error": error.localizedDescription as NSObject,
+//                                ])
                         }
                     }
                 }
@@ -256,11 +305,16 @@ class NetworkManager:NSObject, URLSessionDelegate {
                 
                 do {
                     let body = try JSONSerialization.data(withJSONObject: requestBody, options: .prettyPrinted)
+                    Logger.log("got preparedSecureChannel response")
                     return body
                 }catch let error {
-                    Analytics.logEvent("preparedSecureChannel", parameters: [
-                        "error": error.localizedDescription as NSObject,
-                        ])
+                    
+                    print("preparedSecureChannel")
+                    Logger.log("preparedSecureChannel: "+error.localizedDescription)
+                    
+//                    Analytics.logEvent("preparedSecureChannel", parameters: [
+//                        "error": error.localizedDescription as NSObject,
+//                        ])
                 }
                 return nil
             }
@@ -274,11 +328,17 @@ class NetworkManager:NSObject, URLSessionDelegate {
                         do {
                             let jsonDecoder = JSONDecoder()
                             let responseModel = try jsonDecoder.decode(DSAPPSRPPrepareSecureResModel.self, from: d)
+                            Logger.log("got preparedSecureChannel 2 response")
                             completionHandler(responseModel, error)
                         }catch let error {
-                            Analytics.logEvent("preparedSecureChannel", parameters: [
-                                "error": error.localizedDescription as NSObject,
-                                ])
+                            
+                            
+                            print("preparedSecureChannel")
+                            Logger.log("preparedSecureChannel 2: "+error.localizedDescription)
+                            
+//                            Analytics.logEvent("preparedSecureChannel", parameters: [
+//                                "error": error.localizedDescription as NSObject,
+//                                ])
                         }
                         
                     }

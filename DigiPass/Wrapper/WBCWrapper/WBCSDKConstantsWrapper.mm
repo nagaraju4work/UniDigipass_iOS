@@ -7,7 +7,7 @@
 
 #import "WBCSDKConstantsWrapper.h"
 
-#import <WBCSDK/WBCSDKConstants.h>
+#import <MSSWBC/WBCSDKConstants.h>
 using namespace com::vasco::digipass::sdk::utils::wbc;
 
 unsigned char const CRYPTO_MECHANISM_AES = WBCSDKConstants::CRYPTO_MECHANISM_AES;

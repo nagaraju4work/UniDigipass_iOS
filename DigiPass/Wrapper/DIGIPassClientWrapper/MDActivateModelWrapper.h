@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <DigipassSDK/DP4Capi.h>
+#import <MSSDigipass/DP4Capi.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

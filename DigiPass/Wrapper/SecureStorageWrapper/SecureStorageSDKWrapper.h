@@ -6,8 +6,8 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
-#import <SecureStorageSDK/SecureStorageSDK.h>
-#import <SecureStorageSDK/SecureStorageSDKErrorCodes.h>
+#import <MSSSecureStorage/MSSSecureStorage.h>
+#import <MSSSecureStorage/SecureStorageSDKErrorCodes.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -180,16 +180,6 @@ NS_ASSUME_NONNULL_BEGIN
  * @return Yes if the call is successful, If an error occurred the reason will be put in the error.
  */
 - (BOOL)clearWithError:(NSError **)error;
-
-/**
- * Returns the number of entries in this storage
- * @param error a NSError raised if there is an error during the process. The following codes can be returned:
- * <ul>
- *  <li>SecureStorageSDKErrorCodes_INTERNAL_ERROR if an internal error occurs (see SecureStorageSDKErrorCodes.h).</li>
- * </ul>
- * @return The number of entries in this storage, If an error occurred the reason will be put in the error.
- */
-- (NSNumber * _Nullable)sizeWithError:(NSError **)error;
 
 /**
  * Return if the Secure Storage SDK support the hardware protection.

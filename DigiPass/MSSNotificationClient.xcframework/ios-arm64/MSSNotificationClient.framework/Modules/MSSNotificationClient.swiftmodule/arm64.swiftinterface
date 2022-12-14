@@ -1,0 +1,63 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MSSNotificationClient
+import Foundation
+@_exported import MSSNotificationClient
+import Swift
+import _Concurrency
+public struct NotificationType : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public static let badge: MSSNotificationClient.NotificationType
+  public static let sound: MSSNotificationClient.NotificationType
+  public static let alert: MSSNotificationClient.NotificationType
+  public typealias ArrayLiteralElement = MSSNotificationClient.NotificationType
+  public typealias Element = MSSNotificationClient.NotificationType
+  public typealias RawValue = Swift.Int
+}
+@_hasMissingDesignatedInitializers public class NotificationClientSDK {
+  public static func registerNotificationServices(withType type: MSSNotificationClient.NotificationType) throws
+  public static func oneSpanNotificationIdentifier(for deviceToken: Foundation.Data) throws -> Swift.String
+  public static func isOneSpanNotification(_ userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
+  public static func oneSpanNotification(from userInfo: [Swift.AnyHashable : Any]) -> MSSNotificationClient.OneSpanNotification?
+  @objc deinit
+}
+public struct OneSpanNotification {
+  public let title: Swift.String?
+  public let subject: Swift.String?
+  public let oneSpanContent: Swift.String
+  public let badge: Swift.Int?
+  public let customAttributes: [Swift.String : Swift.String]?
+}
+public enum NotificationError : Foundation.LocalizedError, Swift.Equatable {
+  case internalError
+  case notificationIdentifierIncorectFormat
+  case notificationIdentifierNil
+  case notificationIdentifierInvalid
+  case notificationNil
+  case notificationInvalid
+  case networkNotAvailable
+  case devTokenNil
+  case unsupported(code: Swift.Int)
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public var failureReason: Swift.String? {
+    get
+  }
+  public var recoverySuggestion: Swift.String? {
+    get
+  }
+  public static func == (a: MSSNotificationClient.NotificationError, b: MSSNotificationClient.NotificationError) -> Swift.Bool
+}
+extension MSSNotificationClient.NotificationError : Foundation.CustomNSError {
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+  public static var errorDomain: Swift.String {
+    get
+  }
+}

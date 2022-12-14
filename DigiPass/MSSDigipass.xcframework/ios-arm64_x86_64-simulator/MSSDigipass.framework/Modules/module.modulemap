@@ -1,0 +1,11 @@
+framework module MSSDigipass {
+  umbrella header "MSSDigipass.h"
+
+  export *
+  module * { export * }
+}
+
+module MSSDigipass.Swift {
+    header "MSSDigipass-Swift.h"
+    requires objc
+}

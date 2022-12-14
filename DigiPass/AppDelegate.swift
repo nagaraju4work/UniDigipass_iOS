@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 
 let NotificationDataUpdated = "NotificationDataUpdated"
 let NotificationReceived = "NotificationReceived"
@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var notificationFromBackground = false
     var appRouter: AppRouter!
     
+    static let shared: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -32,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appRouter = AppRouter(window: window!)
         registerNotifications()
     
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
         return true
     }
     
@@ -267,8 +269,6 @@ extension AppDelegate {
             notificationSubjectText = try NotificationSDKClientWrapper.getSubject(userInfo)
             
             // Parse the provided NSDictionary and retrieve the badge value of the notification
-            let badgeValue = try NotificationSDKClientWrapper.getBadgeValue(userInfo)
-            
             // Set the badge value to 0 in order to remove all notifications.
             // It is required since, in iOS 7, the remote notifications are not automatically removed when opened.
             UIApplication.shared.applicationIconBadgeNumber = 0

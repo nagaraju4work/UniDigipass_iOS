@@ -5,7 +5,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-#define BiometricSensorSDK_VERSION  @"4.25.1"
+#define BiometricSensorSDK_VERSION  @"4.26.0"
 #import <Foundation/Foundation.h>
 #import <MSSBiometricSensor/BiometricSensorSDKConstants.h>
 #import <MSSBiometricSensor/BiometricSensorSDKErrorCodes.h>
@@ -83,6 +83,13 @@ NS_REFINED_FOR_SWIFT
  */
 + (void)stopBiometricAuthentication;
 
+/**
+ * This method returns the NSData representation for the currently enrolled biometric set. It can be used to compare with other values returned by this property to determine whether the authorized database has been updated. However, the nature of the change cannot be determined from this data.
+ *
+ * @return the NSData representation for the currently enrolled biometric set. NIL if there are no biometrics enrolled!
+ */
++ (nullable NSData *)currentlyEnrolledBiometrySet;
+
 /*!
  * \mainpage BiometricSensor SDK - Programmer documentation
  * \brief Provides the entry points of the BiometricSensor SDK framework API:
@@ -91,9 +98,10 @@ NS_REFINED_FOR_SWIFT
  *   <li>Use {@link BiometricSensorSDK#isBiometricAuthenticationEnrolledFor:error:} to check whether the biometric authentication feature is currently usable (i.e. supported by the platform and fully enabled by the user)</li>
  *   <li>Use {@link BiometricSensorSDK#startBiometricAuthenticationWithParameters:delegate:error:} to start user's biometric authentication</li>
  *   <li>Use {@link BiometricSensorSDK#stopBiometricAuthentication} to stop the user's biometric authentication</li>
+ *   <li>Use {@link BiometricSensorSDK#currentlyEnrolledBiometrySet} to get the currently enrolled biometry set on the device</li>
  * </ul>
  * @OneSpanCopyright
- * @version 4.25.1
+ * @version 4.26.0
  */
 
 @end

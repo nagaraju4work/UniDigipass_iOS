@@ -1,0 +1,11 @@
+framework module MSSNotificationClient {
+  umbrella header "MSSNotificationClient.h"
+
+  export *
+  module * { export * }
+}
+
+module MSSNotificationClient.Swift {
+    header "MSSNotificationClient-Swift.h"
+    requires objc
+}

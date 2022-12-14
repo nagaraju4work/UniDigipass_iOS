@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		935CF001000C1E520F0FF180 /* Pods_DigiPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13420F2972FEEE2C350BE308 /* Pods_DigiPass.framework */; };
+		6E6F54372938134200E09369 /* MSSDeviceBinding.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2D28F95D5800461EF4 /* MSSDeviceBinding.xcframework */; };
+		6E6F54382938134200E09369 /* MSSDeviceBinding.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2D28F95D5800461EF4 /* MSSDeviceBinding.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E6F5439293813E700E09369 /* fipsOpenSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF4D8FB28F95B97009D0319 /* fipsOpenSSL.framework */; };
+		6E6F543A293813E700E09369 /* fipsOpenSSL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAF4D8FB28F95B97009D0319 /* fipsOpenSSL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA0AFE3323521D42005582D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA0AFE3223521D42005582D2 /* GoogleService-Info.plist */; };
-		CA6EAD3128DE15E2002DCF49 /* MSSBiometricSensor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6EAD3028DE15E2002DCF49 /* MSSBiometricSensor.xcframework */; };
+		CA3E4C3028F95D5A00461EF4 /* MSSDigipass.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2728F95D5100461EF4 /* MSSDigipass.xcframework */; };
+		CA3E4C3128F95D5B00461EF4 /* MSSNotificationClient.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2828F95D5200461EF4 /* MSSNotificationClient.xcframework */; };
+		CA3E4C3228F95D5B00461EF4 /* MSSDSAPPClient.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2928F95D5300461EF4 /* MSSDSAPPClient.xcframework */; };
+		CA3E4C3328F95D5B00461EF4 /* MSSSecureStorage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2A28F95D5500461EF4 /* MSSSecureStorage.xcframework */; };
+		CA3E4C3428F95D5C00461EF4 /* QRCodeScannerSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2B28F95D5600461EF4 /* QRCodeScannerSDK.xcframework */; };
+		CA3E4C3528F95D5C00461EF4 /* MSSWBC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2C28F95D5600461EF4 /* MSSWBC.xcframework */; };
+		CA3E4C3728F95D5C00461EF4 /* MSSBiometricSensor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2E28F95D5900461EF4 /* MSSBiometricSensor.xcframework */; };
+		CA3E4C3828F95D5C00461EF4 /* UtilitiesSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2F28F95D5A00461EF4 /* UtilitiesSDK.xcframework */; };
 		CA791EE0234DCD9B00E542F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA791EDF234DCD9B00E542F4 /* AppDelegate.swift */; };
 		CA791EE5234DCD9B00E542F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA791EE3234DCD9B00E542F4 /* Main.storyboard */; };
 		CA791EEA234DCD9D00E542F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA791EE8234DCD9D00E542F4 /* LaunchScreen.storyboard */; };
 		CA791EFB234DCDFD00E542F4 /* GeolocationSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF1234DCDFB00E542F4 /* GeolocationSDK.framework */; };
-		CA791EFC234DCDFD00E542F4 /* DSAPP_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF2234DCDFC00E542F4 /* DSAPP_Client.framework */; };
-		CA791EFD234DCDFD00E542F4 /* QRCodeScannerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF3234DCDFC00E542F4 /* QRCodeScannerSDK.framework */; };
-		CA791EFE234DCDFD00E542F4 /* NotificationSDKClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF4234DCDFC00E542F4 /* NotificationSDKClient.framework */; };
-		CA791EFF234DCDFD00E542F4 /* WBCSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF5234DCDFC00E542F4 /* WBCSDK.framework */; };
-		CA791F01234DCDFD00E542F4 /* SecureStorageSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF7234DCDFC00E542F4 /* SecureStorageSDK.framework */; };
-		CA791F03234DCDFD00E542F4 /* DigipassSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF9234DCDFD00E542F4 /* DigipassSDK.framework */; };
-		CA791F04234DCDFD00E542F4 /* DeviceBindingSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EFA234DCDFD00E542F4 /* DeviceBindingSDK.framework */; };
-		CA791F06234DCE0C00E542F4 /* fipsOpenSSL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA791EF8234DCDFD00E542F4 /* fipsOpenSSL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA791F0A234DCE3100E542F4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F09234DCE3100E542F4 /* CoreLocation.framework */; };
 		CA791F0C234DCE3800E542F4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F0B234DCE3800E542F4 /* SystemConfiguration.framework */; };
 		CA791F0E234DCE5200E542F4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F0D234DCE5200E542F4 /* libc++.tbd */; };
@@ -33,7 +35,6 @@
 		CA791F1A234DD05F00E542F4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F19234DD05F00E542F4 /* AudioToolbox.framework */; };
 		CA791F1C234DD06E00E542F4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F1B234DD06E00E542F4 /* AVFoundation.framework */; };
 		CA791F1E234DD07400E542F4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F1D234DD07400E542F4 /* Security.framework */; };
-		CA791F20234DD0B000E542F4 /* libUtilitiesSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA791F1F234DD0B000E542F4 /* libUtilitiesSDK.a */; };
 		CA791F4B234DD1A400E542F4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F23234DD1A400E542F4 /* Reachability.m */; };
 		CA791F4C234DD1A400E542F4 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F24234DD1A400E542F4 /* Constants.m */; };
 		CA791F4D234DD1A400E542F4 /* DigiPassSharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F25234DD1A400E542F4 /* DigiPassSharedData.m */; };
@@ -43,7 +44,6 @@
 		CA791F51234DD1A400E542F4 /* LocationAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F2E234DD1A400E542F4 /* LocationAuthentication.m */; };
 		CA791F52234DD1A400E542F4 /* WBCSDKConstantsWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA791F30234DD1A400E542F4 /* WBCSDKConstantsWrapper.mm */; };
 		CA791F53234DD1A400E542F4 /* WBCSDKWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA791F31234DD1A400E542F4 /* WBCSDKWrapper.mm */; };
-		CA791F54234DD1A400E542F4 /* WBCSDKErrorCodesWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA791F32234DD1A400E542F4 /* WBCSDKErrorCodesWrapper.mm */; };
 		CA791F55234DD1A400E542F4 /* WBCSDKTablesImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA791F37234DD1A400E542F4 /* WBCSDKTablesImpl.cpp */; };
 		CA791F56234DD1A400E542F4 /* MDActivateModelWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F3C234DD1A400E542F4 /* MDActivateModelWrapper.m */; };
 		CA791F57234DD1A400E542F4 /* DIGIPassClientSDKWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = CA791F3D234DD1A400E542F4 /* DIGIPassClientSDKWrapper.m */; };
@@ -100,7 +100,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CA791F06234DCE0C00E542F4 /* fipsOpenSSL.framework in Embed Frameworks */,
+				6E6F54382938134200E09369 /* MSSDeviceBinding.xcframework in Embed Frameworks */,
+				6E6F543A293813E700E09369 /* fipsOpenSSL.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,25 +109,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13420F2972FEEE2C350BE308 /* Pods_DigiPass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiPass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		56A74E28B86F2579A1F53A54 /* Pods-DigiPass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiPass.release.xcconfig"; path = "Target Support Files/Pods-DigiPass/Pods-DigiPass.release.xcconfig"; sourceTree = "<group>"; };
-		B4E5E72527D0F2B4E8C1D62D /* Pods-DigiPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiPass.debug.xcconfig"; path = "Target Support Files/Pods-DigiPass/Pods-DigiPass.debug.xcconfig"; sourceTree = "<group>"; };
 		CA0AFE3223521D42005582D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CA6EAD3028DE15E2002DCF49 /* MSSBiometricSensor.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSBiometricSensor.xcframework; sourceTree = "<group>"; };
+		CA3E4C2728F95D5100461EF4 /* MSSDigipass.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSDigipass.xcframework; sourceTree = "<group>"; };
+		CA3E4C2828F95D5200461EF4 /* MSSNotificationClient.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSNotificationClient.xcframework; sourceTree = "<group>"; };
+		CA3E4C2928F95D5300461EF4 /* MSSDSAPPClient.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSDSAPPClient.xcframework; sourceTree = "<group>"; };
+		CA3E4C2A28F95D5500461EF4 /* MSSSecureStorage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSSecureStorage.xcframework; sourceTree = "<group>"; };
+		CA3E4C2B28F95D5600461EF4 /* QRCodeScannerSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = QRCodeScannerSDK.xcframework; sourceTree = "<group>"; };
+		CA3E4C2C28F95D5600461EF4 /* MSSWBC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSWBC.xcframework; sourceTree = "<group>"; };
+		CA3E4C2D28F95D5800461EF4 /* MSSDeviceBinding.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSDeviceBinding.xcframework; sourceTree = "<group>"; };
+		CA3E4C2E28F95D5900461EF4 /* MSSBiometricSensor.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSBiometricSensor.xcframework; sourceTree = "<group>"; };
+		CA3E4C2F28F95D5A00461EF4 /* UtilitiesSDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = UtilitiesSDK.xcframework; sourceTree = "<group>"; };
 		CA791EDC234DCD9B00E542F4 /* DigiPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigiPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA791EDF234DCD9B00E542F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA791EE4234DCD9B00E542F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA791EE9234DCD9D00E542F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA791EEB234DCD9D00E542F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA791EF1234DCDFB00E542F4 /* GeolocationSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GeolocationSDK.framework; sourceTree = "<group>"; };
-		CA791EF2234DCDFC00E542F4 /* DSAPP_Client.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DSAPP_Client.framework; sourceTree = "<group>"; };
-		CA791EF3234DCDFC00E542F4 /* QRCodeScannerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QRCodeScannerSDK.framework; sourceTree = "<group>"; };
-		CA791EF4234DCDFC00E542F4 /* NotificationSDKClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NotificationSDKClient.framework; sourceTree = "<group>"; };
-		CA791EF5234DCDFC00E542F4 /* WBCSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WBCSDK.framework; sourceTree = "<group>"; };
-		CA791EF7234DCDFC00E542F4 /* SecureStorageSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SecureStorageSDK.framework; sourceTree = "<group>"; };
-		CA791EF8234DCDFD00E542F4 /* fipsOpenSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = fipsOpenSSL.framework; sourceTree = "<group>"; };
-		CA791EF9234DCDFD00E542F4 /* DigipassSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigipassSDK.framework; sourceTree = "<group>"; };
-		CA791EFA234DCDFD00E542F4 /* DeviceBindingSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DeviceBindingSDK.framework; sourceTree = "<group>"; };
 		CA791F09234DCE3100E542F4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CA791F0B234DCE3800E542F4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CA791F0D234DCE5200E542F4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -138,7 +136,6 @@
 		CA791F19234DD05F00E542F4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CA791F1B234DD06E00E542F4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CA791F1D234DD07400E542F4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		CA791F1F234DD0B000E542F4 /* libUtilitiesSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUtilitiesSDK.a; sourceTree = "<group>"; };
 		CA791F21234DD17D00E542F4 /* DigiPass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DigiPass.entitlements; sourceTree = "<group>"; };
 		CA791F23234DD1A400E542F4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		CA791F24234DD1A400E542F4 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
@@ -216,6 +213,7 @@
 		CA791FB4234DD22100E542F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA791FB6234DD2DA00E542F4 /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		CA791FB7234DD2DA00E542F4 /* DigiPassSingleTon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigiPassSingleTon.swift; sourceTree = "<group>"; };
+		CAF4D8FB28F95B97009D0319 /* fipsOpenSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = fipsOpenSSL.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,50 +221,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA3E4C3028F95D5A00461EF4 /* MSSDigipass.xcframework in Frameworks */,
+				CA3E4C3828F95D5C00461EF4 /* UtilitiesSDK.xcframework in Frameworks */,
 				CA791F1E234DD07400E542F4 /* Security.framework in Frameworks */,
 				CA791F1C234DD06E00E542F4 /* AVFoundation.framework in Frameworks */,
+				CA3E4C3528F95D5C00461EF4 /* MSSWBC.xcframework in Frameworks */,
+				6E6F5439293813E700E09369 /* fipsOpenSSL.framework in Frameworks */,
+				CA3E4C3128F95D5B00461EF4 /* MSSNotificationClient.xcframework in Frameworks */,
 				CA791F1A234DD05F00E542F4 /* AudioToolbox.framework in Frameworks */,
 				CA791F18234DD04D00E542F4 /* CoreGraphics.framework in Frameworks */,
+				CA3E4C3328F95D5B00461EF4 /* MSSSecureStorage.xcframework in Frameworks */,
 				CA791F16234DD04700E542F4 /* CoreMedia.framework in Frameworks */,
 				CA791F14234DCE7700E542F4 /* CoreVideo.framework in Frameworks */,
+				6E6F54372938134200E09369 /* MSSDeviceBinding.xcframework in Frameworks */,
 				CA791F12234DCE6C00E542F4 /* libiconv.tbd in Frameworks */,
 				CA791F10234DCE5900E542F4 /* QuartzCore.framework in Frameworks */,
+				CA3E4C3728F95D5C00461EF4 /* MSSBiometricSensor.xcframework in Frameworks */,
 				CA791F0E234DCE5200E542F4 /* libc++.tbd in Frameworks */,
 				CA791F0C234DCE3800E542F4 /* SystemConfiguration.framework in Frameworks */,
+				CA3E4C3228F95D5B00461EF4 /* MSSDSAPPClient.xcframework in Frameworks */,
 				CA791F0A234DCE3100E542F4 /* CoreLocation.framework in Frameworks */,
-				CA791EFC234DCDFD00E542F4 /* DSAPP_Client.framework in Frameworks */,
-				CA6EAD3128DE15E2002DCF49 /* MSSBiometricSensor.xcframework in Frameworks */,
-				CA791EFD234DCDFD00E542F4 /* QRCodeScannerSDK.framework in Frameworks */,
-				CA791F01234DCDFD00E542F4 /* SecureStorageSDK.framework in Frameworks */,
 				CA791EFB234DCDFD00E542F4 /* GeolocationSDK.framework in Frameworks */,
-				CA791F03234DCDFD00E542F4 /* DigipassSDK.framework in Frameworks */,
-				CA791EFF234DCDFD00E542F4 /* WBCSDK.framework in Frameworks */,
-				CA791F04234DCDFD00E542F4 /* DeviceBindingSDK.framework in Frameworks */,
-				CA791F20234DD0B000E542F4 /* libUtilitiesSDK.a in Frameworks */,
-				CA791EFE234DCDFD00E542F4 /* NotificationSDKClient.framework in Frameworks */,
-				935CF001000C1E520F0FF180 /* Pods_DigiPass.framework in Frameworks */,
+				CA3E4C3428F95D5C00461EF4 /* QRCodeScannerSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		525A5C78308BC32FD7AD55E1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B4E5E72527D0F2B4E8C1D62D /* Pods-DigiPass.debug.xcconfig */,
-				56A74E28B86F2579A1F53A54 /* Pods-DigiPass.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		CA791ED3234DCD9B00E542F4 = {
 			isa = PBXGroup;
 			children = (
 				CA791EDE234DCD9B00E542F4 /* DigiPass */,
 				CA791EDD234DCD9B00E542F4 /* Products */,
 				CA791F08234DCE3000E542F4 /* Frameworks */,
-				525A5C78308BC32FD7AD55E1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -287,17 +275,17 @@
 				CA791F86234DD1BF00E542F4 /* Views */,
 				CA791F22234DD1A400E542F4 /* Wrapper */,
 				CA791F21234DD17D00E542F4 /* DigiPass.entitlements */,
-				CA791F1F234DD0B000E542F4 /* libUtilitiesSDK.a */,
-				CA6EAD3028DE15E2002DCF49 /* MSSBiometricSensor.xcframework */,
-				CA791EFA234DCDFD00E542F4 /* DeviceBindingSDK.framework */,
-				CA791EF9234DCDFD00E542F4 /* DigipassSDK.framework */,
-				CA791EF2234DCDFC00E542F4 /* DSAPP_Client.framework */,
-				CA791EF8234DCDFD00E542F4 /* fipsOpenSSL.framework */,
+				CA3E4C2E28F95D5900461EF4 /* MSSBiometricSensor.xcframework */,
+				CA3E4C2D28F95D5800461EF4 /* MSSDeviceBinding.xcframework */,
+				CA3E4C2728F95D5100461EF4 /* MSSDigipass.xcframework */,
+				CA3E4C2928F95D5300461EF4 /* MSSDSAPPClient.xcframework */,
+				CA3E4C2828F95D5200461EF4 /* MSSNotificationClient.xcframework */,
+				CA3E4C2A28F95D5500461EF4 /* MSSSecureStorage.xcframework */,
+				CA3E4C2B28F95D5600461EF4 /* QRCodeScannerSDK.xcframework */,
+				CA3E4C2F28F95D5A00461EF4 /* UtilitiesSDK.xcframework */,
+				CA3E4C2C28F95D5600461EF4 /* MSSWBC.xcframework */,
+				CAF4D8FB28F95B97009D0319 /* fipsOpenSSL.framework */,
 				CA791EF1234DCDFB00E542F4 /* GeolocationSDK.framework */,
-				CA791EF4234DCDFC00E542F4 /* NotificationSDKClient.framework */,
-				CA791EF3234DCDFC00E542F4 /* QRCodeScannerSDK.framework */,
-				CA791EF7234DCDFC00E542F4 /* SecureStorageSDK.framework */,
-				CA791EF5234DCDFC00E542F4 /* WBCSDK.framework */,
 				CA791EDF234DCD9B00E542F4 /* AppDelegate.swift */,
 				CA791FB6234DD2DA00E542F4 /* AppRouter.swift */,
 				CA791FB7234DD2DA00E542F4 /* DigiPassSingleTon.swift */,
@@ -323,7 +311,6 @@
 				CA791F0D234DCE5200E542F4 /* libc++.tbd */,
 				CA791F0B234DCE3800E542F4 /* SystemConfiguration.framework */,
 				CA791F09234DCE3100E542F4 /* CoreLocation.framework */,
-				13420F2972FEEE2C350BE308 /* Pods_DigiPass.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -516,13 +503,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA791EEE234DCD9D00E542F4 /* Build configuration list for PBXNativeTarget "DigiPass" */;
 			buildPhases = (
-				8C53843508B6A0E5AF4629DD /* [CP] Check Pods Manifest.lock */,
 				CA791ED8234DCD9B00E542F4 /* Sources */,
 				CA791ED9234DCD9B00E542F4 /* Frameworks */,
 				CA791EDA234DCD9B00E542F4 /* Resources */,
 				CA791F07234DCE0C00E542F4 /* Embed Frameworks */,
-				CA0AFE3423524BEA005582D2 /* ShellScript */,
-				C10FCEC22EDE51A4629FF9F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -589,65 +573,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		8C53843508B6A0E5AF4629DD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DigiPass-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C10FCEC22EDE51A4629FF9F4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigiPass/Pods-DigiPass-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigiPass/Pods-DigiPass-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigiPass/Pods-DigiPass-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CA0AFE3423524BEA005582D2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		CA791ED8234DCD9B00E542F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -674,7 +599,6 @@
 				CA791FA5234DD1BF00E542F4 /* DSAPPSRPNotificationUpdateResModel.swift in Sources */,
 				CA791F96234DD1BF00E542F4 /* Appearance.swift in Sources */,
 				CA791FA7234DD1BF00E542F4 /* DSAPPEphemeralResponseModel.swift in Sources */,
-				CA791F54234DD1A400E542F4 /* WBCSDKErrorCodesWrapper.mm in Sources */,
 				CA791F52234DD1A400E542F4 /* WBCSDKConstantsWrapper.mm in Sources */,
 				CA791FAD234DD1BF00E542F4 /* ProfileTableViewCell.swift in Sources */,
 				CA791FA2234DD1BF00E542F4 /* FSnapChatLoadingView.swift in Sources */,
@@ -790,6 +714,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
 			name = Debug;
@@ -846,6 +771,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s x86_64";
 			};
@@ -853,18 +779,20 @@
 		};
 		CA791EEF234DCD9D00E542F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4E5E72527D0F2B4E8C1D62D /* Pods-DigiPass.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DigiPass/DigiPass.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.0.4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = V4YMXB7NF8;
+				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DigiPass",
 				);
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = DigiPass/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -875,6 +803,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DigiPass",
 				);
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -882,29 +811,7 @@
 					"-l\"sqlite3\"",
 					"-l\"z\"",
 					"-framework",
-					"\"Crashlytics\"",
-					"-framework",
-					"\"FIRAnalyticsConnector\"",
-					"-framework",
-					"\"Fabric\"",
-					"-framework",
-					"\"FirebaseAnalytics\"",
-					"-framework",
-					"\"FirebaseCore\"",
-					"-framework",
-					"\"FirebaseCoreDiagnostics\"",
-					"-framework",
-					"\"FirebaseInstanceID\"",
-					"-framework",
 					"\"Foundation\"",
-					"-framework",
-					"\"GoogleAppMeasurement\"",
-					"-framework",
-					"\"GoogleDataTransport\"",
-					"-framework",
-					"\"GoogleDataTransportCCTSupport\"",
-					"-framework",
-					"\"GoogleUtilities\"",
 					"-framework",
 					"\"Security\"",
 					"-framework",
@@ -914,13 +821,14 @@
 					"-framework",
 					"\"UIKit\"",
 					"-framework",
-					"\"nanopb\"",
-					"-weak_framework",
 					LocalAuthentication,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.unicorp.adpolice.gov;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DigiPass/DigiPass-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -930,17 +838,18 @@
 		};
 		CA791EF0234DCD9D00E542F4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56A74E28B86F2579A1F53A54 /* Pods-DigiPass.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DigiPass/DigiPass.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2.0.4;
 				DEVELOPMENT_TEAM = V4YMXB7NF8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DigiPass",
 				);
+				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = DigiPass/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -951,6 +860,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DigiPass",
 				);
+				MARKETING_VERSION = 2.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -958,29 +868,7 @@
 					"-l\"sqlite3\"",
 					"-l\"z\"",
 					"-framework",
-					"\"Crashlytics\"",
-					"-framework",
-					"\"FIRAnalyticsConnector\"",
-					"-framework",
-					"\"Fabric\"",
-					"-framework",
-					"\"FirebaseAnalytics\"",
-					"-framework",
-					"\"FirebaseCore\"",
-					"-framework",
-					"\"FirebaseCoreDiagnostics\"",
-					"-framework",
-					"\"FirebaseInstanceID\"",
-					"-framework",
 					"\"Foundation\"",
-					"-framework",
-					"\"GoogleAppMeasurement\"",
-					"-framework",
-					"\"GoogleDataTransport\"",
-					"-framework",
-					"\"GoogleDataTransportCCTSupport\"",
-					"-framework",
-					"\"GoogleUtilities\"",
 					"-framework",
 					"\"Security\"",
 					"-framework",
@@ -990,13 +878,14 @@
 					"-framework",
 					"\"UIKit\"",
 					"-framework",
-					"\"nanopb\"",
-					"-weak_framework",
 					LocalAuthentication,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.unicorp.adpolice.gov;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "DigiPass/DigiPass-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

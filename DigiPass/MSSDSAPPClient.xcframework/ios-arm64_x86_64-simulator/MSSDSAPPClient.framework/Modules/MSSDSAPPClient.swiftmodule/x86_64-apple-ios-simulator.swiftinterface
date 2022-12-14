@@ -1,0 +1,129 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MSSDSAPPClient
+import Foundation
+@_exported import MSSDSAPPClient
+import Swift
+import _Concurrency
+public struct DSAPPConstantsSRP {
+  public static var pwdMinLength: Swift.Int {
+    get
+  }
+  public static var pwdMaxLength: Swift.Int {
+    get
+  }
+  public static var userIdMaxLength: Swift.Int {
+    get
+  }
+  public static var userIdMinLength: Swift.Int {
+    get
+  }
+  public static var saltLength: Swift.Int {
+    get
+  }
+  public static var ephemeralKeyMaxLength: Swift.Int {
+    get
+  }
+  public static var evidenceMessageLength: Swift.Int {
+    get
+  }
+  public static var sessionKeyLength: Swift.Int {
+    get
+  }
+  public static var macLength: Swift.Int {
+    get
+  }
+  public static var encryptionCounterLength: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class DSAPPClient {
+  public static func validateSRPUserPasswordChecksum(_ userPassword: Swift.String) throws
+  public static func generateSRPClientEphemeralKey() throws -> MSSDSAPPClient.SRPClientEphemeralKeyResponse
+  public static func generateSRPSessionKey(clientEphemeralPublicKey: Swift.String, clientEphemeralPrivateKey: Swift.String, serverEphemeralPublicKey: Swift.String, userIdentity: Swift.String, userPassword: Swift.String, salt: Swift.String) throws -> MSSDSAPPClient.SRPSessionKeyResponse
+  public static func verifySRPServerEvidenceMessage(clientEphemeralPublicKey: Swift.String, clientEvidenceMessage: Swift.String, serverEvidenceMessage: Swift.String, sessionKey: Swift.String) throws
+  public static func decrypt(srpData encryptedData: Swift.String, sessionKey: Swift.String, encryptionCounter: Swift.String, mac: Swift.String) throws -> Swift.String
+  public static func verifySRPMAC(data: Foundation.Data, sessionKey: Swift.String, mac: Swift.String) throws
+  public static var version: Swift.String {
+    get
+  }
+  @objc deinit
+}
+public enum DSAPPClientError : Foundation.LocalizedError, Swift.Equatable {
+  case internalError
+  case checksumValidationFailed
+  case srpClientEphemeralKeyNullOrEmpty
+  case srpClientEphemeralKeyIncorrectLength
+  case srpClientEphemeralKeyInvalid
+  case srpClientEphemeralKeyIncorrectFormat
+  case srpUserIdNullOrEmpty
+  case srpUserIdIncorrectLength
+  case srpPasswordNullOrEmpty
+  case srpPasswordIncorrectLength
+  case srpSaltNullOrEmpty
+  case srpSaltIncorrectLength
+  case srpSaltIncorrectFormat
+  case srpServerEphemeralKeyNullOrEmpty
+  case srpServerEphemeralKeyIncorrectLength
+  case srpServerEphemeralKeyInvalid
+  case srpServerEphemeralKeyIncorrectFormat
+  case srpClientPrivateKeyNullOrEmpty
+  case srpClientPrivateKeyIncorrectLength
+  case srpClientPrivateKeyInvalid
+  case srpClientPrivateKeyIncorrectFormat
+  case srpSessionKeyNullOrEmpty
+  case srpSessionKeyIncorrectLength
+  case srpSessionKeyIncorrectFormat
+  case srpClientMessageNullOrEmpty
+  case srpClientMessageIncorrectLength
+  case srpClientMessageIncorrectFormat
+  case srpServerMessageNullOrEmpty
+  case srpServerMessageIncorrectLength
+  case srpServerMessageIncorrectFormat
+  case srpMacNullOrEmpty
+  case srpMacIncorrectLength
+  case srpMacIncorrectFormat
+  case srpEncryptionCounterNullOrEmpty
+  case srpEncryptionCounterIncorrectLength
+  case srpEncryptionCounterIncorrectFormat
+  case srpEncryptedDataNullOrEmpty
+  case srpEncryptedDataIncorrectFormat
+  case srpDecryptedDataIncorrectFormat
+  case srpMessageVerificationFailed
+  case srpMacVerificationFailed
+  case srpDataNullOrEmpty
+  case unsupported(code: Swift.Int)
+  public var failureReason: Swift.String? {
+    get
+  }
+  public static func == (a: MSSDSAPPClient.DSAPPClientError, b: MSSDSAPPClient.DSAPPClientError) -> Swift.Bool
+}
+extension MSSDSAPPClient.DSAPPClientError : Foundation.CustomNSError {
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+  public static var errorDomain: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class SRPSessionKeyResponse {
+  public var sessionKey: Swift.String {
+    get
+  }
+  public var clientEvidenceMessage: Swift.String {
+    get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class SRPClientEphemeralKeyResponse {
+  public var clientEphemeralPrivateKey: Swift.String {
+    get
+  }
+  public var clientEphemeralPublicKey: Swift.String {
+    get
+  }
+  @objc deinit
+}

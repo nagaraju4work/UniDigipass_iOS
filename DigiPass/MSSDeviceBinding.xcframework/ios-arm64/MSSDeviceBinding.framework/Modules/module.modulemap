@@ -1,0 +1,11 @@
+framework module MSSDeviceBinding {
+  umbrella header "MSSDeviceBinding.h"
+
+  export *
+  module * { export * }
+}
+
+module MSSDeviceBinding.Swift {
+    header "MSSDeviceBinding-Swift.h"
+    requires objc
+}
