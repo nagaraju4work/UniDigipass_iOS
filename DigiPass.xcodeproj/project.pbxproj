@@ -784,7 +784,7 @@
 				CODE_SIGN_ENTITLEMENTS = DigiPass/DigiPass.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0.4;
+				CURRENT_PROJECT_VERSION = 2.0.6;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = V4YMXB7NF8;
 				EXCLUDED_ARCHS = "";
@@ -843,7 +843,7 @@
 				CODE_SIGN_ENTITLEMENTS = DigiPass/DigiPass.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.0.4;
+				CURRENT_PROJECT_VERSION = 2.0.6;
 				DEVELOPMENT_TEAM = V4YMXB7NF8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

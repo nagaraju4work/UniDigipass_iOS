@@ -119,6 +119,7 @@ NSString *errorDomain = @"DigiPassSDKErrorDomain";
         vds_int32 returnCode = DPSDK_MultiDeviceActivateLicense(&message, NULL, fingerPrint, jailBreakStatus, clientServerTimeShift, staticVector, &staticVectorLength, dynamicVector, &dynamicVectorLength, deviceCode, sizeof(deviceCode));
         
         [Logger log:@"multiDeviceLicenceActivation reached 3"];
+        [Logger log:[NSString stringWithFormat:@"multiDeviceLicenceActivation reached 3 with return code: %d",returnCode]];
         
         if (returnCode == RETURN_CODE_SUCCESS) {
             
