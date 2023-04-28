@@ -11,7 +11,8 @@ import Foundation
 
 class NetworkManager:NSObject, URLSessionDelegate {
     let scheme: String = "https://"
-    let host: String = "mfa.adpolice.gov.ae" //"mfa.adpolice.gov.ae" //unicorptech.com"
+    //CLIENT: let host: String = "mfa.adpolice.gov.ae" //"mfa.adpolice.gov.ae" //unicorptech.com"
+    let host: String = "unicorp.ddns.net"
     let port: String = "11080"
 
     static let shared: NetworkManager = NetworkManager()
@@ -178,7 +179,8 @@ class NetworkManager:NSObject, URLSessionDelegate {
                 let serialNumber = messageModel.serialNumber
                 let finalStr = "\(serialNumber)-\(sequenceNumber)"
                 
-                let domain = "unicorptech.com"//"auh.police" //"unicorptech.com"
+                //CLIENT let domain = "auh.police"//"auh.police" //"unicorptech.com"
+                let domain = "ut.in"
                 let encryptionNotificationID = messageModel.rawData
                 let userID = userName
                 
