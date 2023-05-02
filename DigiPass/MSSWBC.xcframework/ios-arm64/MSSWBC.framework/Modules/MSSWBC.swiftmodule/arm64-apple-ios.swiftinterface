@@ -1,0 +1,59 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MSSWBC
+import Foundation
+@_exported import MSSWBC
+import Swift
+import _Concurrency
+@_hasMissingDesignatedInitializers public class WBCSDK {
+  public class func encrypt(_ data: Foundation.Data, initialVector: [Swift.UInt8], mechanism: MSSWBC.CryptoMechanism = .aes, container: MSSWBC.WBCTableContainer, mode: MSSWBC.CryptoMode = .ctr) throws -> Foundation.Data
+  public class func decrypt(_ data: Foundation.Data, initialVector: [Swift.UInt8], mechanism: MSSWBC.CryptoMechanism = .aes, container: MSSWBC.WBCTableContainer, mode: MSSWBC.CryptoMode = .ctr) throws -> Foundation.Data
+  @objc deinit
+}
+public enum CryptoMode {
+  case ctr
+  public static func == (a: MSSWBC.CryptoMode, b: MSSWBC.CryptoMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum CryptoMechanism {
+  case aes
+  public static func == (a: MSSWBC.CryptoMechanism, b: MSSWBC.CryptoMechanism) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum WBCError : Foundation.LocalizedError {
+  case internalError
+  case invalidWBCTable
+  case initialVectorIncorrectLength
+  case inputDataIncorrectLength
+  case unsupported(errorCode: Swift.Int)
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public var failureReason: Swift.String? {
+    get
+  }
+  public var recoverySuggestion: Swift.String? {
+    get
+  }
+}
+extension MSSWBC.WBCError : Foundation.CustomNSError {
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+  public static var errorDomain: Swift.String {
+    get
+  }
+}
+extension MSSWBC.CryptoMode : Swift.Equatable {}
+extension MSSWBC.CryptoMode : Swift.Hashable {}
+extension MSSWBC.CryptoMechanism : Swift.Equatable {}
+extension MSSWBC.CryptoMechanism : Swift.Hashable {}

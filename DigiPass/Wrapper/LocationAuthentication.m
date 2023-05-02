@@ -7,7 +7,10 @@
 //
 
 #import "LocationAuthentication.h"
-#import <FirebaseAnalytics/FirebaseAnalytics.h>
+//#import <FirebaseAnalytics/FirebaseAnalytics.h>
+#import "DigiPass-Swift.h"
+
+@class Logger;
 
 // 2, 10 and 20 seconds timeout for the location request
 #define TIMEOUT_02 2
@@ -78,10 +81,13 @@ static LocationAuthentication *_sharedMySingleton = nil;
         @try {
             callback([GeolocationSDK isLocationServiceEnabled]);
         } @catch (GeolocationSDKException* exception) {
-            [FIRAnalytics logEventWithName:@"SecureStorageSDKWrapperClear"
-                                parameters:@{
-                                             @"error":  exception.reason
-                                             }];
+//            [FIRAnalytics logEventWithName:@"SecureStorageSDKWrapperClear"
+//                                parameters:@{
+//                                             @"error":  exception.reason
+//                                             }];
+            
+            [Logger log:[NSString stringWithFormat:@"SecureStorageSDKWrapperClear: %@",exception.reason]];
+            
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 // Something went wrong
                 if(exception.errorCode == GeolocationSDKErrorCodes_LOCATION_TIMEOUT) {
@@ -121,10 +127,13 @@ static LocationAuthentication *_sharedMySingleton = nil;
     }
     @catch (GeolocationSDKException* exception)
     {
-        [FIRAnalytics logEventWithName:@"SecureStorageSDKWrapperClear"
-                            parameters:@{
-                                         @"error":  exception.reason
-                                         }];
+//        [FIRAnalytics logEventWithName:@"SecureStorageSDKWrapperClear"
+//                            parameters:@{
+//                                         @"error":  exception.reason
+//                                         }];
+        
+        [Logger log:[NSString stringWithFormat:@"SecureStorageSDKWrapperClear: %@",exception.reason]];
+        
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             // Something went wrong
             if(exception.errorCode == GeolocationSDKErrorCodes_LOCATION_TIMEOUT) {

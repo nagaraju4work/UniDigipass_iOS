@@ -1,0 +1,66 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name QRCodeScannerSDK
+import Foundation
+@_exported import QRCodeScannerSDK
+import Swift
+import UIKit
+public enum ScannerError : Foundation.LocalizedError, Swift.Equatable {
+  case internalError
+  case inputParameterNull
+  case cameraNotAvailable
+  case permissionDenied
+  case invalidImage
+  case imageTooBig
+  case invalidCodeType
+  case unsupported(code: Swift.Int)
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public var failureReason: Swift.String? {
+    get
+  }
+  public var recoverySuggestion: Swift.String? {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+  }
+  public static func == (a: ScannerError, b: ScannerError) -> Swift.Bool
+}
+public protocol ScannerDelegate : AnyObject {
+  func qrCodeScannerSDKController(_ controller: UIKit.UIViewController, didScan result: Swift.String, codeType: CodeType)
+  func qrCodeScannerSDKControllerDidCancel(_ controller: UIKit.UIViewController)
+  func qrCodeScannerSDKController(_ controller: UIKit.UIViewController, didReceive error: ScannerError)
+}
+public struct CodeType : Swift.OptionSet {
+  public static let qrCode: CodeType
+  public static let crontoCode: CodeType
+  public static let all: CodeType
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public typealias ArrayLiteralElement = CodeType
+  public typealias Element = CodeType
+  public typealias RawValue = Swift.Int
+}
+public enum ScannerConstants {
+  public static let imageMaxSize: Swift.Int
+}
+@_hasMissingDesignatedInitializers public class QRCodeScannerSDK {
+  public static var version: Swift.String {
+    get
+  }
+  public static func getQRCodeScannerSDKViewController(delegate: ScannerDelegate, vibrate: Swift.Bool, codeType: CodeType, image: UIKit.UIImage?) throws -> UIKit.UIViewController
+  public static func getQRCodeScannerSDKViewController(delegate: ScannerDelegate, vibrate: Swift.Bool, codeType: CodeType, image: UIKit.UIImage?, scannerOverlay: Swift.Bool, scannerOverlayColor: UIKit.UIColor?) throws -> UIKit.UIViewController
+  public static func decodeImage(_ image: UIKit.UIImage, codeType: CodeType) throws -> QRCodeScannerSDKDecodingResultData
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class QRCodeScannerSDKDecodingResultData {
+  public var result: Swift.String {
+    get
+  }
+  public var codeType: CodeType {
+    get
+  }
+  @objc deinit
+}

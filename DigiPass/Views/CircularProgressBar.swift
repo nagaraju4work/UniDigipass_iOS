@@ -81,7 +81,6 @@ class CircularProgressBar: UIView {
                     self.delegate?.didCompleteTimeOut()
                 } else {
                     currentTime += 0.05
-                    let percent = currentTime/2 * 100
                     self.label.text = self.otp//"\(Int(progress * percent))"
                     self.setForegroundLayerColorForSafePercent()
                     self.configLabel()

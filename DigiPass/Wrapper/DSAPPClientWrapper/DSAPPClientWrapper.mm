@@ -6,8 +6,8 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #import "DSAPPClientWrapper.h"
-#import <DSAPP_Client/DSAPPClient.h>
-#import <DigipassSDK/DP4Capi.h>
+#import <MSSDSAPPClient/DSAPPClient.h>
+#import <MSSDigipass/DP4Capi.h>
 
 @interface SRPSessionKeyResponseWrapper (Wrapper)
 

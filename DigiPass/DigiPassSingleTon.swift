@@ -41,8 +41,8 @@ enum UserCodingKeys: String {
     
     private override init() {
         super.init()
-        do {
-        }catch { }
+//        do {
+//        }catch { }
     }
     
     @objc let userIno: UserInfo = UserInfo()

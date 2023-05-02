@@ -1,0 +1,94 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MSSDeviceBinding
+import CommonCrypto
+import Foundation
+@_exported import MSSDeviceBinding
+import Swift
+import _Concurrency
+@objc public enum DeviceBindingErrorCodes : Swift.Int {
+  case accessGroupNotAccessible = -4499
+  case internalError = -4400
+  case dataLocked = -4401
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class DeviceBindingSDK : ObjectiveC.NSObject {
+  @objc public static func getInstance() -> MSSDeviceBinding.DeviceBinding
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol AccessGroup {
+  @objc var value: Swift.String { get }
+}
+@objc public class AppPrivate : ObjectiveC.NSObject, MSSDeviceBinding.AccessGroup {
+  @objc public var value: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc public init(teamId: Swift.String, bundleId: Swift.String)
+  @objc deinit
+}
+@objc public class KeychainSharingGroup : ObjectiveC.NSObject, MSSDeviceBinding.AccessGroup {
+  @objc public var value: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc public init(teamId: Swift.String, keychainSharingGroup: Swift.String)
+  @objc deinit
+}
+@objc public class AppGroup : ObjectiveC.NSObject, MSSDeviceBinding.AccessGroup {
+  @objc final public let value: Swift.String
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc public init(appGroup: Swift.String)
+  @objc deinit
+}
+@objc public protocol DeviceBinding {
+  @objc var version: Swift.String { get }
+  @available(*, deprecated, message: "Use fingerprint(forSalt:in:) instead.")
+  @objc(fingerprintForStaticSalt:inAccessGroup:error:) func fingerprint(forStaticSalt staticSalt: Swift.String, in accessGroup: MSSDeviceBinding.AccessGroup) throws -> Swift.String
+  @objc(fingerprintForSalt:inAccessGroup:error:) func fingerprint(forSalt salt: Swift.String, in accessGroup: MSSDeviceBinding.AccessGroup) throws -> Swift.String
+  @objc(resetInAccessGroup:error:) func reset(in accessGroup: MSSDeviceBinding.AccessGroup) throws
+}
+public enum DeviceBindingError {
+  case internalError(trace: Swift.String)
+  case accessGroupNotAccessible(accessGroup: MSSDeviceBinding.AccessGroup?)
+  case dataLocked
+}
+extension MSSDeviceBinding.DeviceBindingError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+  public var failureReason: Swift.String? {
+    get
+  }
+  public var recoverySuggestion: Swift.String? {
+    get
+  }
+}
+extension MSSDeviceBinding.DeviceBindingError : Foundation.CustomNSError {
+  public static var errorDomain: Swift.String {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+}
+extension MSSDeviceBinding.DeviceBindingError : Swift.Equatable {
+  public static func == (lhs: MSSDeviceBinding.DeviceBindingError, rhs: MSSDeviceBinding.DeviceBindingError) -> Swift.Bool
+}
+extension MSSDeviceBinding.DeviceBindingErrorCodes : Swift.Equatable {}
+extension MSSDeviceBinding.DeviceBindingErrorCodes : Swift.Hashable {}
+extension MSSDeviceBinding.DeviceBindingErrorCodes : Swift.RawRepresentable {}

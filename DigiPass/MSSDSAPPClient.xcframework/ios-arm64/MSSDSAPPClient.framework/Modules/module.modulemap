@@ -1,0 +1,11 @@
+framework module MSSDSAPPClient {
+  umbrella header "MSSDSAPPClient.h"
+
+  export *
+  module * { export * }
+}
+
+module MSSDSAPPClient.Swift {
+    header "MSSDSAPPClient-Swift.h"
+    requires objc
+}

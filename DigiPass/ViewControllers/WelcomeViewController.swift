@@ -8,7 +8,8 @@
 
 import UIKit
 import LocalAuthentication
-import FirebaseAnalytics
+//import FirebaseAnalytics
+import AVFoundation
 
 class WelcomeViewController: BaseViewController {
 
@@ -44,7 +45,6 @@ class WelcomeViewController: BaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        Analytics.setScreenName("WelecomeViewController", screenClass: String(describing: WelcomeViewController.self))
     }
     
     override func didReceiveMemoryWarning() {
@@ -94,8 +94,9 @@ class WelcomeViewController: BaseViewController {
                             let timeServer = DIGIPassClientSDKWrapper .computeClientServerTimeShift(fromServerTime: time)
                             try DigiPassSharedData.sharedInstance().secureStorage.putString(forValue: "\(timeServer)", forKey: UserCodingKeys.serverTime.rawValue)
 
-                        }catch {
-                            
+                        }catch let error {
+                            self.displayAlert(titleText: "Error", messageText: error.localizedDescription)
+                            Logger.log("fetchServerTime: "+error.localizedDescription)
                         }
                     }
                 }
@@ -132,8 +133,19 @@ class WelcomeViewController: BaseViewController {
     
     func presentQRCodeReader() {
         DispatchQueue.main.async {
-            let qrVC = QRCodeScannerSDKViewController(delegate: self, vibrate: true, codeType:  1 +  2, use: UIImage(named: "QRScan_close.png"), scannerOverlay: true, scannerOverlayColor: .clear)
-            self.present(qrVC!, animated: true, completion: nil)
+            do {
+                let qrVC = try QRCodeScannerSDK.getQRCodeScannerSDKViewController(delegate: self,
+                                                                                  vibrate: true,
+                                                                                  codeType: .all,
+                                                                                  image: UIImage(named: "QRScan_close"),
+                                                                                  scannerOverlay: true,
+                                                                                  scannerOverlayColor: .clear)
+                //            let qrVC = QRCodeScannerSDKViewController(delegate: self, vibrate: true, codeType:  1 +  2, use: UIImage(named: "QRScan_close.png"), scannerOverlay: true, scannerOverlayColor: .clear)
+                self.present(qrVC, animated: true, completion: nil)
+            } catch let e {
+                print(e)
+                Logger.log("presentQRCodeReader: "+e.localizedDescription)
+            }
         }
     }
     func showScanCamers() {
@@ -229,9 +241,10 @@ class WelcomeViewController: BaseViewController {
                 self.newBiometricData = newFingerPrintData
                 self.storeNewBiometricData()
                 handler(false, nil)
-                Analytics.logEvent("authenticate", parameters: [
-                    "error": error.localizedDescription as NSObject,
-                    ])
+                Logger.log("authenticate: "+error.localizedDescription)
+//                Analytics.logEvent("authenticate", parameters: [
+//                    "error": error.localizedDescription as NSObject,
+//                    ])
             }
         }
     }
@@ -243,9 +256,13 @@ class WelcomeViewController: BaseViewController {
                 DigiPassSharedData.sharedInstance().saveSecureStorage()
                 self.newBiometricData = nil
             }catch let error {
-                Analytics.logEvent("storeNewBiometricData", parameters: [
-                    "error": error.localizedDescription as NSObject,
-                    ])
+                
+                print("storeNewBiometricData")
+                Logger.log("storeNewBiometricData: "+error.localizedDescription)
+                
+//                Analytics.logEvent("storeNewBiometricData", parameters: [
+//                    "error": error.localizedDescription as NSObject,
+//                    ])
             }
            
         }
@@ -357,6 +374,22 @@ class WelcomeViewController: BaseViewController {
             self.activation.startActivateUser(activate: .withRegistrationIDOne)
         }
     }
+    
+    @IBAction func shareLogButtonPressed(_ sender: Any) {
+        // Create the Array which includes the files you want to share
+        var filesToShare = [Any]()
+
+        // Add the path of the file to the Array
+        if let logFile = Logger.logFile {
+            filesToShare.append(logFile)
+            
+            // Make the activityViewContoller which shows the share-view
+            let activityViewController = UIActivityViewController(activityItems: filesToShare, applicationActivities: nil)
+            
+            // Show the share-view
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+    }
 
 }
 
@@ -381,6 +414,7 @@ extension WelcomeViewController: DigiPassActivationDelegate {
         DispatchQueue.main.async {
             self.loadingView.hide()
         }
+        Logger.log("didFailedActivationProcess called")
     }
     
     private func handleWeakPassword(handler: @escaping ((String?) -> Void)) {
@@ -429,8 +463,8 @@ extension WelcomeViewController: DigiPassActivationDelegate {
     }
 }
 
-extension WelcomeViewController: QRCodeScannerSDKDelegate {
-    func qrCodeScannerSDKController(_ controller: QRCodeScannerSDKViewController!, didScanResult result: String!, withCodeType codeType: Int32) {
+extension WelcomeViewController: ScannerDelegate {
+    func qrCodeScannerSDKController(_ controller: UIViewController, didScan result: String, codeType: CodeType) {
         
         controller.dismiss(animated: true) {
             
@@ -455,9 +489,11 @@ extension WelcomeViewController: QRCodeScannerSDKDelegate {
                             try DigiPassSharedData.sharedInstance().secureCache.putString(forValue: password2, forKey: UserCodingKeys.activationPwd2.rawValue)
 
                         }catch let error {
-                            Analytics.logEvent("qrCodeScannerSDKController", parameters: [
-                                "error": error.localizedDescription as NSObject,
-                                ])
+//                            Analytics.logEvent("qrCodeScannerSDKController", parameters: [
+//                                "error": error.localizedDescription as NSObject,
+//                                ])
+                            Logger.log("qrCodeScannerSDKController: "+error.localizedDescription)
+                            print(error.localizedDescription)
                         }
                         self.startActivation()
                     }
@@ -466,11 +502,11 @@ extension WelcomeViewController: QRCodeScannerSDKDelegate {
         }
     }
     
-    func qrCodeScannerSDKControllerDidCancel(_ controller: QRCodeScannerSDKViewController!) {
+    func qrCodeScannerSDKControllerDidCancel(_ controller: UIViewController) {
         controller.dismiss(animated: true, completion: nil)
     }
     
-    func qrCodeScannerSDKController(_ controller: QRCodeScannerSDKViewController!, threwException exception: QRCodeScannerSDKException!) {
+    func qrCodeScannerSDKController(_ controller: UIViewController, didReceive error: ScannerError) {
         
     }
 }
@@ -508,5 +544,38 @@ extension Data {
             even = !even
         }
         guard even else { return nil }
+    }
+}
+
+@objc class Logger: NSObject {
+
+    static var logFile: URL? {
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let dateString = formatter.string(from: Date())
+        let fileName = "DigiPassLogFile.log"
+        return documentsDirectory.appendingPathComponent(fileName)
+    }
+
+    @objc static func log(_ message: String) {
+        guard let logFile = logFile else {
+            return
+        }
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        let timestamp = formatter.string(from: Date())
+        guard let data = (timestamp + ": " + message + "\n").data(using: String.Encoding.utf8) else { return }
+
+        if FileManager.default.fileExists(atPath: logFile.path) {
+            if let fileHandle = try? FileHandle(forWritingTo: logFile) {
+                fileHandle.seekToEndOfFile()
+                fileHandle.write(data)
+                fileHandle.closeFile()
+            }
+        } else {
+            try? data.write(to: logFile, options: .atomicWrite)
+        }
     }
 }

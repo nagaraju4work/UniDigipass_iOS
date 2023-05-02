@@ -9,9 +9,14 @@
 #import "DigiPassSharedData.h"
 #import "Constants.h"
 #include <stdlib.h>
-#import <FirebaseAnalytics/FirebaseAnalytics.h>
+//#import <FirebaseAnalytics/FirebaseAnalytics.h>
+#import <MSSDeviceBinding/MSSDeviceBinding.h>
+#import "DigiPass-Swift.h"
+
+@class Logger;
 
 @implementation DigiPassSharedData
+NSString *teamId = @"V4YMXB7NF8";
 
 + (instancetype) sharedInstance {
     static dispatch_once_t pred = 0;
@@ -32,20 +37,36 @@
             int r = arc4random_uniform(74);
             NSString* secureCatchFileName = [NSString stringWithFormat:@"%d", r];
             
-            NSString* secureStorageFileName = [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"];
+            NSString* secureStorageFileName = [[DeviceBindingSDK getInstance]
+                                             fingerprintForSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"
+                                             inAccessGroup:[DigiPassSharedData getAppPrivateAccessGroup]
+                                             error:&error];
+            
+//            NSString* secureStorageFileName = [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"];
+            
             self.secureStorage = [[SecureStorageSDKWrapper alloc]initWithFileName:@"DigiPass" useFingerPrint: secureStorageFileName andIterationNumber:8000 error: &error];
             self.secureCache = [[SecureStorageSDKWrapper alloc]initWithFileName:@"DigiPassTemp" useFingerPrint: secureCatchFileName andIterationNumber:8000 error: &error];
             
         }@catch (NSException * exception) {
-            [FIRAnalytics logEventWithName:@"DigiPass Initilizer"
-                                parameters:@{
-                                             @"error":  exception.reason
-                                             }];
+//            [FIRAnalytics logEventWithName:@"DigiPass Initilizer"
+//                                parameters:@{
+//                                             @"error":  exception.reason
+//                                             }];
+            
+            [Logger log:[NSString stringWithFormat:@"DigiPass Initilizer: %@",exception.reason]];
+            
+            NSLog(@"Error in load");
+            
         }@finally {
             
         }
     }
     return self;
+}
+
++ (id<AccessGroup>)getAppPrivateAccessGroup
+{
+    return [[AppPrivate alloc] initWithTeamId:teamId bundleId:@"com.unicorp.adpolice.gov"];
 }
 
 - (NSMutableDictionary *) fetchUserVectors {
@@ -61,10 +82,13 @@
     NSData* staticVector = [self.secureStorage getBytesForKey:SVKey error:&error];
     NSData* dynamicVector = [self.secureStorage getBytesForKey:isPinSelected ? DVPinKey : DVKey error:&error];
     if (error != nil) {
-        [FIRAnalytics logEventWithName:@"Fetch User Vectors"
-                            parameters:@{
-                                         @"error":  error.localizedDescription
-                                         }];
+//        [FIRAnalytics logEventWithName:@"Fetch User Vectors"
+//                            parameters:@{
+//                                         @"error":  error.localizedDescription
+//                                         }];
+        
+        [Logger log:[NSString stringWithFormat:@"Fetch User Vectors: %@",error.localizedDescription]];
+        
     }
     [dict setObject:staticVector forKey:kStaticVectorData];
     [dict setObject:dynamicVector forKey:kDynamicVectorData];
@@ -91,10 +115,13 @@
     [dict setObject:isPinVector forKey:kIsPinSelected];
     
     if (error != nil) {
-        [FIRAnalytics logEventWithName:@"Fetch Vectors From Volatile"
-                            parameters:@{
-                                         @"error":  error.localizedDescription
-                                         }];
+//        [FIRAnalytics logEventWithName:@"Fetch Vectors From Volatile"
+//                            parameters:@{
+//                                         @"error":  error.localizedDescription
+//                                         }];
+        
+        [Logger log:[NSString stringWithFormat:@"Fetch Vectors From Volatile: %@",error.localizedDescription]];
+        
         return nil;
     }
     return dict;
@@ -113,10 +140,13 @@
     [self.secureCache putBytesForBytes:dv forKey:dynamicVectorKey error:&error];
     
     if (error != nil) {
-        [FIRAnalytics logEventWithName:@"Story Dynamic Vectors Volatile"
-                            parameters:@{
-                                         @"error":  error.localizedDescription
-                                         }];
+//        [FIRAnalytics logEventWithName:@"Story Dynamic Vectors Volatile"
+//                            parameters:@{
+//                                         @"error":  error.localizedDescription
+//                                         }];
+        
+        [Logger log:[NSString stringWithFormat:@"Story Dynamic Vectors Volatile: %@",error.localizedDescription]];
+        
     }
 }
 
@@ -134,10 +164,13 @@
         [[DigiPassSharedData sharedInstance] saveSecureStorage];
     }@catch (NSException* e) {
         if (error != nil) {
-            [FIRAnalytics logEventWithName:@"Store Dynamic Vector"
-                                parameters:@{
-                                             @"error":  error.localizedDescription
-                                             }];
+//            [FIRAnalytics logEventWithName:@"Store Dynamic Vector"
+//                                parameters:@{
+//                                             @"error":  error.localizedDescription
+//                                             }];
+            
+            [Logger log:[NSString stringWithFormat:@"Store Dynamic Vector: %@",error.localizedDescription]];
+            
         }
     }@finally {
         
@@ -160,10 +193,13 @@
         [[DigiPassSharedData sharedInstance] saveSecureStorage];
         
     }@catch (NSException * exception) {
-        [FIRAnalytics logEventWithName:@"decryptSecureChannelMessageBody"
-                            parameters:@{
-                                         @"error":  exception.reason
-                                         }];
+//        [FIRAnalytics logEventWithName:@"decryptSecureChannelMessageBody"
+//                            parameters:@{
+//                                         @"error":  exception.reason
+//                                         }];
+        
+        [Logger log:[NSString stringWithFormat:@"decryptSecureChannelMessageBody: %@",exception.reason]];
+        
     }@finally {
         
     }
@@ -217,13 +253,21 @@
 - (void) saveSecureStorage {
     NSError* error;
     @try {
-        NSString* secureStorageFileName = [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"];
+        NSString* secureStorageFileName = [[DeviceBindingSDK getInstance]
+                                         fingerprintForSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"
+                                         inAccessGroup:[DigiPassSharedData getAppPrivateAccessGroup]
+                                         error:&error];
+        
+//        NSString* secureStorageFileName = [DeviceBindingSDK getDeviceFingerPrintWithDynamicSalt:@"9BF7B93BA05E3B0284F7069918F743C0B503D6D27A6F9E6B89CDEF583611CB83"];
         [self.secureStorage writeWithFingerprint:secureStorageFileName andIterationNumber:8000 error:&error];
     }@catch (NSException *exception) {
-        [FIRAnalytics logEventWithName:@"decryptSecureChannelMessageBody"
-                            parameters:@{
-                                         @"error":  exception.reason
-                                         }];
+//        [FIRAnalytics logEventWithName:@"decryptSecureChannelMessageBody"
+//                            parameters:@{
+//                                         @"error":  exception.reason
+//                                         }];
+        
+        [Logger log:[NSString stringWithFormat:@"decryptSecureChannelMessageBody: %@",exception.reason]];
+        
     }@finally { }
 }
 @end

@@ -9,7 +9,7 @@
 
 #ifndef WBCSDKTABLES_H_
 #define WBCSDKTABLES_H_
-#include <WBCSDK/WBCSDKTables.h>
+#include <MSSWBC/WBCSDKTables.h>
 
 //#include "WBCSDK/WBCSDKTables.h"
 

@@ -8,7 +8,7 @@
 
 import UIKit
 import LocalAuthentication
-import FirebaseAnalytics
+//import FirebaseAnalytics
 
 class LogoutViewController: BaseViewController {
 
@@ -300,9 +300,12 @@ class LogoutViewController: BaseViewController {
                 self.newBiometricData = newFingerPrintData
                 self.storeNewBiometricData()
                 handler(false, nil)
-                Analytics.logEvent("authenticate", parameters: [
-                    "error": error.localizedDescription as NSObject,
-                    ])
+                
+                Logger.log("authenticate: "+error.localizedDescription)
+                
+//                Analytics.logEvent("authenticate", parameters: [
+//                    "error": error.localizedDescription as NSObject,
+//                    ])
             }
         }
     }
@@ -314,9 +317,12 @@ class LogoutViewController: BaseViewController {
                 DigiPassSharedData.sharedInstance().saveSecureStorage()
                 self.newBiometricData = nil
             }catch let error {
-                Analytics.logEvent("storeNewBiometricData", parameters: [
-                    "error": error.localizedDescription as NSObject,
-                    ])
+                
+                Logger.log("storeNewBiometricData: "+error.localizedDescription)
+                
+//                Analytics.logEvent("storeNewBiometricData", parameters: [
+//                    "error": error.localizedDescription as NSObject,
+//                    ])
             }
            
         }

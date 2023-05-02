@@ -1,0 +1,13 @@
+framework module MSSWBC {
+    header "WBC.h"
+    header "WBCConstants.h"
+    header "WBCErrorCodes.h"
+    header "WBCTableContainer.h"
+    
+    export *
+}
+
+module MSSWBC.Swift {
+    header "MSSWBC-Swift.h"
+    requires objc
+}

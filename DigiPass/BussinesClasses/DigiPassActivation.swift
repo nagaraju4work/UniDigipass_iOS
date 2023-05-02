@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import FirebaseAnalytics
+//import FirebaseAnalytics
 
 protocol DigiPassActivationDelegate {
     func showPinScreen(handler: @escaping ((_ pin: String?) -> Void))
@@ -47,9 +47,14 @@ class DigiPassActivation {
             return (registrationID1,password1)
             
         }catch let error {
-            Analytics.logEvent("getCredentials", parameters: [
-                "error": error.localizedDescription as NSObject,
-                ])
+            
+            print("getCredentials")
+            
+            Logger.log("getCredentials: "+error.localizedDescription)
+            
+//            Analytics.logEvent("getCredentials", parameters: [
+//                "error": error.localizedDescription as NSObject,
+//                ])
         }
         return nil
     }
@@ -82,9 +87,22 @@ class DigiPassActivation {
             multiDeviceActivateInstance()
 
         }catch let error {
-            Analytics.logEvent("startActivateUser", parameters: [
-                "error": error.localizedDescription as NSObject,
-                ])
+//            Analytics.logEvent("startActivateUser", parameters: [
+//                "error": error.localizedDescription as NSObject,
+//                ])
+            
+            Logger.log("startActivateUser: "+error.localizedDescription)
+            
+            print("startActivateUser")
+
+            
+            DispatchQueue.main.async {
+                
+                
+//                self.delegate?.didFailedActivationProcess()
+//                AppDelegate.shared.window?.rootViewController?.displayAlert(titleText: "Error", messageText: error.localizedDescription)
+                
+            }
         }
     }
     
@@ -94,9 +112,14 @@ class DigiPassActivation {
             try DSAPPClientWrapper.validateSRPUserPasswordChecksum(password)
            // print("SRP user password checksum validation successful \n\n")
         } catch let error {
-            Analytics.logEvent("validateSRPUserPasswordChecksum", parameters: [
-                "error": error.localizedDescription as NSObject,
-                ])
+            
+            print("validateSRPUserPasswordChecksum")
+            
+            Logger.log("validateSRPUserPasswordChecksum: "+error.localizedDescription)
+            
+//            Analytics.logEvent("validateSRPUserPasswordChecksum", parameters: [
+//                "error": error.localizedDescription as NSObject,
+//                ])
         }
     }
     
@@ -109,9 +132,14 @@ class DigiPassActivation {
 
         } catch let error as NSError {
             delegate?.didFailedActivationProcess()
-            Analytics.logEvent("demoGenerateSRPClientEphemeralKey", parameters: [
-                "error": error.localizedDescription as NSObject,
-                ])
+            
+            print("demoGenerateSRPClientEphemeralKey")
+            
+            Logger.log("demoGenerateSRPClientEphemeralKey: "+error.localizedDescription)
+            
+//            Analytics.logEvent("demoGenerateSRPClientEphemeralKey", parameters: [
+//                "error": error.localizedDescription as NSObject,
+//                ])
         }
     }
     
@@ -143,9 +171,14 @@ class DigiPassActivation {
             _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         }catch let error {
             delegate?.didFailedActivationProcess()
-            Analytics.logEvent("generatEphemeralKey", parameters: [
-                "error": error.localizedDescription as NSObject,
-                ])
+            
+            print("generatEphemeralKey")
+            
+            Logger.log("generatEphemeralKey: "+error.localizedDescription)
+            
+//            Analytics.logEvent("generatEphemeralKey", parameters: [
+//                "error": error.localizedDescription as NSObject,
+//                ])
         }
         
     }
@@ -171,9 +204,14 @@ class DigiPassActivation {
             
         } catch let error as NSError {
             delegate?.didFailedActivationProcess()
-            Analytics.logEvent("generateSRPSessionKey", parameters: [
-                "error": error.localizedDescription as NSObject,
-                ])
+            
+            print("generateSRPSessionKey")
+            
+            Logger.log("generateSRPSessionKey: "+error.localizedDescription)
+            
+//            Analytics.logEvent("generateSRPSessionKey", parameters: [
+//                "error": error.localizedDescription as NSObject,
+//                ])
             throw ActivationErrors.failed(error.localizedDescription)
         }
     }
@@ -199,9 +237,14 @@ class DigiPassActivation {
             _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         }catch let error {
             delegate?.didFailedActivationProcess()
-            Analytics.logEvent("generateActivationData", parameters: [
-                "error": error.localizedDescription as NSObject,
-                ])
+            
+            print("generateActivationData")
+            
+            Logger.log("generateActivationData: "+error.localizedDescription)
+            
+//            Analytics.logEvent("generateActivationData", parameters: [
+//                "error": error.localizedDescription as NSObject,
+//                ])
         }
     }
     
@@ -231,9 +274,14 @@ class DigiPassActivation {
     
         } catch let error as NSError {
             delegate?.didFailedActivationProcess()
-            Analytics.logEvent("verifySRPServerEvidenceMessage", parameters: [
-                "error": error.localizedDescription as NSObject,
-                ])
+            
+            print("verifySRPServerEvidenceMessage")
+            
+            Logger.log("verifySRPServerEvidenceMessage: "+error.localizedDescription)
+            
+//            Analytics.logEvent("verifySRPServerEvidenceMessage", parameters: [
+//                "error": error.localizedDescription as NSObject,
+//                ])
             throw ActivationErrors.failed(error.localizedDescription)
         }
     }
@@ -272,9 +320,14 @@ class DigiPassActivation {
             _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         } catch let error as NSError {
             delegate?.didFailedActivationProcess()
-            Analytics.logEvent("verifySRPServerEvidenceMessage", parameters: [
-                "error": error.localizedDescription as NSObject,
-                ])
+            
+            print("verifySRPServerEvidenceMessage")
+            
+            Logger.log("verifySRPServerEvidenceMessage: "+error.localizedDescription)
+            
+//            Analytics.logEvent("verifySRPServerEvidenceMessage", parameters: [
+//                "error": error.localizedDescription as NSObject,
+//                ])
             throw ActivationErrors.failed(error.localizedDescription)
         }
 
@@ -430,4 +483,27 @@ class DigiPassActivation {
     }
 }
 
+extension UIDevice {
+    
+    var isPhone: Bool { return self.userInterfaceIdiom == .phone }
+    var isPad: Bool { return self.userInterfaceIdiom == .pad }
+    
+}
 
+extension UIViewController {
+    
+    func displayAlert(titleText: String, messageText: String) {
+        
+        let okButton = UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+        
+        let alert = UIAlertController.init(title: titleText, message: messageText, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(okButton)
+        
+        if UIDevice.current.isPad {
+            AppDelegate.shared.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        } else {
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+}
