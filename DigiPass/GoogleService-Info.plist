@@ -3,34 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>991786748293-15s4ok4p5lp1kb118gciqu6i1henubgq.apps.googleusercontent.com</string>
+	<string>488192485990-g2uh5rnu6m73i0dkodfoosbq67v6fnrd.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.991786748293-15s4ok4p5lp1kb118gciqu6i1henubgq</string>
+	<string>com.googleusercontent.apps.488192485990-g2uh5rnu6m73i0dkodfoosbq67v6fnrd</string>
 	<key>API_KEY</key>
-	<string>AIzaSyB4ChnQBvNPhx8Ygh-ghG_56yFrjT95zBE</string>
+	<string>AIzaSyCLcpX9DWCrI2nvMauNcYpcaiM89CXFit0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>991786748293</string>
+	<string>488192485990</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.unicorp.adpolice.gov</string>
 	<key>PROJECT_ID</key>
-	<string>digipass-f89ea</string>
+	<string>addigipass</string>
 	<key>STORAGE_BUCKET</key>
-	<string>digipass-f89ea.appspot.com</string>
+	<string>addigipass.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<true/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:991786748293:ios:5aa245dde23dbd29825cec</string>
-	<key>DATABASE_URL</key>
-	<string>https://digipass-f89ea.firebaseio.com</string>
+	<string>1:488192485990:ios:704446e80250842a065ba7</string>
 </dict>
 </plist>

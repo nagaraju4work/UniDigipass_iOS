@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		578D8F902A1290BD005EFB9E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 578D8F8F2A1290BD005EFB9E /* GoogleService-Info.plist */; };
 		57D14D6129FF6D1A00AC7891 /* CryptoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D14D6029FF6D1A00AC7891 /* CryptoKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6E6F54372938134200E09369 /* MSSDeviceBinding.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2D28F95D5800461EF4 /* MSSDeviceBinding.xcframework */; };
 		6E6F54382938134200E09369 /* MSSDeviceBinding.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2D28F95D5800461EF4 /* MSSDeviceBinding.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E6F5439293813E700E09369 /* fipsOpenSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF4D8FB28F95B97009D0319 /* fipsOpenSSL.framework */; };
 		6E6F543A293813E700E09369 /* fipsOpenSSL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAF4D8FB28F95B97009D0319 /* fipsOpenSSL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CA0AFE3323521D42005582D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA0AFE3223521D42005582D2 /* GoogleService-Info.plist */; };
+		A890602455619DAABE34FCD4 /* Pods_DigiPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D305A98A547BEFC5C2AECE /* Pods_DigiPass.framework */; };
 		CA3E4C3028F95D5A00461EF4 /* MSSDigipass.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2728F95D5100461EF4 /* MSSDigipass.xcframework */; };
 		CA3E4C3128F95D5B00461EF4 /* MSSNotificationClient.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2828F95D5200461EF4 /* MSSNotificationClient.xcframework */; };
 		CA3E4C3228F95D5B00461EF4 /* MSSDSAPPClient.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA3E4C2928F95D5300461EF4 /* MSSDSAPPClient.xcframework */; };
@@ -110,8 +111,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05D305A98A547BEFC5C2AECE /* Pods_DigiPass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigiPass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3142AF0084B51A56DFB5FBEE /* Pods-DigiPass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiPass.release.xcconfig"; path = "Target Support Files/Pods-DigiPass/Pods-DigiPass.release.xcconfig"; sourceTree = "<group>"; };
+		578D8F8F2A1290BD005EFB9E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57D14D6029FF6D1A00AC7891 /* CryptoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoKit.framework; path = System/Library/Frameworks/CryptoKit.framework; sourceTree = SDKROOT; };
-		CA0AFE3223521D42005582D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CA3E4C2728F95D5100461EF4 /* MSSDigipass.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSDigipass.xcframework; sourceTree = "<group>"; };
 		CA3E4C2828F95D5200461EF4 /* MSSNotificationClient.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSNotificationClient.xcframework; sourceTree = "<group>"; };
 		CA3E4C2928F95D5300461EF4 /* MSSDSAPPClient.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = MSSDSAPPClient.xcframework; sourceTree = "<group>"; };
@@ -216,6 +219,7 @@
 		CA791FB6234DD2DA00E542F4 /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		CA791FB7234DD2DA00E542F4 /* DigiPassSingleTon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigiPassSingleTon.swift; sourceTree = "<group>"; };
 		CAF4D8FB28F95B97009D0319 /* fipsOpenSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = fipsOpenSSL.framework; sourceTree = "<group>"; };
+		DAF4AC58B089A51FB6DDF732 /* Pods-DigiPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigiPass.debug.xcconfig"; path = "Target Support Files/Pods-DigiPass/Pods-DigiPass.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,18 +250,29 @@
 				CA791F0A234DCE3100E542F4 /* CoreLocation.framework in Frameworks */,
 				CA791EFB234DCDFD00E542F4 /* GeolocationSDK.framework in Frameworks */,
 				CA3E4C3428F95D5C00461EF4 /* QRCodeScannerSDK.xcframework in Frameworks */,
+				A890602455619DAABE34FCD4 /* Pods_DigiPass.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08B3BE938BF5AF5A87702761 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAF4AC58B089A51FB6DDF732 /* Pods-DigiPass.debug.xcconfig */,
+				3142AF0084B51A56DFB5FBEE /* Pods-DigiPass.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CA791ED3234DCD9B00E542F4 = {
 			isa = PBXGroup;
 			children = (
 				CA791EDE234DCD9B00E542F4 /* DigiPass */,
 				CA791EDD234DCD9B00E542F4 /* Products */,
 				CA791F08234DCE3000E542F4 /* Frameworks */,
+				08B3BE938BF5AF5A87702761 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -293,7 +308,7 @@
 				CA791FB6234DD2DA00E542F4 /* AppRouter.swift */,
 				CA791FB7234DD2DA00E542F4 /* DigiPassSingleTon.swift */,
 				CA791FB1234DD20E00E542F4 /* DigiPass-Bridging-Header.h */,
-				CA0AFE3223521D42005582D2 /* GoogleService-Info.plist */,
+				578D8F8F2A1290BD005EFB9E /* GoogleService-Info.plist */,
 				CA791EEB234DCD9D00E542F4 /* Info.plist */,
 				CA791FB4234DD22100E542F4 /* Assets.xcassets */,
 			);
@@ -315,6 +330,7 @@
 				CA791F0D234DCE5200E542F4 /* libc++.tbd */,
 				CA791F0B234DCE3800E542F4 /* SystemConfiguration.framework */,
 				CA791F09234DCE3100E542F4 /* CoreLocation.framework */,
+				05D305A98A547BEFC5C2AECE /* Pods_DigiPass.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -507,10 +523,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA791EEE234DCD9D00E542F4 /* Build configuration list for PBXNativeTarget "DigiPass" */;
 			buildPhases = (
+				58ECE14B4C96DB072BFF8D7B /* [CP] Check Pods Manifest.lock */,
 				CA791ED8234DCD9B00E542F4 /* Sources */,
 				CA791ED9234DCD9B00E542F4 /* Frameworks */,
 				CA791EDA234DCD9B00E542F4 /* Resources */,
 				CA791F07234DCE0C00E542F4 /* Embed Frameworks */,
+				4196E019D63E03AFEBBD4FE8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -565,17 +583,59 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA791EEA234DCD9D00E542F4 /* LaunchScreen.storyboard in Resources */,
-				CA0AFE3323521D42005582D2 /* GoogleService-Info.plist in Resources */,
 				CA791FAF234DD1BF00E542F4 /* ProfileHeaderView.xib in Resources */,
 				CA791F95234DD1BF00E542F4 /* Storyboard.storyboard in Resources */,
 				CA791FB3234DD20E00E542F4 /* DigiPass.storyboard in Resources */,
 				CA791FB5234DD22100E542F4 /* Assets.xcassets in Resources */,
 				CA791F98234DD1BF00E542F4 /* MenuTableViewCell.xib in Resources */,
 				CA791EE5234DCD9B00E542F4 /* Main.storyboard in Resources */,
+				578D8F902A1290BD005EFB9E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4196E019D63E03AFEBBD4FE8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigiPass/Pods-DigiPass-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigiPass/Pods-DigiPass-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigiPass/Pods-DigiPass-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58ECE14B4C96DB072BFF8D7B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DigiPass-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CA791ED8234DCD9B00E542F4 /* Sources */ = {
@@ -783,13 +843,14 @@
 		};
 		CA791EEF234DCD9D00E542F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAF4AC58B089A51FB6DDF732 /* Pods-DigiPass.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DigiPass/DigiPass.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2.0.8;
+				CURRENT_PROJECT_VERSION = 2.10;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V4YMXB7NF8;
@@ -845,13 +906,14 @@
 		};
 		CA791EF0234DCD9D00E542F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3142AF0084B51A56DFB5FBEE /* Pods-DigiPass.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DigiPass/DigiPass.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2.0.8;
+				CURRENT_PROJECT_VERSION = 2.10;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V4YMXB7NF8;
 				FRAMEWORK_SEARCH_PATHS = (

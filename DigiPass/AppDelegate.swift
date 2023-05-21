@@ -8,10 +8,11 @@
 
 import UIKit
 import MSSNotificationClient
-
+import FirebaseCore
+import FirebaseMessaging
 //import Firebase
 
-
+//Host APIKey  domain
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -19,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     
     let NotificationDataUpdated = "NotificationDataUpdated"
     let NotificationReceived = "NotificationReceived"
-    var reachability: Reachability!
+//    var reachability: Reachability!
     var appRouter: AppRouter!
     var notificationFromBackground = false
     var errorText: String?
@@ -31,22 +32,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         // We want subscribe to every availlable aspect of the notification
         appRouter = AppRouter(window: window!)
         let notificationTypes: NotificationType = [.badge, .sound, .alert]
-        
+        FirebaseApp.configure()
         do {
             try NotificationClientSDK.registerNotificationServices(withType: notificationTypes)
         } catch let error {
             handleNotificationSDKError(error: error)
         }
-        
+        Messaging.messaging().isAutoInitEnabled = true
+        Messaging.messaging().delegate = self
         return true
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         do {
             // Create the OneSpan Notification Identifier from the token provided by the system
+            Messaging.messaging().apnsToken = deviceToken
             notificationIdentifierText = try NotificationClientSDK.oneSpanNotificationIdentifier(for: deviceToken)
             print("OneSpan notification ID: \(notificationIdentifierText ?? "nil")")
             notify()
+            let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+               print(token)        
         } catch let error {
             notificationIdentifierText = nil
             handleNotificationSDKError(error: error)
@@ -437,3 +442,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 //}
 //
 //
+extension AppDelegate : MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+      print("Firebase registration token: \(String(describing: fcmToken))")
+
+      let dataDict: [String: String] = ["token": fcmToken ?? ""]
+      print(dataDict)
+      // TODO: If necessary send token to application server.
+      // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
+
+}
