@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "FEAAEBC3-FE28-445B-B3DE-A45CC024FE3D"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B48C43E-212E-433A-BDD6-A36385E75506"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigiPass/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "manageNotificationWithApplication(_:userInfo:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0B48C43E-212E-433A-BDD6-A36385E75506 - 87fd52ebbb1c412d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DigiPass.AppDelegate.manageNotificationWithApplication(_: __C.UIApplication, userInfo: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;) -&gt; ()"
+                  moduleName = "DigiPass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandeepparmar/Documents/GitHub/UniDigipass_iOS/DigiPass/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "404">
+               </Location>
+               <Location
+                  uuid = "0B48C43E-212E-433A-BDD6-A36385E75506 - 87fd52ebbb1c412d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DigiPass.AppDelegate.manageNotificationWithApplication(_: __C.UIApplication, userInfo: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;) -&gt; ()"
+                  moduleName = "DigiPass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandeepparmar/Documents/GitHub/UniDigipass_iOS/DigiPass/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "520">
+               </Location>
+               <Location
+                  uuid = "0B48C43E-212E-433A-BDD6-A36385E75506 - 87fd52ebbb1c412d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DigiPass.AppDelegate.manageNotificationWithApplication(_: __C.UIApplication, userInfo: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;) -&gt; ()"
+                  moduleName = "DigiPass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandeepparmar/Documents/GitHub/UniDigipass_iOS/DigiPass/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "528">
+               </Location>
+               <Location
+                  uuid = "0B48C43E-212E-433A-BDD6-A36385E75506 - 87fd52ebbb1c412d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DigiPass.AppDelegate.manageNotificationWithApplication(_: __C.UIApplication, userInfo: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;) -&gt; ()"
+                  moduleName = "DigiPass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandeepparmar/Documents/GitHub/UniDigipass_iOS/DigiPass/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
+                  offsetFromSymbolStart = "424">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F8865876-A95F-4424-8D71-D9AF05065BC0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigiPass/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "manageNotificationWithApplication(_:userInfo:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F8865876-A95F-4424-8D71-D9AF05065BC0 - 87fd52ebbb1c4397"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DigiPass.AppDelegate.manageNotificationWithApplication(_: __C.UIApplication, userInfo: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;) -&gt; ()"
+                  moduleName = "DigiPass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandeepparmar/Documents/GitHub/UniDigipass_iOS/DigiPass/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
+                  offsetFromSymbolStart = "2084">
+               </Location>
+               <Location
+                  uuid = "F8865876-A95F-4424-8D71-D9AF05065BC0 - 87fd52ebbb1c4397"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DigiPass.AppDelegate.manageNotificationWithApplication(_: __C.UIApplication, userInfo: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;) -&gt; ()"
+                  moduleName = "DigiPass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandeepparmar/Documents/GitHub/UniDigipass_iOS/DigiPass/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
+                  offsetFromSymbolStart = "1504">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "823AAB00-ADBF-402E-A1B5-1AC28A2045D7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DigiPass/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "manageNotificationWithApplication(_:userInfo:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "823AAB00-ADBF-402E-A1B5-1AC28A2045D7 - 87fd52ebbb1c43f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DigiPass.AppDelegate.manageNotificationWithApplication(_: __C.UIApplication, userInfo: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;) -&gt; ()"
+                  moduleName = "DigiPass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandeepparmar/Documents/GitHub/UniDigipass_iOS/DigiPass/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "207"
+                  endingLineNumber = "207"
+                  offsetFromSymbolStart = "1912">
+               </Location>
+               <Location
+                  uuid = "823AAB00-ADBF-402E-A1B5-1AC28A2045D7 - 87fd52ebbb1c4013"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DigiPass.AppDelegate.manageNotificationWithApplication(_: __C.UIApplication, userInfo: Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;) -&gt; ()"
+                  moduleName = "DigiPass"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sandeepparmar/Documents/GitHub/UniDigipass_iOS/DigiPass/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "1248">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

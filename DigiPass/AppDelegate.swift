@@ -14,6 +14,7 @@ import FirebaseMessaging
 
 //Host APIKey  domain
 
+//com.adpolice.mfa
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
     var window: UIWindow?
@@ -49,6 +50,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
             Messaging.messaging().apnsToken = deviceToken
             notificationIdentifierText = try NotificationClientSDK.oneSpanNotificationIdentifier(for: deviceToken)
             print("OneSpan notification ID: \(notificationIdentifierText ?? "nil")")
+            DigiPassSingleTon.shared.userIno.vascoDeviceIdentifier = notificationIdentifierText
+            UserDefaults.standard.set(notificationIdentifierText, forKey: "NotificationStringObj")
+            print("Vasco notification ID: \(notificationIdentifierText)")
+            NetworkManager.shared.updateNotificationID(notificationToken: notificationIdentifierText!) { (response, error) in
+                if let model = response {
+                    if let result = model.resultCodes?.returnCode, result == 0 {
+
+                    }
+                }
+            }
             notify()
             let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
                print(token)        
@@ -114,13 +125,114 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
      * Parse an incomming OneSpan Notification and update the text data accordingly so that the attached
      * ViewController can display them/
      */
+    
+    /*
+     private func manageNotificationWithApplication(_ application: UIApplication, userInfo: [AnyHashable : Any])
+ {
+         do {
+             // Parse the provided NSDictionary and retrieve the content of the notification as a String
+             notificationContentText = try NotificationSDKClientWrapper.parseVASCONotification(userInfo)
+
+             try DigiPassSharedData.sharedInstance().secureCache.putString(forValue: notificationContentText, forKey: UserCodingKeys.activatedMessage.rawValue)
+
+             // SENSITIVE TEMPORARY INFORMATION -> SECURE CACHE
+             let messsage = DIGIPassClientSDKWrapper.parseSecureChannelMessage(notificationContentText)
+
+             let decryptedMsg = DIGIPassClientSDKWrapper.decryptSecureChannelMessageBody()
+
+ //            if  let tempArray = decryptedMsg.components(separatedBy: ";")  {
+             let tempArray = decryptedMsg.components(separatedBy: ";")
+
+             let challengeKey = tempArray.last!
+                 NetworkManager.shared.preparedSecureChannel(message: messsage, challengeKey: challengeKey) { (response, error) in
+                     if let model = response {
+                         if let result = model.resultCodes?.returnCode, result == 0 {
+                             if let activateMsg = model.result?.activationMessage {
+                                 do {
+                                     try DigiPassSharedData.sharedInstance().secureCache.putString(forValue: activateMsg, forKey: UserCodingKeys.activatedMessage.rawValue)
+                                     let messsage1 = DIGIPassClientSDKWrapper.parseSecureChannelMessage(activateMsg)
+                                     let decryptedMsg1 = DIGIPassClientSDKWrapper.decryptSecureChannelMessageBody()
+                                     self.navigateToLogOnRequestPage(channelMessage: messsage1, decryptedMsg: decryptedMsg1, challengeKey: challengeKey)
+                                 }catch { }
+                             }
+                         }
+                     }
+                 }
+ //            }
+
+
+             // Parse the provided NSDictionary and retrieve the title of the notification as a String
+             notificationTitleText = try NotificationSDKClientWrapper.getTitle(userInfo)
+
+             // Parse the provided NSDictionary and retrieve the subject of the notification as a String
+             notificationSubjectText = try NotificationSDKClientWrapper.getSubject(userInfo)
+
+             // Parse the provided NSDictionary and retrieve the badge value of the notification
+             // Set the badge value to 0 in order to remove all notifications.
+             // It is required since, in iOS 7, the remote notifications are not automatically removed when opened.
+             UIApplication.shared.applicationIconBadgeNumber = 0
+
+             ////NSLog("Vasco notification: Title : %@, Subject : %@, content: %@, badge: %d", notificationTitleText, notificationSubjectText, notificationContentText, badgeValue)
+         }
+         catch let error as NSError{
+             errorText = getErrorMessageFromCode(Int32(error.code))
+         }
+         notifyNotificationReceived()
+     }
+ }
+     */
+    func navigateToLogOnRequestPage(channelMessage: SecureChannelMessageWrapper,
+                                    decryptedMsg: String,
+                                    challengeKey: String) {
+        DispatchQueue.main.async {
+            if let rootViewController = self.appRouter.window.rootViewController as? SideMenuNavigationController {
+                let mainVC = rootViewController.mainMenuVC
+                mainVC?.navigateToLogOnRequestPage(channelMessage: channelMessage, decryptedMsg: decryptedMsg, challengeKey: challengeKey)
+            }
+        }
+    }
     private func manageNotificationWithApplication(_ application: UIApplication, userInfo: [AnyHashable: Any]) {
         UIApplication.shared.applicationIconBadgeNumber = 0
 
-        oneSpanNotification = NotificationClientSDK.oneSpanNotification(from: userInfo)
-        
-        if oneSpanNotification != nil {
-            notifyNotificationReceived()
+
+        do{
+            oneSpanNotification = NotificationClientSDK.oneSpanNotification(from: userInfo)
+            print(userInfo["vascoPayload"])
+            
+            let notificationContentText = userInfo["vascoPayload"] as! String
+            
+            print(notificationContentText)
+            try DigiPassSharedData.sharedInstance().secureCache.putString(forValue: notificationContentText, forKey: UserCodingKeys.activatedMessage.rawValue)
+    
+            
+            // SENSITIVE TEMPORARY INFORMATION -> SECURE CACHE
+            let messsage = DIGIPassClientSDKWrapper.parseSecureChannelMessage(notificationContentText)
+            let decryptedMsg = DIGIPassClientSDKWrapper.decryptSecureChannelMessageBody()
+            
+            let tempArray = decryptedMsg.components(separatedBy: ";")
+
+            let challengeKey = tempArray.last!
+                NetworkManager.shared.preparedSecureChannel(message: messsage, challengeKey: challengeKey) { (response, error) in
+                    if let model = response {
+                        if let result = model.resultCodes?.returnCode, result == 0 {
+                            if let activateMsg = model.result?.activationMessage {
+                                do {
+                                    try DigiPassSharedData.sharedInstance().secureCache.putString(forValue: activateMsg, forKey: UserCodingKeys.activatedMessage.rawValue)
+                                    let messsage1 = DIGIPassClientSDKWrapper.parseSecureChannelMessage(activateMsg)
+                                    let decryptedMsg1 = DIGIPassClientSDKWrapper.decryptSecureChannelMessageBody()
+                                    self.navigateToLogOnRequestPage(channelMessage: messsage1, decryptedMsg: decryptedMsg1, challengeKey: challengeKey)
+                                }catch { }
+                            }
+                        }
+                    }
+                }
+            
+            if oneSpanNotification != nil {
+                notifyNotificationReceived()
+            }
+        }
+        catch{
+            print("error Notifcation SDK")
         }
     }
 
@@ -369,7 +481,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 //        }
 //    }
 //
-//    private func manageNotificationWithApplication(_ application: UIApplication, userInfo: [AnyHashable : Any]) {
+//    private func manageNotificationWithApplication(_ application: UIApplication, userInfo: [AnyHashable : Any])
+//{
 //        do {
 //            // Parse the provided NSDictionary and retrieve the content of the notification as a String
 //            notificationContentText = try NotificationSDKClientWrapper.parseVASCONotification(userInfo)
